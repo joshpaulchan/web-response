@@ -1,0 +1,298 @@
+/*
+ * -- HELPER STYLES --
+ * Over-riding some of the .pure-button styles to make my buttons look unique
+ */
+
+.primary-button, .secondary-button {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-radius: 20px;
+}
+.primary-button {
+    color: #fff;
+    background: #1b98f8;
+    margin: 1em 0;
+}
+.secondary-button {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 0.5em 2em;
+    font-size: 80%;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * This layout consists of three main elements, `#nav` (navigation bar), `#list` (message list), and `#main` (message content). All 3 elements are within `#layout`
+ */
+
+#layout, #header, #nav, #list, #main {
+    margin: 0;
+    padding: 0;
+}
+
+#list, #main {
+	background-color: #f9f9f9;
+}
+
+#layout {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Make the navigation 100% width on phones */
+
+#nav {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+/* Show the "Menu" button on phones */
+
+/*#nav .nav-menu-button {
+    display: block;
+    top: 0.5em;
+    right: 0.5em;
+    position: absolute;
+}*/
+
+/* When "Menu" is clicked, the navbar should be 80% height */
+
+/*#nav.active {
+    height: 80%;
+}*/
+
+/* Don't show the navigation items... */
+
+/*.nav-inner {
+    display: none;
+}*/
+
+/* ...until the "Menu" button is clicked */
+
+/*#nav.active .nav-inner {
+    display: block;
+    padding: 2em 0;
+}*/
+
+#main{
+    height: calc(100vh - 102px);
+}
+
+#list .message-list {
+	/*LMAO DANGEROUS AF but it works*/
+	height: calc(100vh - 108px - 40px - 40px - 102px);
+
+}
+
+#main, #list .message-list {
+    overflow-y: scroll;
+}
+/*
+ * -- HEADER BAR STYLES --
+ *
+ */
+
+#header {
+    width: 100%;
+    /*height: 40px;*/
+    position: relative;
+    /*text-align: center;*/
+}
+
+#header .title {
+    color: white;
+}
+
+
+/*
+ * -- NAV BAR STYLES --
+ * Styling the default .pure-menu to look a little more unique.
+ */
+
+#nav .pure-menu {
+    background: transparent;
+    border: none;
+    height: 40px;
+    margin: 0;
+    text-align: left;
+}
+
+#nav .nav-inner-bottom {
+	/*box-shadow: inset 0 10px 30px -30px #333;*/
+	box-shadow: inset 0 10px 18px -15px #333;
+    background: rgba(0, 0, 0, 0.10);
+}
+
+#nav .admin-controls li {
+    float: right;
+}
+
+#nav .pure-menu-link:hover, #nav .pure-menu-link:focus {
+    background: inherit;
+	color: rgba(255, 255, 255, 0.9);
+	/*text-shadow: 0 0 2px #333;*/
+    /*border-bottom: 3px solid rgba(255, 255, 255, 0.87);*/
+}
+#nav .pure-menu-link {
+    color: #fff;
+    margin-left: 0.5em;
+}
+#nav .pure-menu-selected:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: calc(50% - 5px);
+	border: 0;
+	border-bottom: 10px solid rgba(0, 0, 0, 0.25);
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	/*box-shadow: 0 0 10px 1px #333;*/
+	/*box-shadow: 0 1px 15px -8px #333;*/
+}
+#nav .pure-menu-heading {
+    border-bottom: none;
+    font-size: 110%;
+    color: rgb(75, 113, 151);
+}
+
+/*
+ * -- list STYLES --
+ * Styles relevant to the list.
+ */
+
+#list .message-list-controls {
+	padding: 8px 16px 0 16px;
+	background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.10);
+    /*border-bottom: 1px solid #ddd;*/
+	/*box-shadow: 0 0 10px 1px #333;*/
+	box-shadow: 0 10px 18px -18px #333;
+}
+
+/*
+ * -- message STYLES --
+ * Styles relevant to the message messages, labels, counts, and more.
+ */
+
+.message-count {
+    color: rgb(75, 113, 151);
+}
+.message-label-personal, .message-label-work, .message-label-travel {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 0.5em;
+    border-radius: 3px;
+}
+.message-label-personal {
+    background: #ffc94c;
+}
+.message-label-work {
+    background: #41ccb4;
+}
+.message-label-travel {
+    background: #40c365;
+}
+
+/* message Item Styles */
+.select {
+    margin: 0;
+}
+.message-item {
+	color: black;
+    padding: 0.9em 1em;
+    border-bottom: 1px solid #ddd;
+    border-left: 6px solid transparent;
+	transition: 0.2s background-color;
+}
+.message-item:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+.message-email, .message-subject, .message-date {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.message-email {
+    color: #999;
+}
+.message-date {
+    /*color: #6666ff;  */
+	font-style: normal;
+}
+.message-desc {
+    font-size: 80%;
+    margin: 0.4em 0;
+}
+.message-item-selected {
+    background: #ddd;
+}
+.message-item-unread {
+    border-left: 6px solid #1b98f8;
+}
+
+/* message Content Styles */
+
+.message-content-header, .message-content-body, .message-content-footer {
+    padding: 1em 2em;
+}
+.message-content-header, .message-content-body {
+    border-bottom: 1px solid #ddd;
+}
+.message-content-body {
+	/*width: 100%;*/
+	font-size: 0.9em;
+	overflow: hidden;
+	white-space: pre-wrap;
+	text-overflow: clip;
+}
+.message-content-title {
+    margin: 0.5em 0 0;
+}
+.message-content-subtitle {
+    font-size: 1em;
+    margin: 0;
+    font-weight: normal;
+}
+.message-content-subtitle span {
+    color: #999;
+}
+.message-content-controls {
+    margin-top: 2em;
+}
+.message-content-controls .secondary-button {
+    margin-bottom: 0.3em;
+}
+.message-response-controls, .message-response-body {
+    padding: 1em 2em;
+}
+.message-response-body textarea {
+    border: 2px solid #ddd;
+    margin-bottom: 100px;
+    width: 100%;
+    min-height: 150px;
+    text-indent: 5px;
+}
+
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+
+@media (min-width: 40em) {
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+
+@media (min-width: 60em) {
+}

@@ -1,0 +1,58 @@
+
+.card {
+	font-family: 'Titillium Web';
+	background-color: #f9f9f9;
+	text-shadow: none;
+	box-shadow: 0 25px 60px -45px #333;
+}
+
+.card-round {
+	border-radius: 12px;
+}
+
+.card-header, .card-footer {
+	display: block;
+	width: 100%;
+}
+
+.card-header {
+	padding: 0.8em 1em 0 1em;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	/*border-bottom: 1px solid #7f7f7f;*/
+}
+
+.card-footer {
+	padding: 0 1em 0.8em 1em;
+	/*border-top: 1px solid #e0e0e0;*/
+}
+
+.card-body {
+	padding: 1.3em 2em;
+	line-height: 1.5em;
+}
+
+.card-body input[type=text], .card-body input[type=password], .card-body input[type=email] {
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #ccc;
+}
+
+/*.card-body input[type=text]::after, .card-body input[type=password]::after, .card-body input[type=email]::after, .card-body input[type=text]::before, .card-body input[type=password]::before, .card-body input[type=email]::before {
+	display: inline-block;
+	content: "";
+	position: absolute;
+	background: #f00;
+	bottom: -3px;
+	width: 1px;
+}
+
+.card-body input[type=text]::after, .card-body input[type=password]::after, .card-body input[type=email]::after {
+	left: -3px;
+}
+
+.card-body input[type=text]::after, .card-body input[type=password]::after, .card-body input[type=email]::after {
+	right: -3px;
+}*/
