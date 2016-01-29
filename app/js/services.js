@@ -43,9 +43,5 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		message.location = dest;
 	};
 
-	messages.loadMessages().success(function(data) {
-		messages.list = data.data;
-	});
-
 	return messages;
 }]);
