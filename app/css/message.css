@@ -83,12 +83,12 @@
 
 #list .message-list {
 	/*LMAO DANGEROUS AF but it works*/
-	height: calc(100vh - 108px - 40px - 40px - 102px);
+	height: calc(100vh - 102px - 40px - 40px - 88px);
 
 }
 
 #main, #list .message-list {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 /*
  * -- HEADER BAR STYLES --
