@@ -3,6 +3,7 @@
 3rd Release
 
 2nd Release
++ Searching & queries
 
 1st Release
 + Implement navigation
@@ -12,12 +13,15 @@
 + Implement the main view form controls
 + Style the main view nicer
 
++ List controls
+	+ Move 
+
 
 # CHANGED
 
 **1.19.2016**
 + Implement & style the front-end of the login page
-	+ Add .active class for nav items thhat make a triangle under it that leads to the bottom menu
+	+ Add .active class for nav items that make a triangle under it that leads to the bottom menu
 + Move a bunch of files and logic around
 	- Use app for routing and messages for main app
 

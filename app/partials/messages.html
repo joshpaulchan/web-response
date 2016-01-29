@@ -69,14 +69,11 @@
 
 	<!-- MESSAGE LISTING -->
 	<div id='list' ng-controller="MessageListCtrl" class='pure-u-12-24'>
-		<div class='message-list-controls pure-g'>
-			<div class='pure-u-1-1'>
-				<form class='pure-form'>
-					<fieldset class='pure-u-1'>
-						<input ng-model="query" type='search' class='pure-u-20-24' placeholder="Search" />
-
-						<button type='submit' class='pure-u-3-24 pure-button pure-button-primary'>Search</button>
-					</fieldset>
+		<div class='message-list-controls'>
+			<div class='search-bar'>
+				<form class='search-container'>
+					<input ng-model="query" type="search" class='search-input' placeholder="Search messages..." />
+					<span class='fa fa-search search-icon'></span>
 				</form>
 			</div>
 			<div class='pure-u-1-1'>
