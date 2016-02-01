@@ -289,7 +289,7 @@ input[type="search"].search-input:focus {
 	transition: 0.2s background-color;
 }
 .message-item:hover {
-	background-color: rgba(0, 0, 0, 0.05);
+	background: #ddd;
 }
 .message-email, .message-subject, .message-date {
     margin: 0;
@@ -310,6 +310,15 @@ input[type="search"].search-input:focus {
 }
 .message-item-selected {
     background: #ddd;
+}
+.message-item-open {
+    background: #F1A9A0;
+    background: rgba(241, 169, 160, 1);
+    border-bottom: 1px solid #f09386;
+}
+.message-item-open:hover {
+    background: #f09386;
+	background: rgb(240, 147, 134);
 }
 .message-item-unread {
     border-left: 6px solid #1b98f8;
