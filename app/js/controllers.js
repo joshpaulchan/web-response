@@ -6,7 +6,7 @@ var webresponseControllers = angular.module('webresponseControllers', []);
 
 
 webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', function($scope, $location, $routeParams, messages) {
-
+	$scope.messagesPage = 0;
 	messages.getMessage($routeParams.messageId).then(function(message) {
 		// console.log(message);
 		messages.setCurMessage(message);
@@ -19,6 +19,7 @@ webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$route
 		if (message != messages.getCurMessage()) {
 			messages.setCurMessage(message);
 			newpath = message.id;
+			message.status.open = true;
 		} else {
 			messages.setCurMessage(null);
 		}
@@ -35,26 +36,36 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 	$scope.show = 'All';
 	$scope.folder = 'inbox';
 
-	$scope.setMessagesUnread = function() {
-		$scope.messages.map(function(message) {
-			if (!message.status.selected) {
-				message.status.unread = true;
-			}
+	$scope.loadMessages = function(pg) {
+		var scope = $scope;
+		messages.loadMessages(pg).then(function(data) {
+			scope.messages = data.data;
+			// console.log(data);
+		}, function(error) {
+			console.log(error);
+			scope.messages = [];
 		});
-		if (messages.getCurMessage() !== null) {
-			messages.getCurMessage().status.unread = true;
+		console.log("Messages should be assigned.");
+	};
+
+	$scope.setMessagesUnread = function(unread) {
+		var selectedMessages = $scope.getSelected();
+
+		if (selectedMessages.length > 0) {
+			selectedMessages.map(function(message) {
+				message.status.unread = unread;
+			});
+		} else if (messages.getCurMessage() !== null) {
+			messages.getCurMessage().status.unread = unread;
+		} else {
+			console.log("Nothing is selected.");
 		}
 	};
 
-	$scope.setMessagesRead = function() {
-		$scope.messages.map(function(message) {
-			if (message.status.selected) {
-				message.status.unread = false;
-			}
+	$scope.getSelected = function() {
+		return $scope.messages.filter(function(message) {
+			return message.status.selected;
 		});
-		if (messages.getCurMessage() !== null) {
-			messages.getCurMessage().status.unread = false;
-		}
 	};
 
 	$scope.clearSelected = function() {
@@ -62,8 +73,8 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 			message.status.selected = false;
 			return message;
 		});
-		$scope.curMessage = null;
 	};
+
 
 	$scope.moveMessageTo = function(message, dest) {
 		message.folder = dest;
@@ -97,23 +108,18 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 		return flag;
 	};
 
-	messages.loadMessages().then(function(success) {
-		$scope.messages = success.data;
-	}, function(error) {
-		console.log(error);
-	});
-
+	$scope.loadMessages($scope.messagesPage);
 }]);
 
 
 webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', function($scope, messages) {
 
-	$scope.message = messages.curMessage;
+	$scope.curMessage = messages.curMessage;
 
 	$scope.$watch(function() {
-		return ($scope.message !== messages.curMessage);
+		return ($scope.curMessage !== messages.curMessage);
 	}, function(newMessage, oldMessage, scope) {
-		$scope.message = messages.curMessage;
+		$scope.curMessage = messages.curMessage;
 	});
 
 	$scope.moveMessageTo = function(message, dest) {

@@ -9,12 +9,17 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	messages.list = [];
 	messages.curMessage = null;
 
-	messages.loadMessages = function() {
-		return $http.get(apiUrl + '/messages.json');
-	};
+	messages.loadMessages = function(pg) {
+		// var p = new Promise(function(resolve, reject) {
+		// 	$http.get(apiUrl + '/messages.json').success(function(data) {
+		// 		resolve(data);
+		// 	}).error(function(error) {
+		// 		reject(error);
+		// 	});
+		// });
+		// return p;
 
-	messages.setCurMessage = function(message) {
-		messages.curMessage = message;
+		return $http.get(apiUrl + '/messages.json');
 	};
 
 	messages.getMessage = function(id) {
@@ -35,12 +40,12 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return (p);
 	};
 
-	messages.getCurMessage = function() {
-		return messages.curMessage;
+	messages.setCurMessage = function(message) {
+		messages.curMessage = message;
 	};
 
-	messages.moveTo = function(message, dest) {
-		message.location = dest;
+	messages.getCurMessage = function() {
+		return messages.curMessage;
 	};
 
 	return messages;
