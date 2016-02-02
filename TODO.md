@@ -7,15 +7,37 @@
 + Implement threading of messages
 
 1st Release
++ Replace banner with offical Rutgers stuff
++ Change favicon
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
 + Implement the main view form controls
 	+ 'Move to'
-	+ Threading
 + Style the main view nicer
 	+ Layout the form controls better
 
++ Forwarding - Daniel
+	- A form should appear in the details view when you press the button (with controls)
+	- The form should autofill with the requisit information
+	- It should also display a list of suggestions as to who to forward to (select, option, etc. - look on pttrns.com for conventions)
+
++ Restyling - Jonnelin
+	- Move the message list controls to the right
+	- Add states (do should only become active when things are selected) (check out purecss.io)
+	- rename text to be more desciptive but short (use pttrns.com for conventions)
+
++ Backend & wsgi - JC, I guess
+	- Figure out how to set up node with wsgi and mysql
+	- Put it on the temp server
+
 # CHANGED
+
+**2.2.2016**
+__JC__
++ Refactor messages service to do a single http get, then emulate a backend using html5 promises - this makes changes persist through page navigation (yeh)
+	+ correspondingly make some changes to controller
++ Make the message item email color a gray, for better contrast with all states
++ Reinstated the status filter
 
 **1.29.2016**
 + Organize project directory with addition of new team members
