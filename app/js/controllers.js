@@ -15,17 +15,25 @@ webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$route
 	});
 
 	$scope.setCurMessage = function(message) {
-		var newpath = '';
-		if (message != messages.getCurMessage()) {
+		var oldMessage = messages.getCurMessage();
+		if (oldMessage != null) {
+			oldMessage.status.open = false;
+		}
+		var newPath = '';
+		if (message != oldMessage) {
 			messages.setCurMessage(message);
-			newpath = message.id;
+			newPath = message.id;
 			message.status.open = true;
 		} else {
 			messages.setCurMessage(null);
 		}
 		// console.log(messages.curMessage);
 		// console.log($routeParams);
-		$location.path('/messages/' + newpath, false);
+		if (newPath != null) {
+			$location.path('/messages/' + newPath, false);
+		} else {
+			$location.path('/messages', false);
+		}
 	};
 
 }]);
@@ -36,14 +44,25 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 	$scope.show = 'All';
 	$scope.folder = 'inbox';
 
+	$scope.$watch(function() {
+		return (messages.ready);
+	}, function(newVal, oldVal) {
+		// console.log(newVal);
+		if (newVal === true) {
+			console.log("Perf, it's ready");
+			$scope.loadMessages($scope.messagesPage);
+		}
+	});
+
 	$scope.loadMessages = function(pg) {
-		var scope = $scope;
 		messages.loadMessages(pg).then(function(data) {
-			scope.messages = data.data;
-			// console.log(data);
+			$scope.$apply(function() {
+				// console.log("Applying.. " + data);
+				$scope.messages = data;
+				// console.log(data);
+			});
 		}, function(error) {
 			console.log(error);
-			scope.messages = [];
 		});
 		console.log("Messages should be assigned.");
 	};
@@ -107,8 +126,6 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 		}
 		return flag;
 	};
-
-	$scope.loadMessages($scope.messagesPage);
 }]);
 
 
