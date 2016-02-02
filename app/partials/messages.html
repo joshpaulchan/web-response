@@ -127,7 +127,7 @@
 
 		<div class='message-list'>
 
-			<div ng-repeat="message in messages" class='message-item pure-g' ng-class="{'message-item-unread': message.status.unread, 'message-item-selected': message.status.selected, 'message-item-open': message.status.open}" ng-click="setCurMessage(message)">
+			<div ng-repeat="message in messages | filter:statusFilter" class='message-item pure-g' ng-class="{'message-item-unread': message.status.unread, 'message-item-selected': message.status.selected, 'message-item-open': message.status.open}" ng-click="setCurMessage(message)">
 				<div class='pure-u-1-24'>
 					<input type='checkbox' class='select' ng-model="message.status.selected" />
 				</div>
