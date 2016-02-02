@@ -57,7 +57,6 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 	$scope.loadMessages = function(pg) {
 		messages.loadMessages(pg).then(function(data) {
 			$scope.$apply(function() {
-				// console.log("Applying.. " + data);
 				$scope.messages = data;
 				// console.log(data);
 			});
@@ -121,8 +120,7 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 				flag = !message.status.repliedTo;
 				break;
 			case "All":
-			default:
-				flag = true;
+				break;
 		}
 		return flag;
 	};
