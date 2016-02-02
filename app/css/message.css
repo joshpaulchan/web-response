@@ -298,7 +298,7 @@ input[type="search"].search-input:focus {
     text-overflow: ellipsis;
 }
 .message-email {
-    color: #999;
+    color: #777;
 }
 .message-date {
     /*color: #6666ff;  */
