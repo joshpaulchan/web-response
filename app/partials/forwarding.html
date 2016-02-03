@@ -1,0 +1,47 @@
+<header>
+  <h1>Forward Message</h1>
+<header/>
+
+<style>
+  .input-space {
+    margin: 0px 10px;
+  }
+  .modal-detail-text{
+    font-size: 14px;
+  }
+</style>  <style>
+    .input-space {
+      margin: 0px 10px;
+    }
+    .modal-detail-text{
+      font-size: 14px;
+    }
+</style>
+
+<form name="Textboxes" class="input-space">
+  <div class="modal-form-section" id="modal-email-form">
+    <input type="email" name="recipient-email"
+      autofocus="autofocus" placeholder="Recipients" />
+  </div>
+  <div class="modal-form-section" id="modal-subject-form">
+    <input type="text" name="email-subject" placeholder="Subject" />
+  </div>
+  <div class="modal-form-section" id="modal-tech-info-form">
+    <input type="textarea" name="tech-info" readonly="readonly"
+      placeholder="Technical Information"/>
+  </div>
+  <div class="modal-form-section" id="modal-tech-info-form-include-checkbox">
+    <span class="modal-detail-text"
+      id="modal-tech-info-form-include-checkbox-text">
+      Include this info?: <input type="checkbox" name="include-tech-info"
+        onclick="<!script to gray out textbox?-->" />
+    </span>
+  </div>
+  <div class="modal-form-section" id="modal-message-body-form">
+    <textarea name="email-body" rows="10" cols="50" placeholder="Body"></textarea>
+    <!--Insert pre-formatted copy of previous emails in thread-->
+  </div>
+  <div class="modal-form-section" id="modal-form-submit-button">
+    <input type="submit" value="Send" />
+  </div>
+</form>
