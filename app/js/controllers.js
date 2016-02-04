@@ -143,7 +143,14 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 
 }]);
 
-webresponseControllers.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
+webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
 	$scope.loggedIn = false;
+	$scope.username = null;
+	$scope.pw = null;
+
+	$scope.logIn = function() {
+		console.log("Logging in...");
+		$location.path('/messages', true);
+	}
 
 }]);
