@@ -5,10 +5,12 @@
 2nd Release
 + Searching & queries
 + Implement threading of messages
++ Logins
 
 1st Release
 + Replace banner with offical Rutgers stuff
 + Change favicon
++ Design main view controls
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
 + Implement the main view form controls
@@ -26,11 +28,21 @@
 	- Add states (do should only become active when things are selected) (check out purecss.io)
 	- rename text to be more desciptive but short (use pttrns.com for conventions)
 
-+ Backend & wsgi - JC, I guess
-	- Figure out how to set up node with wsgi and mysql
-	- Put it on the temp server
 
 # CHANGED
+
+**2.4.2016**
+__JC__
++ Completely redesigned the login page
+	- Much nicer looking
+	- login button doesn't really log you in but it does redirect you to the messages page
+
+**2.3.2016**
+__JC__
++ Solution: After some consideration, All that really happens is that the index file is served, which then loads the other files. From that logic, i can just use the php server to serve the files instead of node.
+	+ Backend & wsgi - JC, I guess
+		- Figure out how to set up node with wsgi and mysql
+		- Put it on the temp server
 
 **2.2.2016**
 __JC__
