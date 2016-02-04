@@ -108,10 +108,19 @@ a {
     color: #1b98f8;
 }
 
+.vertical-center {
+    position: relative;
+    top: 50vh;
+    margin-top: -25%;
+}
+
 .body-footer {
 	/*background-color:  #333333;*/
 	color: #eee;
+    width: 100%;
 	text-align: center;
+    position: fixed;
+    bottom: 1em;
 }
 
 
