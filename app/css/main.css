@@ -108,12 +108,6 @@ a {
     color: #1b98f8;
 }
 
-.vertical-center {
-    position: relative;
-    top: 50vh;
-    margin-top: -25vh;
-}
-
 .body-footer {
 	/*background-color:  #333333;*/
 	color: #eee;
@@ -145,7 +139,6 @@ a {
 	height: 100vh;
 }
 
-
 .bg-rutgers-red {
 	background-color: #cc0033;
 }
@@ -164,6 +157,15 @@ a {
 	top: 50%;
 	/*transform: translateY(-100%);*/
 }
+
+.vertical-center {
+    position: relative;
+    top: 50vh;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
 
 /*
  * Hide visually and from screen readers
