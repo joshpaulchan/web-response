@@ -151,13 +151,6 @@ a {
  * Allows you to vertically center the box after this
  */
 
-.center-vertical {
-	height: calc(100vh - 80px );
-	/*position: absolute;*/
-	top: 50%;
-	/*transform: translateY(-100%);*/
-}
-
 .vertical-center {
     position: relative;
     top: 50vh;
@@ -165,7 +158,6 @@ a {
     -moz-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
 
 /*
  * Hide visually and from screen readers
