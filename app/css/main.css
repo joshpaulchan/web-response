@@ -117,6 +117,17 @@ a {
     bottom: 1em;
 }
 
+.heading-logo {
+    display: inline-block;
+    width: 225px;
+}
+
+.pure-menu-heading .title {
+    display: inline-block;
+    font-weight: 500;
+    font-family: Titillium Web;
+    margin-bottom: 0;
+}
 
 
 /* ==========================================================================
