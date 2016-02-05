@@ -71,7 +71,7 @@
 	margin-top: 1em;
     background: #cc0033;
     border: 0;
-    color: white;
+    color: #eee;
     text-transform: uppercase;
     text-align: center;
     font-weight: 600;
@@ -134,7 +134,7 @@
     margin: 0;
     width: 100%;
     text-align: center;
-    color: white;
+    color: #eee;
     text-transform: uppercase;
     font-weight: 500;
     font-family: Titillium Web;
