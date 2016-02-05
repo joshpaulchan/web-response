@@ -1,5 +1,8 @@
 # TODO
 
++ Login service
++ Registration service
+
 3rd Release
 
 2nd Release
@@ -8,8 +11,7 @@
 + Logins
 
 1st Release
-+ Replace banner with offical Rutgers stuff
-+ Change favicon
+
 + Design main view controls
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
@@ -30,6 +32,11 @@
 
 
 # CHANGED
+
+**2.5.2016**
+__JC__
++ Replace banner with official Rutgers stuff
++ Change favicon
 
 **2.4.2016**
 __JC__
