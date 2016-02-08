@@ -10,10 +10,6 @@
  * Time: 4:01 PM
  */
 
-$hostname = '{imap.gmail.com:993/imap/ssl/novalidate-cert}INBOX';;
-$username = 'kasa288@gmail.com';
-$password = 'carbon15';
-
 $hostname = '';;
 $username = '';
 $password = '';
