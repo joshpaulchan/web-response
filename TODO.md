@@ -1,42 +1,52 @@
 # TODO
 
-+ Login service
++ Add icon link lol
++ Merge jaya's changes
 + Registration service
++ Loggin out
++ Figure out how to git push to production/staging server
+	- what url?
+	- permissions?
 
-3rd Release
+### 3rd Release
 
-2nd Release
+### 2nd Release
 + Searching & queries
 + Implement threading of messages
-+ Logins
 
-1st Release
+### 1st Release
 
-+ Design main view controls
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
-+ Implement the main view form controls
-	+ 'Move to'
-+ Style the main view nicer
-	+ Layout the form controls better
 
-+ Forwarding - Daniel
++ Daniel - Forwarding
 	- A form should appear in the details view when you press the button (with controls)
-	- The form should autofill with the requisit information
+	- The form should auto-fill with the requisite information
 	- It should also display a list of suggestions as to who to forward to (select, option, etc. - look on pttrns.com for conventions)
 
-+ Restyling - Jonnelin
-	- Move the message list controls to the right
-	- Add states (do should only become active when things are selected) (check out purecss.io)
-	- rename text to be more desciptive but short (use pttrns.com for conventions)
-
++ Jonnelin - please do a pull request LOL we actually don't have your changes on github
++ Jonnelin - Options
+	- Figure out how to open/close a modal (will be written for you - or you can write it) (see https://github.com/btford/angular-modal)
+	- Figure out what kinds of things should be in the settings (user info, whatever)
+	- Sketch a mockup
 
 # CHANGED
+
+**2.8.2016**
+__JC__
++ Implemented a simple (not very secure) login system
++ Move urwebsrv.rutgers.edu/webresp to urwebsrv.rutgers.edu/temp/webresp
 
 **2.5.2016**
 __JC__
 + Replace banner with official Rutgers stuff
 + Change favicon
+
+__JL__
++ Style the main view nicer
+	- Move the message list controls to the right
+	- Add states (do should only become active when things are selected) (check out purecss.io)
+	- rename text to be more descriptive but short (use pttrns.com for conventions)
 
 **2.4.2016**
 __JC__
