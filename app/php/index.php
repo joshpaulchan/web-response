@@ -12,11 +12,14 @@
 
 echo 'INDEX PAGE' . '<br/>';
 
-/*
+
 require_once 'dbconnect.php';
 require_once 'SelectQueries.php';
+require_once 'browserinfo.php';
 
-$query = $allDepartments;
+//$query = $allDepartments;
+//$query = $allUsers;
+$query = $allMessages;
 
 if(!$result = $db_server->query($query)){
     //the query failed
@@ -38,16 +41,14 @@ while($row = $result->fetch_assoc()){
 $result->free();
 $db_server->close();
 
-echo 'Result is freed and the connection is closed';
+echo 'Result is freed and the connection is closed' . "<br/>";
 
-*/
-
-
+/*
 //code to rest the email.php code
 require_once 'email.php';
 
 echo 'total number of messages: ' . $total . '<br/>';
 echo 'total number of recent messages: ' . $recent . '<br/>';4
-
+*/
 
 ?>

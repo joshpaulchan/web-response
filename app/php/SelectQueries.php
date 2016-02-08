@@ -7,6 +7,7 @@
  */
 
 $allDepartments = "select * from department";
-$insertDepartment = "insert into department values";
+$allUsers = "select * from user";
+$allMessages = "select * from message";
 
 ?>
