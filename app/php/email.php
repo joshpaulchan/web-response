@@ -14,7 +14,7 @@ $hostname = '';;
 $username = '';
 $password = '';
 
-//echo $username . '<br/>';
+echo $username . '<br/>';
 
 // connect to email or die
 //imap_last_error() returns the last error that occurred
