@@ -3,7 +3,7 @@
 var webresponseServices = angular.module('webresponseServices', []);
 
 webresponseServices.factory('messages', ['$http', function($http) {
-	var apiUrl = 'messages';
+	var apiUrl = 'data';
 	var messages = {};
 
 	messages.list = [];
@@ -56,4 +56,69 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	};
 
 	return messages;
+}]);
+
+webresponseServices.factory('users', ['$http', function($http) {
+	var apiUrl = 'data';
+	var users = {};
+
+	users.list = [];
+	users.sessions = [];
+	users.ready = false;
+
+	$http.get(apiUrl + '/users.json').success(function(data) {
+		console.log(data);
+		users.list = data;
+		users.ready = true;
+	}).error(function(error) {
+		console.log(error);
+	});
+
+	users.findUserByUsername = function(username) {
+		var user = users.list.filter(function(user) {
+			return (user.username == username);
+		});
+
+		if (user.length === 0) {
+			return null;
+		} else {
+			return user[0];
+		}
+	};
+
+	users.authenticate = function(data) {
+		var p = new Promise(function(resolve, reject) {
+			var username = data.username;
+			var pw = data.password;
+
+			var user = users.findUserByUsername(username);
+
+			if (user === null) {
+				reject("Username does not exist.");
+			} else if (user.password !== pw) {
+				reject("Incorrect password.");
+			} else {
+				resolve({
+					'user': username,
+					'session': (Math.random() * 16).toString()
+				});
+			}
+		});
+
+		return p;
+	};
+
+	users.isLoggedIn = function(session) {
+		var res = users.sessions.filter(function(userSession) {
+			return (userSession == session);
+		});
+
+		if (res.length > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	return users;
 }]);
