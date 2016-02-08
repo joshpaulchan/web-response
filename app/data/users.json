@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "username": "admin",
+        "password": "admin"
+    },
+    {
+        "id": 1,
+        "username": "EBurris",
+        "password": "eburris"
+    },
+    {
+        "id": 2,
+        "username": "JWalker",
+        "password": "jcrotty"
+    },
+    {
+        "id": 3,
+        "username": "JChan",
+        "password": "jpc256"
+    },
+    {
+        "id": 4,
+        "username": "JKasa",
+        "password": "jkasa"
+    },
+    {
+        "id": 5,
+        "username": "DShepsis",
+        "password": "dfshepsis"
+    },
+    {
+        "id": 6,
+        "username": "JLeonardo",
+        "password": "jnl64"
+    },
+]
