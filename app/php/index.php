@@ -9,9 +9,14 @@
  * DELETE WHEN PROJECT IS COMPLETE.
  *
  */
-require_once 'dbconnect.php';
 
-$query = "select * from department";
+echo 'INDEX PAGE' . '<br/>';
+
+/*
+require_once 'dbconnect.php';
+require_once 'SelectQueries.php';
+
+$query = $allDepartments;
 
 if(!$result = $db_server->query($query)){
     //the query failed
@@ -20,6 +25,7 @@ if(!$result = $db_server->query($query)){
 
 //pringing the result set
 $count = 1;
+//using assoc here because it would be easier for future modifications
 while($row = $result->fetch_assoc()){
     echo $count . ')<br/>';
     foreach($row as $value){
@@ -34,4 +40,14 @@ $db_server->close();
 
 echo 'Result is freed and the connection is closed';
 
+*/
+
+/*
+//code to rest the email.php code
+require_once 'email.php';
+
+echo 'total number of messages: ' . $total . '<br/>';
+echo 'total number of recent messages: ' . $recent . '<br/>';4
+
+*/
 ?>
