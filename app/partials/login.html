@@ -4,8 +4,9 @@
 		<h1 class='tapestry-title'>Web Response</h1>
 	</div>
 	<form class='card-form'>
-		<input type='text' placeholder='username'/>
-		<input type='password' placeholder='password' />
+		<span class='error'>{{errorMsg}}</span>
+		<input type='text' placeholder='username' ng-model="username"/>
+		<input type='password' placeholder='password' ng-model="pw"/>
 		<button ng-click="logIn()">Login</button>
 	</form>
 	<div class='card-body text-center'>

@@ -61,6 +61,12 @@
     font-size: 16px;
 }
 
+.card-form .error {
+    display: block;
+    color: #cc0033;
+    text-align: center;
+}
+
 .card-form input[type] {
 	border: 0;
     border-bottom: 1px solid #ddd;
@@ -102,7 +108,7 @@
     position: relative;
     width: calc(100% - 2em);
     margin: 0 auto;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     padding: 1em 0;
     background: #cc0033;
     background: -webkit-linear-gradient(to top, #cc0033, #bf0030);
