@@ -74,7 +74,7 @@ webresponseServices.factory('users', ['$http', function($http) {
 		console.log(error);
 	});
 
-	users.findUserByUsername = function(username) {
+	users.findByUsername = function(username) {
 		var user = users.list.filter(function(user) {
 			return (user.username === username);
 		});
@@ -91,7 +91,7 @@ webresponseServices.factory('users', ['$http', function($http) {
 			var username = data.username;
 			var pw = data.password;
 
-			var user = users.findUserByUsername(username);
+			var user = users.findByUsername(username);
 
 			if (user === null) {
 				reject("Username does not exist.");
