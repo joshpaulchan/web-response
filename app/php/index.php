@@ -42,12 +42,12 @@ echo 'Result is freed and the connection is closed';
 
 */
 
-/*
+
 //code to rest the email.php code
 require_once 'email.php';
 
 echo 'total number of messages: ' . $total . '<br/>';
 echo 'total number of recent messages: ' . $recent . '<br/>';4
 
-*/
+
 ?>
