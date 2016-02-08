@@ -67,7 +67,7 @@ webresponseServices.factory('users', ['$http', function($http) {
 	users.ready = false;
 
 	$http.get(apiUrl + '/users.json').success(function(data) {
-		console.log(data);
+		// console.log(data);
 		users.list = data;
 		users.ready = true;
 	}).error(function(error) {
@@ -76,13 +76,13 @@ webresponseServices.factory('users', ['$http', function($http) {
 
 	users.findUserByUsername = function(username) {
 		var user = users.list.filter(function(user) {
-			return (user.username == username);
+			return (user.username === username);
 		});
 
-		if (user.length === 0) {
-			return null;
-		} else {
+		if (user.length > 0) {
 			return user[0];
+		} else {
+			return null;
 		}
 	};
 
