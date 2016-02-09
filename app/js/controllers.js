@@ -143,7 +143,7 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 
 }]);
 
-webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'users', function($scope, $http, $location, users) {
+webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'auth', function($scope, $http, $location, auth) {
 	$scope.loggedIn = false;
 	$scope.errorMsg = null;
 	$scope.username = "";
@@ -151,7 +151,7 @@ webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 
 
 	$scope.logIn = function() {
 		console.log("Logging in...");
-		users.authenticate({
+		auth.authenticate({
 			"username": $scope.username,
 			"password": $scope.pw,
 		}).then(function(success) {
