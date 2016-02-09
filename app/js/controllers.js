@@ -5,7 +5,7 @@
 var webresponseControllers = angular.module('webresponseControllers', []);
 
 
-webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', function($scope, $location, $routeParams, messages) {
+webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', 'auth', function($scope, $location, $routeParams, messages, auth) {
 	$scope.messagesPage = 0;
 	messages.getMessage($routeParams.messageId).then(function(message) {
 		// console.log(message);
@@ -34,6 +34,11 @@ webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$route
 		} else {
 			$location.path('/messages', false);
 		}
+	};
+
+	$scope.logOut = function() {
+		auth.logOut();
+		$location.path('/login');
 	};
 
 }]);
@@ -143,7 +148,7 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 
 }]);
 
-webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'users', function($scope, $http, $location, users) {
+webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'auth', function($scope, $http, $location, auth) {
 	$scope.loggedIn = false;
 	$scope.errorMsg = null;
 	$scope.username = "";
@@ -151,7 +156,7 @@ webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 
 
 	$scope.logIn = function() {
 		console.log("Logging in...");
-		users.authenticate({
+		auth.authenticate({
 			"username": $scope.username,
 			"password": $scope.pw,
 		}).then(function(success) {
