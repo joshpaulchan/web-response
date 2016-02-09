@@ -1,5 +1,8 @@
 # TODO
 
++ Build 'choice' button
++ Redesign messageview
++ Fix icon link
 + Registration service
 + Figure out how to git push to production/staging server
 	- what url?
