@@ -5,7 +5,7 @@
 var webresponseControllers = angular.module('webresponseControllers', []);
 
 
-webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', function($scope, $location, $routeParams, messages) {
+webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', 'auth', function($scope, $location, $routeParams, messages, auth) {
 	$scope.messagesPage = 0;
 	messages.getMessage($routeParams.messageId).then(function(message) {
 		// console.log(message);
@@ -34,6 +34,11 @@ webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$route
 		} else {
 			$location.path('/messages', false);
 		}
+	};
+
+	$scope.logOut = function() {
+		auth.logOut();
+		$location.path('/login');
 	};
 
 }]);
