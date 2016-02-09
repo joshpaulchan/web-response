@@ -58,24 +58,24 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	return messages;
 }]);
 
-webresponseServices.factory('users', ['$http', function($http) {
+webresponseServices.factory('auth', ['$http', function($http) {
 	var apiUrl = 'data';
-	var users = {};
+	var auth = {};
 
-	users.list = [];
-	users.sessions = [];
-	users.ready = false;
+	auth.users = [];
+	auth.user = null;
+	auth.ready = false;
 
 	$http.get(apiUrl + '/users.json').success(function(data) {
 		// console.log(data);
-		users.list = data;
-		users.ready = true;
+		auth.users = data;
+		auth.ready = true;
 	}).error(function(error) {
 		console.log(error);
 	});
 
-	users.findByUsername = function(username) {
-		var user = users.list.filter(function(user) {
+	auth.findByUsername = function(username) {
+		var user = auth.users.filter(function(user) {
 			return (user.username === username);
 		});
 
@@ -86,21 +86,26 @@ webresponseServices.factory('users', ['$http', function($http) {
 		}
 	};
 
-	users.authenticate = function(data) {
+	auth.authenticate = function(data) {
 		var p = new Promise(function(resolve, reject) {
 			var username = data.username;
 			var pw = data.password;
 
-			var user = users.findByUsername(username);
+			var user = auth.findByUsername(username);
 
 			if (user === null) {
 				reject("Username does not exist.");
 			} else if (user.password !== pw) {
 				reject("Incorrect password.");
 			} else {
+				auth.user = user;
+				var session = (Math.random() * 16).toString();
+
+				window.sessionStorage.setItem("WR-session-id", session);
+
 				resolve({
 					'user': username,
-					'session': (Math.random() * 16).toString()
+					'session': session
 				});
 			}
 		});
@@ -108,17 +113,19 @@ webresponseServices.factory('users', ['$http', function($http) {
 		return p;
 	};
 
-	users.isLoggedIn = function(session) {
-		var res = users.sessions.filter(function(userSession) {
-			return (userSession == session);
-		});
-
-		if (res.length > 0) {
+	auth.isLoggedIn = function(session) {
+		// FIXME: Implement actual sessions pls
+		if (window.sessionStorage.getItem("WR-session-id")) {
 			return true;
-		} else {
-			return false;
 		}
+		return ((auth.user) ? auth.user : false);
 	};
 
-	return users;
+	auth.logOut = function() {
+		auth.user = null;
+		window.sessionStorage.removeItem("WR-session-id");
+		return false;
+	};
+
+	return auth;
 }]);
