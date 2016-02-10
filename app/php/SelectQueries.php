@@ -6,8 +6,14 @@
  * Time: 2:40 PM
  */
 
+//select all queries
 $allDepartments = "select * from department";
 $allUsers = "select * from user";
 $allMessages = "select * from message";
+$allCategories = "select * from category";
+$allEmployees = "select * from employee";
+$allEmpByDept = "select * from employs";
+$allTemplates = "select * from template";
+
 
 ?>

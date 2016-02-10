@@ -12,9 +12,9 @@
 
 echo 'INDEX PAGE' . '<br/>';
 
-
-require_once 'dbconnect.php';
-require_once 'SelectQueries.php';
+require_once 'email.php';
+//require_once 'dbconnect.php';
+//require_once 'SelectQueries.php';
 require_once 'browserinfo.php';
 
 //echo $platform . '<br/>';
@@ -22,10 +22,14 @@ require_once 'browserinfo.php';
 //this displays full info about commenter's browser and os
 echo $userInfo . '<br/>';
 
-
+/*
 //$query = $allDepartments;
 //$query = $allUsers;
-$query = $allMessages;
+//$query = $allMessages;
+//$query = $allEmployees;
+//$query = $allCategories;
+//$query = $allEmpByDept;
+$query = $allTemplates;
 
 if(!$result = $db_server->query($query)){
     //the query failed
@@ -48,13 +52,9 @@ $result->free();
 $db_server->close();
 
 echo 'Result is freed and the connection is closed' . "<br/>";
-
-/*
-//code to rest the email.php code
-require_once 'email.php';
+*/
 
 echo 'total number of messages: ' . $total . '<br/>';
-echo 'total number of recent messages: ' . $recent . '<br/>';4
-*/
+echo 'total number of recent messages: ' . $recent . '<br/>';
 
 ?>
