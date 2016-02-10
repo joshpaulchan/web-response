@@ -17,6 +17,12 @@ require_once 'dbconnect.php';
 require_once 'SelectQueries.php';
 require_once 'browserinfo.php';
 
+//echo $platform . '<br/>';
+//echo $browserInfo . '<br/>';
+//this displays full info about commenter's browser and os
+echo $userInfo . '<br/>';
+
+
 //$query = $allDepartments;
 //$query = $allUsers;
 $query = $allMessages;
