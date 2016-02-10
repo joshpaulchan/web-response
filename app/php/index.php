@@ -12,7 +12,7 @@
 
 echo 'INDEX PAGE' . '<br/>';
 
-require_once 'email.php';
+//require_once 'email.php';
 //require_once 'dbconnect.php';
 //require_once 'SelectQueries.php';
 require_once 'browserinfo.php';
