@@ -1,9 +1,10 @@
 # TODO
 
-+ Add icon link lol
-+ Merge jaya's changes
++ Implement a modal directive
++ Build 'choice' (select) button
++ Redesign messageview
++ Fix icon link
 + Registration service
-+ Loggin out
 + Figure out how to git push to production/staging server
 	- what url?
 	- permissions?
@@ -31,6 +32,12 @@
 	- Sketch a mockup
 
 # CHANGED
+
+**2.9.2016**
+__JC__
++ Added route authorization & logouts
++ Add icon link lol
++ Merge jaya's changes
 
 **2.8.2016**
 __JC__

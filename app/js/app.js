@@ -14,6 +14,10 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/messages.html',
 			controller: 'MessageCtrl'
 		}).
+		when('/forward/:messageId', {
+			templateUrl: 'partials/forwarding.html',
+			controller: 'MessageForwardingCtrl'
+		}).
 		when('/login', {
 			templateUrl: 'partials/login.html',
 			controller: 'LoginCtrl'
@@ -21,7 +25,17 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 		otherwise({
 			redirectTo: '/login'
 		});
-}]).run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
+}]).run(['$route', '$rootScope', '$location', 'auth', function ($route, $rootScope, $location, auth) {
+	$rootScope.$on('$routeChangeStart', function (event) {
+        if (!auth.isLoggedIn()) {
+            console.log('DENY');
+            $location.path('/login', true);
+        }
+        else {
+            console.log('ALLOW');
+        }
+    });
+
     var original = $location.path;
     $location.path = function (path, reload) {
         if (reload === false) {
