@@ -1,58 +1,149 @@
+/*
+ *	CARD BASICS
+ */
 
 .card {
-	font-family: 'Titillium Web';
-	background-color: #f9f9f9;
-	text-shadow: none;
-	box-shadow: 0 25px 60px -45px #333;
+    margin: 0 auto;
+    position: relative;
+    width: 300px;
+    font-family: Open Sans, Tahoma, Arial, sans-serif;
+    background: #eee;
+    /*background: -webkit-linear-gradient(to bottom, #eee, #dedede 90%);*/
+    /*background: linear-gradient(to bottom, #eee , #dedede 90%); */
+}
+
+.card-shadow {
+    box-shadow: 0 10px 25px -10px #333;
 }
 
 .card-round {
-	border-radius: 12px;
+    border-radius: 5px;
 }
 
-.card-header, .card-footer {
-	display: block;
-	width: 100%;
+.card a {
+    padding: 0;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1b98f8;
 }
+
+/*
+ *	CARD STRUCTURES
+ */
 
 .card-header {
-	padding: 0.8em 1em 0 1em;
-	text-transform: uppercase;
-	font-size: 1.2em;
-	/*border-bottom: 1px solid #7f7f7f;*/
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 700;
 }
-
-.card-footer {
-	padding: 0 1em 0.8em 1em;
-	/*border-top: 1px solid #e0e0e0;*/
-}
-
 .card-body {
-	padding: 1.3em 2em;
-	line-height: 1.5em;
+    padding: 1em;
+    font-family: inherit;
+    color: #333;
 }
 
-.card-body input[type=text], .card-body input[type=password], .card-body input[type=email] {
-	background-color: transparent;
-	box-shadow: none;
-	border: none;
-	border-radius: 0;
-	border-bottom: 1px solid #ccc;
+/*
+ * CARD FORMS
+ */
+
+.card form {
+    width: 100%;
 }
 
-/*.card-body input[type=text]::after, .card-body input[type=password]::after, .card-body input[type=email]::after, .card-body input[type=text]::before, .card-body input[type=password]::before, .card-body input[type=email]::before {
-	display: inline-block;
-	content: "";
-	position: absolute;
-	background: #f00;
-	bottom: -3px;
-	width: 1px;
+.card-form > * {
+	margin: 0 auto;
+	padding: 0;
+    width: calc(100% - 0px);
+	height: 48px;
+	line-height: 48px;
+    font-size: 16px;
 }
 
-.card-body input[type=text]::after, .card-body input[type=password]::after, .card-body input[type=email]::after {
-	left: -3px;
+.card-form .error {
+    display: block;
+    color: #cc0033;
+    text-align: center;
 }
 
-.card-body input[type=text]::after, .card-body input[type=password]::after, .card-body input[type=email]::after {
-	right: -3px;
-}*/
+.card-form input[type] {
+	border: 0;
+    border-bottom: 1px solid #ddd;
+    text-indent: 1em;
+}
+
+.card-form button {
+	margin-top: 1em;
+    background: #cc0033;
+    border: 0;
+    color: #eee;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+
+	-moz-box-shadow: 0;
+	-webkit-box-shadow: 0;
+	box-shadow: 0;
+	outline: none;
+}
+
+.card-form button:hover {
+	transition: background 0.2s linear;
+	background: #ff0040;
+}
+
+.card-form button:active {
+	background: #b3002d;
+
+}
+
+
+/*
+ * TAPESTRY
+ */
+
+.tapestry {
+    display: block;
+    position: relative;
+    width: calc(100% - 2em);
+    margin: 0 auto;
+    margin-bottom: 2em;
+    padding: 1em 0;
+    background: #cc0033;
+    background: -webkit-linear-gradient(to top, #cc0033, #bf0030);
+    background: linear-gradient(to top, #cc0033, #bf0030);
+
+}
+
+.tapestry:after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -2em;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-left: 134px solid transparent;
+    border-right: 134px solid transparent;
+    border-top: 32px solid #cc0033;
+    border-bottom: 0;
+}
+
+.tapestry-logo {
+    display: block;
+    width: calc(100% - 2em);
+    margin: 0 auto;
+}
+
+.tapestry-title {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: Titillium Web;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.33);
+    font-size: 32px;
+}
