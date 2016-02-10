@@ -148,7 +148,37 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 
 }]);
 
+<<<<<<< HEAD
+webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location', '$routeParams', 'messages', '$http', function($scope, $location, $routeParams, messages, $http) {
+	$scope.message = messages.curMessage;
+	//
+
+	messages.getMessage($routeParams.messageId).then(function(message) {
+		// console.log(message);
+		messages.setCurMessage(message);
+	}, function(error) {
+		// console.log(error);
+	});
+
+	// $scope.setCurMessage = function(message) {
+	// 	var newpath = '';
+	// 	if (message != messages.getCurMessage()) {
+	// 		messages.setCurMessage(message);
+	// 		newpath = message.id;
+	// 	} else {
+	// 		messages.setCurMessage(null);
+	// 	}
+	// 	// console.log(messages.curMessage);
+	// 	// console.log($routeParams);
+	// 	$location.path('/messages/' + newpath, false);
+	// };
+
+}]);
+
+webresponseControllers.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
+=======
 webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'auth', function($scope, $http, $location, auth) {
+>>>>>>> dev
 	$scope.loggedIn = false;
 	$scope.errorMsg = null;
 	$scope.username = "";

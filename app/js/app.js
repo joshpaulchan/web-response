@@ -14,6 +14,10 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/messages.html',
 			controller: 'MessageCtrl'
 		}).
+		when('/forward/:messageId', {
+			templateUrl: 'partials/forwarding.html',
+			controller: 'MessageForwardingCtrl'
+		}).
 		when('/login', {
 			templateUrl: 'partials/login.html',
 			controller: 'LoginCtrl'
