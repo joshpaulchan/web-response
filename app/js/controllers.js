@@ -5,7 +5,7 @@
 var webresponseControllers = angular.module('webresponseControllers', []);
 
 
-webresponseControllers.controller('MessageCtrl', ['$scope', '$routeParams', 'messages', function($scope, $routeParams, messages) {
+webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', function($scope, $location, $routeParams, messages) {
 
 	messages.getMessage($routeParams.messageId).then(function(message) {
 		// console.log(message);
@@ -14,6 +14,19 @@ webresponseControllers.controller('MessageCtrl', ['$scope', '$routeParams', 'mes
 		// console.log(error);
 	});
 
+	$scope.setCurMessage = function(message) {
+		var newpath = '';
+		if (message != messages.getCurMessage()) {
+			messages.setCurMessage(message);
+			newpath = message.id;
+		} else {
+			messages.setCurMessage(null);
+		}
+		// console.log(messages.curMessage);
+		// console.log($routeParams);
+		$location.path('/messages/' + newpath, false);
+	};
+
 }]);
 
 webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', function($scope, messages) {
@@ -21,15 +34,6 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 	$scope.query = '';
 	$scope.show = 'All';
 	$scope.folder = 'inbox';
-
-	$scope.setCurMessage = function(message) {
-		if (message != messages.getCurMessage()) {
-			messages.setCurMessage(message);
-		} else {
-			messages.setCurMessage(null);
-		}
-		// console.log(messages.curMessage);
-	};
 
 	$scope.setMessagesUnread = function() {
 		$scope.messages.map(function(message) {
@@ -115,6 +119,32 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 	$scope.moveMessageTo = function(message, dest) {
 		message.folder = dest;
 	};
+
+}]);
+
+webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location', '$routeParams', 'messages', '$http', function($scope, $location, $routeParams, messages, $http) {
+	$scope.message = messages.curMessage;
+	//
+
+	messages.getMessage($routeParams.messageId).then(function(message) {
+		// console.log(message);
+		messages.setCurMessage(message);
+	}, function(error) {
+		// console.log(error);
+	});
+
+	// $scope.setCurMessage = function(message) {
+	// 	var newpath = '';
+	// 	if (message != messages.getCurMessage()) {
+	// 		messages.setCurMessage(message);
+	// 		newpath = message.id;
+	// 	} else {
+	// 		messages.setCurMessage(null);
+	// 	}
+	// 	// console.log(messages.curMessage);
+	// 	// console.log($routeParams);
+	// 	$location.path('/messages/' + newpath, false);
+	// };
 
 }]);
 
