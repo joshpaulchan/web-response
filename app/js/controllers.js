@@ -5,7 +5,7 @@
 var webresponseControllers = angular.module('webresponseControllers', []);
 
 
-webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', function($scope, $location, $routeParams, messages) {
+webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', 'auth', function($scope, $location, $routeParams, messages, auth) {
 	$scope.messagesPage = 0;
 	messages.getMessage($routeParams.messageId).then(function(message) {
 		// console.log(message);
@@ -34,6 +34,11 @@ webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$route
 		} else {
 			$location.path('/messages', false);
 		}
+	};
+
+	$scope.logOut = function() {
+		auth.logOut();
+		$location.path('/login');
 	};
 
 }]);
@@ -172,8 +177,13 @@ webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location
 
 webresponseControllers.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
 =======
+<<<<<<< HEAD
 webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'users', function($scope, $http, $location, users) {
 >>>>>>> refs/remotes/origin/dev
+=======
+webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'auth', function($scope, $http, $location, auth) {
+>>>>>>> dev
+>>>>>>> 62429544834f1b6a05a1e7b00c87da82b4165b37
 	$scope.loggedIn = false;
 	$scope.errorMsg = null;
 	$scope.username = "";
@@ -181,7 +191,7 @@ webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 
 
 	$scope.logIn = function() {
 		console.log("Logging in...");
-		users.authenticate({
+		auth.authenticate({
 			"username": $scope.username,
 			"password": $scope.pw,
 		}).then(function(success) {
