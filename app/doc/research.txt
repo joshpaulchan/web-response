@@ -1,0 +1,15 @@
+//php function to get browser info
+http://php.net/manual/en/function.get-browser.php
+
+//mysql tutorial using mysqli object
+http://codular.com/php-mysqli
+
+//imap functions
+http://php.net/manual/en/ref.imap.php
+
+//mysqli documentation
+http://php.net/manual/en/book.mysqli.php
+http://php.net/manual/en/class.mysqli.php
+
+//setting up browscap.ini
+http://stackoverflow.com/questions/2036956/browscap-ini-directive-not-set
