@@ -1,6 +1,7 @@
 # TODO
 
-+ Build 'choice' button
++ Implement a modal directive
++ Build 'choice' (select) button
 + Redesign messageview
 + Fix icon link
 + Registration service
