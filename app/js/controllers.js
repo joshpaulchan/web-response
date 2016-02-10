@@ -148,7 +148,6 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 
 }]);
 
-<<<<<<< HEAD
 webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location', '$routeParams', 'messages', '$http', function($scope, $location, $routeParams, messages, $http) {
 	$scope.message = messages.curMessage;
 	//
@@ -175,15 +174,7 @@ webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location
 
 }]);
 
-webresponseControllers.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
-=======
-<<<<<<< HEAD
-webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'users', function($scope, $http, $location, users) {
->>>>>>> refs/remotes/origin/dev
-=======
 webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'auth', function($scope, $http, $location, auth) {
->>>>>>> dev
->>>>>>> 62429544834f1b6a05a1e7b00c87da82b4165b37
 	$scope.loggedIn = false;
 	$scope.errorMsg = null;
 	$scope.username = "";
