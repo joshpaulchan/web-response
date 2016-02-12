@@ -190,6 +190,18 @@
 					<textarea></textarea>
 				</div>
 			</div>
+
+			<!--Forwarding modal. Incomplete, no guaranteed behavior.-->
+
+			<div class="message-forward pure-g" style="border: 1px solid black">
+				<form class="pure-form pure-form-stacked pure-u-1-1">
+						<input class="message-forward-text-field pure-input-1" id="message-forward-recipients" type="email" placeholder="Recipients" />
+						<input class="message-forward-text-field pure-input-1" id="message-forward-subject" type="text" placeholder="Subject" value="FWD: {{curMessage.subject}}" /> <!--The user can change the subject if they want-->
+						<textarea class="message-forward-text-field pure-input-1" id="message-forward-body" placeholder="Additional message"></textarea>
+					<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Send</button>
+				</form>
+			</div>
+
 		</div>
 	</div>
 </div>
