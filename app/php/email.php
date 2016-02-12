@@ -1,5 +1,6 @@
 <?php
 /**
+ * POSSIBLY BEING REMOVED --> DETAILS TO COME
  * PHP script for accessing the email server.
  * Use this page to create a connection.
  * Make sure to set the hostname, username, password before using this otherwise there will be an error.
@@ -10,7 +11,7 @@
  * Time: 4:01 PM
  */
 
-$hostname = '';;
+$hostname = '';
 $username = '';
 $password = '';
 

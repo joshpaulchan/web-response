@@ -5,11 +5,19 @@
 .card {
     margin: 0 auto;
     position: relative;
-    width: 300px;
     font-family: Open Sans, Tahoma, Arial, sans-serif;
     background: #eee;
     /*background: -webkit-linear-gradient(to bottom, #eee, #dedede 90%);*/
     /*background: linear-gradient(to bottom, #eee , #dedede 90%); */
+}
+
+.login-card {
+    width: 300px;
+}
+
+.convo-card {
+    width: 100%;
+    margin-bottom: 2em;
 }
 
 .card-shadow {
@@ -34,14 +42,83 @@
  */
 
 .card-header {
-    color: #222;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-.card-body {
+    display: block;
     padding: 1em;
-    font-family: inherit;
-    color: #333;
+    border-bottom: 2px solid #bbb;
+    color: black;
+
+    width: calc(100% - 2em);
+    font-size: 13.333px;
+    overflow: hidden;
+}
+
+.card-header .title {
+    float: left;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+}
+
+.card-header .note {
+    float: right;
+    color: #777;
+}
+
+.card-body {
+  display: block;
+  padding: 1em 3em;
+  font-family: inherit;
+  line-height: 1.5em;
+}
+
+.card-body * {
+  margin-bottom: 1em;
+}
+
+.card-text {
+    font-family: Cabin;
+}
+
+.card-footer {
+  display: block;
+  border-top: 2px solid #bbb;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*
+ * CARD FOOTER BUTTONS
+ */
+
+.card-footer .card-button {
+    float: right;
+    padding: 0 1em;
+    height: 50px;
+    border: 0;
+    /*border-top: 2px solid #bbb; */
+    border-left: 2px solid #bbb;
+    outline: 0;
+    background: transparent;
+
+    line-height: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    font-family: Open Sans;
+
+    transition: 0.2s color, 0.2s background-color;
+}
+
+.card-footer .card-button:hover {
+    color: #ff0040;
+    /*color: #eee;*/
+    /*background: #ff0040; */
+}
+
+.card-footer .card-button:active {
+    color: #b3002d;
+   /*background: #b3002d; */
 }
 
 /*
@@ -97,6 +174,8 @@
 	background: #b3002d;
 
 }
+
+
 
 
 /*

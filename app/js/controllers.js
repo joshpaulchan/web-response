@@ -146,6 +146,19 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 		message.folder = dest;
 	};
 
+	var createNewMessage = function() {
+		// TODO:
+
+	};
+
+	$scope.reply = function() {
+		// TODO:
+	};
+
+	$scope.forward = function() {
+		// TODO:
+	};
+
 }]);
 
 webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location', '$routeParams', 'messages', '$http', function($scope, $location, $routeParams, messages, $http) {

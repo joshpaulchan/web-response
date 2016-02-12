@@ -6,12 +6,23 @@
  * Time: 5:23 PM
  */
 
-echo $_SERVER['HTTP_USER_AGENT'] . "<br/>";
+$userInfo = $_SERVER['HTTP_USER_AGENT'] . "<br/><br/>";
 
-$browser = get_browser(null, true);
+
+//$count = 1;
+//$browser = get_browser(null, true);
+/*
 foreach($browser as $value){
-    echo $value .'<br/>';
+    echo $count . ') '. $value .'<br/>';
+    $count++;
 }
-echo '<br/>';
+*/
+//parent
+//echo '<br/>' . $browser['parent'].'<br/>';
+//platform or OS
+//$platform = $browser['platform'];
+//browser + ' ' + version
+//$browserInfo =  $browser['browser'] . ' ' . $browser['version'];
+
 //print_r($browser);
 ?>
