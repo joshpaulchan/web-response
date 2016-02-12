@@ -183,16 +183,36 @@
 				</div>
 				<div class='card-body message-content-body'>{{curMessage.content}}</div>
 			</div>
-			<div class='card convo-card card-shadow' ng-repeat="response in curMessage.thread">
+			<div class='card card-shadow'>
 				<div class='card-header'>
-					<span class='title'>{{response.email}}</span>
-					<span class='note'>{{response.date}}</span>
+					<span class='title'>jpc256@rutgers.edu</span>
+					<span class='note'>Feb 10 2016 3:43 PM</span>
 				</div>
-				<div class='card-body message-content-body'>{{response.content}}</div>
-				<div class='card-footer' ng-show="$last">
-					<button class="card-button">Reply</button>
+				<div class='card-body'>
+					<p>Ah</p
+					<p>Yes</p>
+				</div>
+				<div class='card-footer'>
+					<button class="card-button" ng-click="reply">Reply</button>
 					<button class='card-button'>Forward</button>
 				</div>
+			</div>
+				<div class='card card-shadow'>
+					<div class='card-header'>
+						<div class="reply-from-box">
+							<form class="reply-from-container">
+								<input class="reply-from-input" placeholder="FROM"></input>
+							</form>
+							<span class='note'>Current time here</span>
+						</div>
+					</div>
+					<div class='card-body'>
+						<input ng-model="textarea" placeholder="Reply..." class="reply-body-input"></input>
+					</div>
+					<div class='card-footer'>
+						<button class="card-button" ng-click="reply">Send</button>
+						<button class='card-button'>Draft</button>
+					</div>
 			</div>
 		</div>
 	</div>

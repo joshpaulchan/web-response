@@ -152,7 +152,7 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 	};
 
 	$scope.reply = function() {
-		// TODO:
+		curMessage = reply;
 	};
 
 	$scope.forward = function() {
