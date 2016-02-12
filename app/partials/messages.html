@@ -203,11 +203,19 @@
 							<form class="reply-from-container">
 								<input class="reply-from-input" placeholder="FROM"></input>
 							</form>
-							<span class='note'>Current time here</span>
+						</div>
+						<div class="reply-from-box">
+							<form class="reply-from-container">
+								<input class="reply-from-input" placeholder="TO"></input>
+							</form>
 						</div>
 					</div>
 					<div class='card-body'>
-						<input ng-model="textarea" placeholder="Reply..." class="reply-body-input"></input>
+						<div class='reply-body-box'>
+							<form class="reply-body-container">
+								<textarea ng-model="textarea" placeholder="Reply..." class="reply-body-input"></textarea>
+							</form>
+						</div>
 					</div>
 					<div class='card-footer'>
 						<button class="card-button" ng-click="reply">Send</button>
