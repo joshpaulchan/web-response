@@ -35,7 +35,12 @@
             {
                 "email": "person@example.com",
                 "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
+                "content": "Ah"
+            },
+            {
+                "email": "person@example.com",
+                "date": "later on 13 AM",
+                "content": "yes."
             }
         ]
     },
@@ -51,13 +56,7 @@
 			"repliedTo": true
 		},
 		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
+        "thread": []
     },
     {
         "id": 3,
