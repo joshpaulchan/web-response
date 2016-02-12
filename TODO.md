@@ -1,9 +1,10 @@
 # TODO
 
++ Fix route handling -> specific message
++ Fix tabbing
 + Implement a modal directive
 + Build 'choice' (select) button
-+ Redesign messageview
-+ Fix icon link
+	- using JS & input, so you can input a name
 + Registration service
 + Figure out how to git push to production/staging server
 	- what url?
@@ -25,13 +26,16 @@
 	- The form should auto-fill with the requisite information
 	- It should also display a list of suggestions as to who to forward to (select, option, etc. - look on pttrns.com for conventions)
 
-+ Jonnelin - please do a pull request LOL we actually don't have your changes on github
 + Jonnelin - Options
 	- Figure out how to open/close a modal (will be written for you - or you can write it) (see https://github.com/btford/angular-modal)
 	- Figure out what kinds of things should be in the settings (user info, whatever)
 	- Sketch a mockup
 
 # CHANGED
+
+**2.11.2016**
+__JC__
++ Redesign Message View
 
 **2.9.2016**
 __JC__
