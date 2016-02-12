@@ -78,7 +78,7 @@
 }*/
 
 #main{
-    height: calc(100vh - 102px);
+    height:calc(100vh - 102px);
 }
 
 #list .message-list {
