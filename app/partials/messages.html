@@ -77,52 +77,67 @@
 					<span class='fa fa-search search-icon'></span>
 				</form>
 			</div>
-			<div class='pure-u-1-1'>
-				<div class='pure-menu pure-menu-horizontal'>
-					<ul class='pure-menu-list'>
-						<li class="pure-menu-item">
+			<div class='pure-menu pure-menu-horizontal'>
+				<ul class='pure-menu-list'>
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+						<div class="pure-menu-link">
 							Filter
-						</li>
-						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-							<div class="pure-menu-link">
-								{{show}}
-							</div>
-							<ul class="pure-menu-children">
-								<li class="pure-menu-item" ng-click="setListFilter('All')">
-									<div class="pure-menu-link">All</div>
-								</li>
-								<li class="pure-menu-item" ng-click="setListFilter('Unread')" >
-									<div href="#" class="pure-menu-link">Unread</div>
-								</li>
-								<li class="pure-menu-item" ng-click="setListFilter('Unreplied')">
-									<div href="#" class="pure-menu-link">Un-replied</div>
-								</li>
-							</ul>
-						</li>
-						<li class="pure-menu-item">
+						</div>
+						<ul class="pure-menu-children">
+							<li class="pure-menu-item" ng-click="setListFilter('All')">
+								<div class="pure-menu-link">All</div>
+							</li>
+							<li class="pure-menu-item" ng-click="setListFilter('Read')" >
+								<div href="#" class="pure-menu-link">Read</div>
+							</li>
+							<li class="pure-menu-item" ng-click="setListFilter('Unread')" >
+								<div href="#" class="pure-menu-link">Unread</div>
+							</li>
+							<li class="pure-menu-item" ng-click="setListFilter('Unreplied')">
+								<div href="#" class="pure-menu-link">Unreplied</div>
+							</li>
+						</ul>
+					</li>
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+						<div class="pure-menu-link">
 							Action
-						</li>
-						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-							<div class="pure-menu-link">
-								Do
-							</div>
-							<ul class="pure-menu-children">
-								<li class="pure-menu-item" ng-click="setMessagesUnread(false)">
-									<div class="pure-menu-link">Mark Read</div>
-								</li>
-								<li class="pure-menu-item" ng-click="setMessagesUnread(true)" >
-									<div href="#" class="pure-menu-link">Mark Unread</div>
-								</li>
-								<li class="pure-menu-item" ng-click="moveMessageTo(message, 'spam')" >
-									<div href="#" class="pure-menu-link">Move To Spam</div>
-								</li>
-								<li class="pure-menu-item" ng-click="moveMessageTo(message, 'trash')" >
-									<div href="#" class="pure-menu-link">Move To Trash</div>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+						</div>
+						<ul class="pure-menu-children">
+							<li class="pure-menu-item" ng-click="#">
+								<div class="pure-menu-link">Reply</div>
+							</li>
+							<li class="pure-menu-item" ng-click="#" >
+								<div href="#" class="pure-menu-link">Forward</div>
+							</li>
+						</ul>
+					</li>
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+						<div class="pure-menu-link">
+							Mark
+						</div>
+						<ul class="pure-menu-children">
+							<li class="pure-menu-item" ng-click="setMessagesUnread(false)">
+								<div class="pure-menu-link">Read</div>
+							</li>
+							<li class="pure-menu-item" ng-click="setMessagesUnread(true)" >
+								<div href="#" class="pure-menu-link">Unread</div>
+							</li>
+						</ul>
+					</li>
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+						<div class="pure-menu-link">
+							Move To
+						</div>
+						<ul class="pure-menu-children">
+							<li class="pure-menu-item" ng-click="moveMessageTo(message, 'spam')" >
+								<div href="#" class="pure-menu-link">Spam</div>
+							</li>
+							<li class="pure-menu-item" ng-click="moveMessageTo(message, 'trash')" >
+								<div href="#" class="pure-menu-link">Trash</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 
