@@ -5,11 +5,19 @@
 .card {
     margin: 0 auto;
     position: relative;
-    width: 300px;
     font-family: Open Sans, Tahoma, Arial, sans-serif;
     background: #eee;
     /*background: -webkit-linear-gradient(to bottom, #eee, #dedede 90%);*/
     /*background: linear-gradient(to bottom, #eee , #dedede 90%); */
+}
+
+.login-card {
+    width: 300px;
+}
+
+.convo-card {
+    width: 100%;
+    margin-bottom: 2em;
 }
 
 .card-shadow {

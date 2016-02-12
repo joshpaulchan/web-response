@@ -330,6 +330,26 @@ input[type="search"].search-input:focus {
     border-left: 6px solid #1b98f8;
 }
 
+/* Conversation Content Styles */
+
+.convo-content {
+  /*border: 1px solid #333;*/
+}
+
+.convo-content > .header {
+  height: 100px;
+  background: #34495e;
+
+  margin-bottom: 2em;
+
+  color: white;
+}
+
+.convo-content > .list {
+  padding: 0 1em;
+  width: calc(100% - 2em - 2px);
+}
+
 /* message Content Styles */
 
 .message-content-header, .message-content-body, .message-content-footer {
