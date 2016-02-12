@@ -87,6 +87,10 @@
 
 }
 
+#main {
+    height: calc(100vh - 40px - 40px - 104px);
+}
+
 #main, #list .message-list {
     overflow-y: auto;
 }
