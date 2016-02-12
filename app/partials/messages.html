@@ -164,30 +164,37 @@
 
 	<!-- MESSAGE CONTENT -->
 	<div id='main' ng-controller="MessageViewCtrl" class='pure-u-12-24'>
-		<div ng-show="(curMessage != null)" class='message-content'>
-			<div class="message-content-header pure-g">
-				<div class="pure-u-1-1">
-					<h1 class="message-content-title">{{curMessage.subject}}</h1>
-					<p class="message-content-subtitle">
-						from <a>{{curMessage.email}}</a> at
-						<span>{{curMessage.date}}</span>
-					</p>
-				</div>
-
-				<div class="message-content-controls pure-u-1-1">
-					<button class="secondary-button pure-button">Forward</button>
-					<button class="secondary-button pure-button">Move to</button>
-				</div>
+	<div ng-show="(curMessage != null)" class='convo-content'>
+		<div class='header'>
+			<span class="title">{{curMessage.subject}}</span>
+			<span class="meta-info">Who, when</span>
+			<div class="technical-info">
+				<ul>
+					<li>Browser:</li>
+					<li>something:</li>
+				</ul>
 			</div>
-
-			<div class="message-content-body">{{curMessage.content}}</div>
-
-			<div class="message-response pure-g">
-				<div class='message-response-controls pure-u-1-1'>
-					<button class="secondary-button pure-button">Reply</button>
+		</div>
+		<div class='list'>
+			<div class='card convo-card card-shadow'>
+				<div class='card-header'>
+					<span class='title'>{{curMessage.email}}</span>
+					<span class='note'>Feb 10 2016 3:43 PM</span>
 				</div>
-				<div class='pure-u-1-1 message-response-body'>
-					<textarea></textarea>
+				<div class='card-body message-content-body'>{{curMessage.content}}</div>
+			</div>
+			<div class='card card-shadow'>
+				<div class='card-header'>
+					<span class='title'>jpc256@rutgers.edu</span>
+					<span class='note'>Feb 10 2016 3:43 PM</span>
+				</div>
+				<div class='card-body'>
+					<p>Ah</p>
+					<p>Yes</p>
+				</div>
+				<div class='card-footer'>
+					<button class="card-button">Reply</button>
+					<button class='card-button'>Forward</button>
 				</div>
 			</div>
 		</div>
