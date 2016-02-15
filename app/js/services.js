@@ -1,3 +1,4 @@
+/* global document, window, console, Promise */
 'use strict';
 
 var webresponseServices = angular.module('webresponseServices', []);
@@ -6,16 +7,14 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var messages = {};
 
-	messages.list = [];
 	messages.curMessage = null;
-	messages.ready = false;
 
 	$http.get(apiUrl + '/messages.json').success(function(data) {
-		console.log(data);
+		// console.log(data);
 		messages.list = data;
 		messages.ready = true;
 	}).error(function(error) {
-		console.log(error);
+		// console.log(error);
 	});
 
 	messages.loadMessages = function(pg) {
@@ -29,13 +28,12 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		var p = new Promise(function(resolve, reject) {
 			// console.log(id);
 
-			var messages = messages.list.filter(function(message, i) {
+			var message = messages.list.filter(function(message, i) {
 				return (message.id == id);
 			});
-			// console.log(messages);
-			var message = (messages.length > 0) ? messages[0] : null;
-			if (message != null) {
-				resolve(message);
+
+			if (message.length > 0) {
+				resolve(message[0]);
 			} else {
 				reject(Error("Message with id:" + id + "does not exist."));
 			}
@@ -51,8 +49,8 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return messages.curMessage;
 	};
 
-	messages.ready = function() {
-		return (messages.ready === true);
+	messages.isReady = function() {
+		return (!!messages.ready === true);
 	};
 
 	return messages;
@@ -99,7 +97,7 @@ webresponseServices.factory('auth', ['$http', function($http) {
 				reject("Incorrect password.");
 			} else {
 				auth.user = user;
-				var session = (Math.random() * 16).toString();
+				var session = Math.floor(Math.random() * 100).toString();
 
 				window.sessionStorage.setItem("WR-session-id", session);
 
