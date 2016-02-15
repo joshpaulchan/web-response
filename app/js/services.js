@@ -42,7 +42,14 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	};
 
 	messages.setCurMessage = function(message) {
+		if (messages.curMessage !== null) {
+			messages.curMessage.status.open = false;
+		}
 		messages.curMessage = message;
+		if (!!message) {
+			message.status.open = true;
+		}
+		return message;
 	};
 
 	messages.getCurMessage = function() {
