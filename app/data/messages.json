@@ -3,7 +3,7 @@
         "id": 0,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -14,7 +14,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -23,7 +23,7 @@
         "id": 1,
 		"email": "shirleydale658@yahoo.com",
 		"subject": "tax document for 2015",
-		"date": "Jan 2, 2016",
+		"createdAt": "Jan 2, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -34,12 +34,12 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah"
             },
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "yes."
             }
         ]
@@ -48,7 +48,7 @@
         "id": 2,
 		"email": "ken.nielson@gmail.com",
 		"subject": "E-mail fraud and spam",
-		"date": "Dec 30, 2015",
+		"createdAt": "Dec 30, 2015",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -62,7 +62,7 @@
         "id": 3,
 		"email": "ZhouJy_seu0622@163.com",
 		"subject": "Technical Issue",
-		"date": "Dec 25, 2015",
+		"createdAt": "Dec 25, 2015",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -73,7 +73,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -82,7 +82,7 @@
         "id": 4,
 		"email": "szatrows@rci.rutgers.edu",
 		"subject": "Link that seems to be to the wrong place",
-		"date": "Dec 17, 2015",
+		"createdAt": "Dec 17, 2015",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -93,7 +93,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -102,7 +102,7 @@
         "id": 5,
 		"email": "bbuckley@eohsi.rutgers.edu",
 		"subject": "outdated contact information",
-		"date": "Dec 16, 2015",
+		"createdAt": "Dec 16, 2015",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -113,7 +113,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -122,7 +122,7 @@
         "id": 6,
 		"email": "anna.witek@rutgers.edu",
 		"subject": "Small issue with Rutgers site in IE",
-		"date": "Dec 11, 2015",
+		"createdAt": "Dec 11, 2015",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -133,7 +133,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -142,7 +142,7 @@
         "id": 7,
 		"email": "anna.sandberg@rutgers.edu",
 		"subject": "New Online Travel Order Form Issues",
-		"date": "Dec 10, 2015",
+		"createdAt": "Dec 10, 2015",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -153,7 +153,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -162,7 +162,7 @@
         "id": 8,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -173,7 +173,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -182,7 +182,7 @@
         "id": 9,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -193,7 +193,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -202,7 +202,7 @@
         "id": 10,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -213,7 +213,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -222,7 +222,7 @@
         "id": 11,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -233,7 +233,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -242,7 +242,7 @@
         "id": 12,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -253,7 +253,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -262,7 +262,7 @@
         "id": 13,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -273,7 +273,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -282,7 +282,7 @@
         "id": 14,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -293,7 +293,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -302,7 +302,7 @@
         "id": 15,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -313,7 +313,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -322,7 +322,7 @@
         "id": 16,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -333,7 +333,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -342,7 +342,7 @@
         "id": 17,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -353,7 +353,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -362,7 +362,7 @@
         "id": 18,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -373,7 +373,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
@@ -382,7 +382,7 @@
         "id": 19,
 		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
@@ -393,7 +393,7 @@
         "thread": [
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]

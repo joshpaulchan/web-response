@@ -154,7 +154,7 @@
 					<h5 class='message-subject'>{{message.subject}}</h5>
 				</div>
 				<div class='pure-u-4-24'>
-					<h5 class='message-date'>{{message.date}}</h5>
+					<h5 class='message-date'>{{message.createdAt}}</h5>
 				</div>
 			</div>
 
@@ -179,14 +179,14 @@
 			<div class='card convo-card card-shadow'>
 				<div class='card-header'>
 					<span class='title'>{{curMessage.email}}</span>
-					<span class='note'>{{curMessage.date}}</span>
+					<span class='note'>{{curMessage.createdAt}}</span>
 				</div>
 				<div class='card-body message-content-body'>{{curMessage.content}}</div>
 			</div>
 			<div class='card convo-card card-shadow' ng-repeat="response in curMessage.thread">
 				<div class='card-header'>
 					<span class='title'>{{response.email}}</span>
-					<span class='note'>{{response.date}}</span>
+					<span class='note'>{{response.createdAt}}</span>
 				</div>
 				<div class='card-body message-content-body'>{{response.content}}</div>
 				<div class='card-footer' ng-show="$last">
