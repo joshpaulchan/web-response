@@ -1,8 +1,4 @@
-var webresponseApp = angular.module('webresponseApp', [
-'ngRoute',
-'webresponseControllers',
-'webresponseServices'
-]);
+var webresponseApp = angular.module('webresponseApp', [ 'ngRoute', 'webresponseControllers', 'webresponseServices']);
 
 webresponseApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
@@ -13,10 +9,6 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 		when('/messages/:messageId', {
 			templateUrl: 'partials/messages.html',
 			controller: 'MessageCtrl'
-		}).
-		when('/forward/:messageId', {
-			templateUrl: 'partials/forwarding.html',
-			controller: 'MessageForwardingCtrl'
 		}).
 		when('/login', {
 			templateUrl: 'partials/login.html',
