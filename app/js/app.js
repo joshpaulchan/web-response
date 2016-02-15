@@ -28,11 +28,8 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 }]).run(['$route', '$rootScope', '$location', 'auth', function ($route, $rootScope, $location, auth) {
 	$rootScope.$on('$routeChangeStart', function (event) {
         if (!auth.isLoggedIn()) {
-            console.log('DENY');
+            // console.log('DENY');
             $location.path('/login', true);
-        }
-        else {
-            console.log('ALLOW');
         }
     });
 
