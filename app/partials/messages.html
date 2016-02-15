@@ -10,7 +10,7 @@
 	</div>
 
 	<!-- NAVIGATION -->
-	<div id='nav' class='pure-u-1-1'>
+	<div id='nav' class='pure-u-1-1' ng-controller="MessageNavBarCtrl">
 		<div class='pure-g'>
 			<div class='pure-u-1-1'>
 				<div class='nav-inner-top'>
@@ -143,18 +143,21 @@
 
 		<div class='message-list'>
 
-			<div ng-repeat="message in messages | filter:statusFilter" class='message-item pure-g' ng-class="{'message-item-unread': message.status.unread, 'message-item-selected': message.status.selected, 'message-item-open': message.status.open}" ng-click="setCurMessage(message)">
+			<div class='message-item pure-g'
+				ng-repeat="msg in messages | filter:statusFilter"
+				ng-class="{'message-item-unread': msg.status.unread, 'message-item-selected': msg.status.selected, 'message-item-open': msg.status.open}"
+				ng-click="viewMessage(msg)">
 				<div class='pure-u-1-24'>
-					<input type='checkbox' class='select' ng-model="message.status.selected" />
+					<input type='checkbox' class='select' ng-model="msg.status.selected" />
 				</div>
 				<div class='pure-u-9-24'>
-					<h5 class='message-email'>{{message.email}}</h5>
+					<h5 class='message-email'>{{msg.email}}</h5>
 				</div>
 				<div class='pure-u-10-24'>
-					<h5 class='message-subject'>{{message.subject}}</h5>
+					<h5 class='message-subject'>{{msg.subject}}</h5>
 				</div>
 				<div class='pure-u-4-24'>
-					<h5 class='message-date'>{{message.createdAt}}</h5>
+					<h5 class='message-date'>{{msg.createdAt}}</h5>
 				</div>
 			</div>
 
