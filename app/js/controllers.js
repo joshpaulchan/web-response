@@ -1,60 +1,38 @@
+/*global angular, document, console*/
 'use strict';
 
 /* CONTROLLERS */
 
 var webresponseControllers = angular.module('webresponseControllers', []);
 
-
-webresponseControllers.controller('MessageCtrl', ['$scope', '$location', '$routeParams', 'messages', 'auth', function($scope, $location, $routeParams, messages, auth) {
+webresponseControllers.controller('MessageCtrl', function($scope, $routeParams, messages) {
+	$scope.messageId = $routeParams.messageId;
 	$scope.messagesPage = 0;
-	messages.getMessage($routeParams.messageId).then(function(message) {
-		// console.log(message);
-		messages.setCurMessage(message);
-	}, function(error) {
-		// console.log(error);
+
+	$scope.$watch(messages.isReady, function() {
+		if (messages.isReady()) {
+			messages.getMessage($scope.messageId).then(messages.setCurMessage, function(error) {
+				console.log(error);
+			});
+		}
 	});
+});
 
-	$scope.setCurMessage = function(message) {
-		var oldMessage = messages.getCurMessage();
-		if (oldMessage != null) {
-			oldMessage.status.open = false;
-		}
-		var newPath = '';
-		if (message != oldMessage) {
-			messages.setCurMessage(message);
-			newPath = message.id;
-			message.status.open = true;
-		} else {
-			messages.setCurMessage(null);
-		}
-		// console.log(messages.curMessage);
-		// console.log($routeParams);
-		if (newPath != null) {
-			$location.path('/messages/' + newPath, false);
-		} else {
-			$location.path('/messages', false);
-		}
-	};
-
+webresponseControllers.controller('MessageNavBarCtrl', function($scope, $location, auth) {
 	$scope.logOut = function() {
 		auth.logOut();
-		$location.path('/login');
+		$location.path('/login', true);
 	};
+});
 
-}]);
-
-webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', function($scope, messages) {
-	$scope.messages = messages.list;
-	$scope.query = '';
+webresponseControllers.controller('MessageListCtrl', function($scope, $location, messages) {
+	$scope.messages = [];
+	$scope.query = "";
 	$scope.show = 'All';
 	$scope.folder = 'inbox';
 
-	$scope.$watch(function() {
-		return (messages.ready);
-	}, function(newVal, oldVal) {
-		// console.log(newVal);
-		if (newVal === true) {
-			console.log("Perf, it's ready");
+	$scope.$watch(messages.isReady, function(n, o) {
+		if (messages.isReady()) {
 			$scope.loadMessages($scope.messagesPage);
 		}
 	});
@@ -63,13 +41,15 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 		messages.loadMessages(pg).then(function(data) {
 			$scope.$apply(function() {
 				$scope.messages = data;
-				// console.log(data);
 			});
 		}, function(error) {
 			console.log(error);
 		});
-		console.log("Messages should be assigned.");
 	};
+
+	///////////////////////////
+	// MESSAGE LIST CONTROLS //
+	///////////////////////////
 
 	$scope.setMessagesUnread = function(unread) {
 		var selectedMessages = $scope.getSelected();
@@ -80,24 +60,8 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 			});
 		} else if (messages.getCurMessage() !== null) {
 			messages.getCurMessage().status.unread = unread;
-		} else {
-			console.log("Nothing is selected.");
 		}
 	};
-
-	$scope.getSelected = function() {
-		return $scope.messages.filter(function(message) {
-			return message.status.selected;
-		});
-	};
-
-	$scope.clearSelected = function() {
-		$scope.messages = $scope.messages.map(function(message, i) {
-			message.status.selected = false;
-			return message;
-		});
-	};
-
 
 	$scope.moveMessageTo = function(message, dest) {
 		message.folder = dest;
@@ -129,26 +93,52 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 		}
 		return flag;
 	};
-}]);
 
+	////////////////////////////////
+	// MESSAGE LIST-ITEM CONTROLS //
+	////////////////////////////////
 
-webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', function($scope, messages) {
-
-	$scope.curMessage = messages.curMessage;
-
-	$scope.$watch(function() {
-		return ($scope.curMessage !== messages.curMessage);
-	}, function(newMessage, oldMessage, scope) {
-		$scope.curMessage = messages.curMessage;
-	});
-
-	$scope.moveMessageTo = function(message, dest) {
-		message.folder = dest;
+	$scope.getSelected = function() {
+		return $scope.messages.filter(function(message) {
+			return (message.status.selected);
+		});
 	};
 
-	var createNewMessage = function() {
-		// TODO:
+	$scope.clearSelected = function() {
+		$scope.messages = $scope.messages.map(function(message, i) {
+			message.status.selected = false;
+			return (message);
+		});
+	};
 
+	$scope.viewMessage = function(message) {
+		// 1. set is as new message
+		if (messages.getCurMessage() !== message) {
+			messages.setCurMessage(message);
+		} else {
+			messages.setCurMessage(null);
+		}
+
+		// 2. change path
+		var pathId = (!!messages.getCurMessage()) ? ('/' +  message.id) : '';
+		var newPath = '/messages' + pathId;
+		$location.path(newPath, false);
+	};
+});
+
+
+webresponseControllers.controller('MessageViewCtrl', function($scope, messages) {
+
+	$scope.$watch(function() {
+		return ($scope.curMessage !== messages.getCurMessage());
+	}, function(newMessage, oldMessage) {
+		$scope.curMessage = messages.getCurMessage();
+	});
+
+	var createNewMessage = function(name, date, body) {
+		// TODO:
+		var msgCard = new MessageCard(name, date, body);
+		return msgCard;
 	};
 
 	$scope.reply = function() {
@@ -156,38 +146,15 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 	};
 
 	$scope.forward = function() {
-		// TODO:
+		var msgCard = createNewMessage();
+		var msgList = document.querySelector('#main').querySelector('.list');
+
+		msgList.append(msgCard.html());
 	};
 
-}]);
+});
 
-webresponseControllers.controller('MessageForwardingCtrl', ['$scope', '$location', '$routeParams', 'messages', '$http', function($scope, $location, $routeParams, messages, $http) {
-	$scope.message = messages.curMessage;
-	//
-
-	messages.getMessage($routeParams.messageId).then(function(message) {
-		// console.log(message);
-		messages.setCurMessage(message);
-	}, function(error) {
-		// console.log(error);
-	});
-
-	// $scope.setCurMessage = function(message) {
-	// 	var newpath = '';
-	// 	if (message != messages.getCurMessage()) {
-	// 		messages.setCurMessage(message);
-	// 		newpath = message.id;
-	// 	} else {
-	// 		messages.setCurMessage(null);
-	// 	}
-	// 	// console.log(messages.curMessage);
-	// 	// console.log($routeParams);
-	// 	$location.path('/messages/' + newpath, false);
-	// };
-
-}]);
-
-webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 'auth', function($scope, $http, $location, auth) {
+webresponseControllers.controller('LoginCtrl', function($scope, $location, auth) {
 	$scope.loggedIn = false;
 	$scope.errorMsg = null;
 	$scope.username = "";
@@ -204,5 +171,4 @@ webresponseControllers.controller('LoginCtrl', ['$scope', '$http', '$location', 
 			$scope.errorMsg = error;
 		});
 	};
-
-}]);
+});
