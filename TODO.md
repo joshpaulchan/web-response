@@ -1,6 +1,7 @@
 # TODO
 
-+ Fix route handling -> specific message
++ Rename message-relevant things to a conversation
++ Style the converation headers
 + Fix tabbing
 + Implement a modal directive
 + Build 'choice' (select) button
@@ -21,17 +22,14 @@
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
 
-+ Daniel - Forwarding
-	- A form should appear in the details view when you press the button (with controls)
-	- The form should auto-fill with the requisite information
-	- It should also display a list of suggestions as to who to forward to (select, option, etc. - look on pttrns.com for conventions)
-
-+ Jonnelin - Options
-	- Figure out how to open/close a modal (will be written for you - or you can write it) (see https://github.com/btford/angular-modal)
-	- Figure out what kinds of things should be in the settings (user info, whatever)
-	- Sketch a mockup
-
 # CHANGED
+
+**2.15*2016**
+__JC__
++ Fix route handling -> specific message
++ Huge overhaul of controllers.js & services.js
+	- Add navbar controller
+	- rewrite setCurMessage to viewMessage
 
 **2.11.2016**
 __JC__
