@@ -6,18 +6,19 @@
     margin: 0 auto;
     position: relative;
     font-family: Open Sans, Tahoma, Arial, sans-serif;
-    background: #eee;
     /*background: -webkit-linear-gradient(to bottom, #eee, #dedede 90%);*/
     /*background: linear-gradient(to bottom, #eee , #dedede 90%); */
 }
 
 .login-card {
+    background: #eee;
     width: 300px;
 }
 
 .convo-card {
     width: 100%;
     margin-bottom: 2em;
+    background: white;
 }
 
 .card-shadow {
@@ -43,25 +44,24 @@
 
 .card-header {
     display: block;
+    position: relative;
     padding: 1em;
-    border-bottom: 2px solid #bbb;
-    color: black;
+    border-bottom: 1px solid #eee;
+    color: #333;
 
     width: calc(100% - 2em);
     font-size: 13.333px;
-    overflow: hidden;
 }
 
 .card-header .title {
-    float: left;
+    position: relative;
     text-transform: uppercase;
-    font-size: 16px;
     font-weight: 700;
-    color: black;
 }
 
 .card-header .note {
-    float: right;
+    position: absolute;
+    right: 1em;
     color: #777;
 }
 
@@ -82,7 +82,8 @@
 
 .card-footer {
   display: block;
-  border-top: 2px solid #bbb;
+  position: relative;
+  border-top: 1px solid #eee;
   width: 100%;
   overflow: hidden;
 }
@@ -96,8 +97,7 @@
     padding: 0 1em;
     height: 50px;
     border: 0;
-    /*border-top: 2px solid #bbb; */
-    border-left: 2px solid #bbb;
+    /*border-left: 2px solid #bbb;*/
     outline: 0;
     background: transparent;
 
