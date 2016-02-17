@@ -104,8 +104,10 @@
     line-height: 50px;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 600;
+    font: initial;
     font-family: Open Sans;
+    font-weight: 600;
+    font-size: 13.33px;
 
     transition: 0.2s color, 0.2s background-color;
 }
