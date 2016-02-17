@@ -35,7 +35,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 			if (message.length > 0) {
 				resolve(message[0]);
 			} else {
-				reject(Error("Message with id:" + id + "does not exist."));
+				reject(Error("Message with id:" + id + " does not exist."));
 			}
 		});
 		return p;

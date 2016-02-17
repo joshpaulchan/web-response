@@ -181,24 +181,25 @@
 			</div>
 		</div>
 		<div class='list'>
-			<div class='card convo-card card-shadow'>
-				<div class='card-header'>
-					from <span class='title'>{{curMessage.email}}</span>
-					<span class='note'>{{curMessage.createdAt}}</span>
-				</div>
-				<div class='card-body message-content-body'>{{curMessage.content}}</div>
-			</div>
-			<div class='card convo-card card-shadow' ng-repeat="response in curMessage.thread">
-				<div class='card-header'>
-					from <span class='title'>{{response.email}}</span>
-					<span class='note'>{{response.createdAt}}</span>
-				</div>
-				<div class='card-body message-content-body'>{{response.content}}</div>
-				<div class='card-footer' ng-show="$last">
-					<button class="card-button">Reply</button>
-					<button class='card-button'>Forward</button>
-				</div>
-			</div>
+			<convo-card
+				title="{{curMessage.email}}"
+				note="{{curMessage.createdAt}}"
+				body="{{curMessage.content}}">
+			</convo-card>
+			<convo-card
+				ng-repeat-start="resp in curMessage.thread"
+				ng-if="!$last"
+				title="{{resp.email}}"
+				note="{{resp.createdAt}}"
+				body="{{resp.content}}">
+			</convo-card>
+			<convo-card
+				ng-repeat-end ng-if="$last"
+				title="{{resp.email}}"
+				note="{{resp.createdAt}}"
+				body="{{resp.content}}"
+				showfooter="true">
+			</convo-card>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-var webresponseApp = angular.module('webresponseApp', [ 'ngRoute', 'webresponseControllers', 'webresponseServices']);
+var webresponseApp = angular.module('webresponseApp', [ 'ngRoute', 'webresponseControllers', 'webresponseServices', 'webresponseDirectives']);
 
 webresponseApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
