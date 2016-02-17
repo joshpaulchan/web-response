@@ -127,7 +127,7 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 });
 
 
-webresponseControllers.controller('MessageViewCtrl', function($scope, messages) {
+webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, messages) {
 
 	$scope.$watch(function() {
 		return ($scope.curMessage !== messages.getCurMessage());
@@ -136,19 +136,28 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, messages) 
 	});
 
 	var createNewMessage = function(name, date, body) {
-		// TODO:
-		var msgCard = new MessageCard(name, date, body);
+		var msgCard = $compile(
+			'<convo-card title="' + name +
+			'" note="' + date +
+			'" body="' + body +
+			'" showfooter=true reply="reply" forward="forward"></convo-card>')($scope);
+		console.log(msgCard);
 		return msgCard;
 	};
 
 	$scope.reply = function() {
-		// TODO:
+		var msgCard = createNewMessage('me', new Date().toString(), 'hello, it\'s me');
+		var msgList = document.querySelector('#main').querySelector('.list');
+
+		// Insert into DOM
+		angular.element(msgList).append(msgCard);
 	};
 
 	$scope.forward = function() {
 		var msgCard = createNewMessage();
 		var msgList = document.querySelector('#main').querySelector('.list');
 
+		// Insert into DOM
 		msgList.append(msgCard.html());
 	};
 
