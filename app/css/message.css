@@ -79,6 +79,7 @@
 
 #main {
     height: calc(100vh - 40px - 40px - 104px);
+    background: #5f6a72;
 }
 
 #list .message-list {
@@ -333,11 +334,12 @@ input[type="search"].search-input:focus {
 
 .convo-content {
   /*border: 1px solid #333;*/
+  font-family: Open Sans;
 }
 
 .convo-content > .header {
   height: 100px;
-  background: #34495e;
+  /*background: #34495e;*/
 
   margin-bottom: 2em;
 
