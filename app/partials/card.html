@@ -1,10 +1,10 @@
     <div class='card convo-card card-shadow'>
     <div class='card-header'>
-        from <span class='title'>{{response.email}}</span>
-        <span class='note'>{{response.createdAt}}</span>
+        from <span class='title'>{{title}}</span>
+        <span class='note'>{{note}}</span>
     </div>
-    <div class='card-body message-content-body'>{{response.content}}</div>
-    <div class='card-footer' ng-show="$last">
+    <div class='card-body message-content-body'>{{body}}</div>
+    <div class='card-footer' ng-show="showfooter">
         <button class='card-button'>Reply</button>
         <button class='card-button'>Forward</button>
     </div>
