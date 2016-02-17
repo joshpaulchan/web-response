@@ -42,6 +42,12 @@
  *	CARD STRUCTURES
  */
 
+ .card-forms {
+   float: left;
+   margin: 0;
+   padding: 0;
+ }
+
 .card-header {
     display: block;
     padding: 1em;
@@ -66,6 +72,17 @@
     color: #777;
 }
 
+.note {
+  margin: 0;
+  padding: 0;
+}
+
+.card-time-date {
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
 .card-body {
   display: block;
   padding: 1em 3em;
@@ -74,7 +91,13 @@
 }
 
 .card-body * {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+}
+
+.card-reply-body {
+  display: block;
+  padding: 0;
+  font-family: inherit;
 }
 
 .card-text {

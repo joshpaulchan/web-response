@@ -91,27 +91,25 @@
     overflow-y: auto;
 }
 
-#main .reply-from-box {
-  position: inherit;;
-  width: 100%;
+#main .reply-header-box {
+  position: inherit;
+  width: 165%;
 	height: 30px;
 	margin: 0;
 	padding: 0;
 	background: inherit;
-  float: left;
 }
 
-#main .reply-from-container {
+#main .reply-header-container {
   position: inherit;
 	padding: 0;
 	background: inherit;
 	width: 100%;
 	height: 100%;
-
 	font-size: 18px;
 }
 
-#main .reply-from-input {
+#main .reply-header-input {
   position: inherit;
 
   border: 0;
@@ -130,7 +128,7 @@
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
 
-  text-indent: .25em;
+  text-indent: .2em;
   color: black;
   font-size: 16px;
   font-weight: 700;
@@ -144,8 +142,8 @@
   position: inherit;
   width: 100%;
 	height: 200px;
-	margin-bottom: 10px;
-	padding: 0;
+	margin: 0;
+	padding: 20px 20px;
 	background: inherit;
 }
 
@@ -163,12 +161,12 @@
 
 	border: 0;
 	padding: 10px;
-  margin: 0;
+  margin-bottom: 20px;
 
 	background: transparent;
 
-	width: 100%;
-	height: 200px;
+	width: 90%;
+	height: 180px;
 
 	-webkit-box-shadow: 0;
 	-moz-box-shadow: 0;
@@ -177,7 +175,7 @@
 	-webkit-appearance: textfield;
 	-moz-appearance: textfield;
 
-	text-indent: .25em;
+	text-indent: 0;
 	color: black;
 	font-size: 14px;
   font-family: inherit;

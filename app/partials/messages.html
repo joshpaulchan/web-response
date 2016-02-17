@@ -164,63 +164,71 @@
 
 	<!-- MESSAGE CONTENT -->
 	<div id='main' ng-controller="MessageViewCtrl" class='pure-u-12-24'>
-	<div ng-show="(curMessage != null)" class='convo-content'>
-		<div class='header'>
-			<span class="title">{{curMessage.subject}}</span>
-			<span class="meta-info">Who, when</span>
-			<div class="technical-info">
-				<ul>
-					<li>Browser:</li>
-					<li>something:</li>
-				</ul>
-			</div>
-		</div>
-		<div class='list'>
-			<div class='card convo-card card-shadow'>
-				<div class='card-header'>
-					<span class='title'>{{curMessage.email}}</span>
-					<span class='note'>Feb 10 2016 3:43 PM</span>
-				</div>
-				<div class='card-body message-content-body'>{{curMessage.content}}</div>
-			</div>
-			<div class='card card-shadow'>
-				<div class='card-header'>
-					<span class='title'>jpc256@rutgers.edu</span>
-					<span class='note'>Feb 10 2016 3:43 PM</span>
-				</div>
-				<div class='card-body'>
-					<p>Ah</p
-					<p>Yes</p>
-				</div>
-				<div class='card-footer'>
-					<button class="card-button" ng-click="reply">Reply</button>
-					<button class='card-button'>Forward</button>
+		<div ng-show="(curMessage != null)" class='convo-content'>
+			<div class='header'>
+				<span class="title">{{curMessage.subject}}</span>
+				<span class="meta-info">Who, when</span>
+				<div class="technical-info">
+					<ul>
+						<li>Browser:</li>
+						<li>something:</li>
+					</ul>
 				</div>
 			</div>
+			<div class='list'>
+				<div class='card convo-card card-shadow'>
+					<div class='card-header'>
+						<span class='title'>{{curMessage.email}}</span>
+						<span class='note'>Feb 10 2016 3:43 PM</span>
+					</div>
+					<div class='card-body message-content-body'>{{curMessage.content}}</div>
+				</div>
 				<div class='card card-shadow'>
 					<div class='card-header'>
-						<div class="reply-from-box">
-							<form class="reply-from-container">
-								<input class="reply-from-input" placeholder="FROM"></input>
-							</form>
-						</div>
-						<div class="reply-from-box">
-							<form class="reply-from-container">
-								<input class="reply-from-input" placeholder="TO"></input>
-							</form>
-						</div>
+						<span class='title'>jpc256@rutgers.edu</span>
+						<span class='note'>Feb 10 2016 3:43 PM</span>
 					</div>
 					<div class='card-body'>
+						<p>Ah</p
+						<p>Yes</p>
+					</div>
+					<div class='card-footer'>
+						<button class="card-button" ng-click="reply">Reply</button>
+						<button class='card-button'>Forward</button>
+					</div>
+				</div>
+				<div class='card convo-card card-shadow'>
+					<div class='card-header'>
+						<div class='card-forms'>
+							<div class="reply-header-box">
+								<form class="reply-header-container">
+									<input class="reply-header-input" placeholder="FROM email here (autofill)"></input>
+								</form>
+							</div>
+							<div class="reply-header-box">
+								<form class="reply-header-container">
+									<input class="reply-header-input" placeholder="TO email here (autofill)"></input>
+								</form>
+							</div>
+						</div>
+						<div class="header-time-date">
+							<div class="note">
+								Current Date and Time Here
+							</div>
+						</div>
+					</div>
+					<div class="card-reply-body">
 						<div class='reply-body-box'>
 							<form class="reply-body-container">
 								<textarea ng-model="textarea" placeholder="Reply..." class="reply-body-input"></textarea>
 							</form>
 						</div>
+						<div class='card-footer'>
+							<button class="card-button" ng-click="reply">Send</button>
+							<button class='card-button'>Draft</button>
+						</div>
 					</div>
-					<div class='card-footer'>
-						<button class="card-button" ng-click="reply">Send</button>
-						<button class='card-button'>Draft</button>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
