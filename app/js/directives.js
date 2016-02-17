@@ -10,11 +10,11 @@ webresponseDirectives.directive('convoCard', function() {
             title: '@',
             note: '@',
             body: '@',
-            showfooter: '='
+            showfooter: '=',
+            reply: '=',
+            forward: '='
         },
         templateUrl: 'partials/card.html',
-        link: function($scope, elem, attrs) {
-            console.log($scope);
-        }
+        link: function($scope, elem, attrs) {}
     };
 });
