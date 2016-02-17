@@ -1,11 +1,14 @@
 # TODO
 
++ show footer on support messages if it's the only thing
++ change showfooter on directive to show controls
++ Use the new contenteditable cards
+
 + Rename message-relevant things to a conversation
-+ Style the converation headers
++ Plan registration
+
 + Fix tabbing
 + Implement a modal directive
-+ Build 'choice' (select) button
-	- using JS & input, so you can input a name
 + Registration service
 + Figure out how to git push to production/staging server
 	- what url?
@@ -23,6 +26,17 @@
 + Make an 'empty state' feature for no message selected
 
 # CHANGED
+
+**2.17.2016**
++ Implement the convo-card directive
+	+ Implement loading and dynamic generation
+	+ Replace it in messages.html
+
+
+**2.16.2016**
+__JC__
++ Style the conversation headers
++ Re-style cards
 
 **2.15*2016**
 __JC__
