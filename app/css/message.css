@@ -327,7 +327,7 @@ input[type="search"].search-input:focus {
 	background: rgb(240, 147, 134);
 }
 .message-item-unread {
-    border-left: 6px solid #1b98f8;
+    border-left: 6px solid #cc0033;
 }
 
 /* Conversation Content Styles */
