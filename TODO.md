@@ -1,31 +1,31 @@
 # TODO
 
-+ show footer on support messages if it's the only thing
-+ change showfooter on directive to show controls
-+ Use the new contenteditable cards
++ Implement a modal directive
+
++ Conversations
+	+ Rename messages to this in css, JS
+	+ make send button do stuff & remove itself
+	+ Implement a suggestion drop down
+	+ Stop persistency across messages
 
 + Rename message-relevant things to a conversation
 + Plan registration
++ Style technical info
 
-+ Fix tabbing
-+ Implement a modal directive
-+ Registration service
-+ Figure out how to git push to production/staging server
-	- what url?
-	- permissions?
 
-### 3rd Release
-
-### 2nd Release
 + Searching & queries
-+ Implement threading of messages
-
-### 1st Release
-
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
 
 # CHANGED
+
+**2.28.2016**
+__JC__
++ Fix tabbing
++ show footer on support messages if it's the only thing
++ change showfooter on directive to show controls
++ Use the new contenteditable cards
++ Separate the directives and fix the look of a few cards
 
 **2.17.2016**
 + Implement the convo-card directive
