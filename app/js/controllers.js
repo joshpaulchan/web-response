@@ -135,11 +135,13 @@ webresponseControllers.controller('MessageListCtrl', ['$scope', 'messages', func
 webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', function($scope, messages) {
 
 	$scope.curMessage = messages.curMessage;
+	$scope.forwardPressed = false;
 
 	$scope.$watch(function() {
 		return ($scope.curMessage !== messages.curMessage);
 	}, function(newMessage, oldMessage, scope) {
 		$scope.curMessage = messages.curMessage;
+		$scope.forwardPressed = false;
 	});
 
 	$scope.moveMessageTo = function(message, dest) {
@@ -155,8 +157,8 @@ webresponseControllers.controller('MessageViewCtrl', ['$scope', 'messages', func
 		// TODO:
 	};
 
-	$scope.forward = function() {
-		// TODO:
+	$scope.forward = function() { //Not Sure if this is the best implementation... -Daniel
+		$scope.forwardPressed = !$scope.forwardPressed;
 	};
 
 }]);

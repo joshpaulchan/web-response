@@ -191,17 +191,19 @@
 				<div class='card-body message-content-body'>{{response.content}}</div>
 				<div class='card-footer' ng-show="$last">
 					<button class="card-button">Reply</button>
-					<button class='card-button'>Forward</button>
+					<button class='card-button' ng-click="forward()">Forward</button>
 				</div>
 			</div>
 
-
-			<!--Forwarding modal. Incomplete, no guaranteed behavior.-->
-			<div class="card convo-card card-shadow" id="message-forward-modal">
+			<!--Forwarding modal. Incomplete, no guaranteed behavior.
+			Whenever the forward button is pressed, the value of a boolean "forwardPressed"
+			changes in the controller. Then, this
+			-->
+			<div class="card convo-card card-shadow" id="message-forward-modal" ng-show="forwardPressed"> 
 				<div class="card-body card-message-form">
 					<form class="pure-form pure-form-stacked pure-u-1-1">
 						<fieldset class="pure-group">
-							<input class="message-forward-text-field pure-input-1" id="message-forward-recipients" type="email" placeholder="Recipients" />
+							<input class="message-forward-text-field pure-input-1" id="message-forward-recipients" type="email" placeholder="Recipients" autofocus="autofocus" />
 							<input class="message-forward-text-field pure-input-1" id="message-forward-subject" type="text" placeholder="Subject" value="FWD: {{curMessage.subject}}" /> <!--The user can change the subject if they want-->
 							<textarea class="message-forward-text-field pure-input-1" id="message-forward-body" placeholder="Additional message" rows="8"></textarea>
 						</fieldset>
