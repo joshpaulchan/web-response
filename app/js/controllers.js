@@ -136,11 +136,7 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 	});
 
 	var createNewMessage = function(name, date, body) {
-		var msgCard = $compile(
-			'<convo-card title="' + name +
-			'" note="' + date +
-			'" body="' + body +
-			'" showfooter=true reply="reply" forward="forward"></convo-card>')($scope);
+		var msgCard = $compile('<convo-card><card-body-input></card-body-input></convo-card>')($scope);
 		console.log(msgCard);
 		return msgCard;
 	};
