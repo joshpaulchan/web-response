@@ -83,14 +83,9 @@
 
 .card-body-input {
 	outline: 0;
-	display: block;
-    padding: 1em 2em;
-	width: calc(100% - 4em);
 	-webkit-appearance: none;
 	background: transparent;
-	whitespace: pre;
     font-family: Cabin;
-    line-height: 1.5em;
 }
 
 .card-footer {
