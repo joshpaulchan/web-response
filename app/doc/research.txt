@@ -21,3 +21,14 @@ https://roundcube.net/about/#features
 http://toppersworld.com/top-10-free-and-open-source-webmail-software/
 http://www.afterlogic.org/webmail-lite
 http://www.webhostingreviewslist.com/development/10-best-phpmysql-free-webmail-scripts-for-your-website/
+
+
+https://cloud.google.com/appengine/docs/php/mail/ --> possible solution
+
+RESTful API solution:
+Zimbra
+    https://wiki.zimbra.com/wiki/Zimbra_REST_API_Reference
+
+Office 365
+    https://msdn.microsoft.com/en-us/office/office365/api/mail-rest-operations
+
