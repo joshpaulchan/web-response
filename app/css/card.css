@@ -19,6 +19,7 @@
     width: 100%;
     margin-bottom: 2em;
     background: white;
+    color: black;
 }
 
 .card-shadow {
@@ -47,7 +48,6 @@
     position: relative;
     padding: 1em;
     border-bottom: 1px solid #eee;
-    color: #333;
 
     width: calc(100% - 2em);
     font-size: 13.333px;
@@ -67,17 +67,30 @@
 
 .card-body {
   display: block;
-  padding: 1em 3em;
-  font-family: inherit;
+  padding: 1em 2em;
+  font-family: Cabin;
+  font-weight: 500;
   line-height: 1.5em;
+
+  overflow: hidden;
+  white-space: pre-wrap;
+  text-overflow: clip;
 }
 
 .card-body * {
   margin-bottom: 1em;
 }
 
-.card-text {
+.card-body-input {
+	outline: 0;
+	display: block;
+    padding: 1em 2em;
+	width: calc(100% - 4em);
+	-webkit-appearance: none;
+	background: transparent;
+	whitespace: pre;
     font-family: Cabin;
+    line-height: 1.5em;
 }
 
 .card-footer {
@@ -92,8 +105,13 @@
  * CARD FOOTER BUTTONS
  */
 
+.card-footer a {
+    display: block;
+    padding: 1em 0;
+    font-weight: 600;
+}
+
 .card-footer .card-button {
-    float: right;
     padding: 0 1em;
     height: 50px;
     border: 0;
@@ -110,6 +128,10 @@
     font-size: 13.33px;
 
     transition: 0.2s color, 0.2s background-color;
+}
+
+.card-footer .button-group {
+    display: block;
 }
 
 .card-footer .card-button:hover {
@@ -190,7 +212,7 @@
     width: calc(100% - 2em);
     margin: 0 auto;
     margin-bottom: 2em;
-    padding: 1em 0;
+    padding: 2em 0;
     background: #cc0033;
     background: -webkit-linear-gradient(to top, #cc0033, #bf0030);
     background: linear-gradient(to top, #cc0033, #bf0030);
@@ -201,7 +223,7 @@
     display: block;
     content: "";
     position: absolute;
-    bottom: -2em;
+    bottom: -1.95em;
     width: 0;
     height: 0;
     background: transparent;

@@ -368,15 +368,8 @@ input[type="search"].search-input:focus {
 
 /* message Content Styles */
 
-.message-content-header, .message-content-body, .message-content-footer {
+.message-content-header, .message-content-footer {
     padding: 1em 2em;
-}
-.message-content-body {
-	/*width: 100%;*/
-	font-size: 0.9em;
-	overflow: hidden;
-	white-space: pre-wrap;
-	text-overflow: clip;
 }
 .message-content-title {
     margin: 0.5em 0 0;
