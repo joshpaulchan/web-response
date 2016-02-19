@@ -327,7 +327,7 @@ input[type="search"].search-input:focus {
 	background: rgb(240, 147, 134);
 }
 .message-item-unread {
-    border-left: 6px solid #1b98f8;
+    border-left: 6px solid #cc0033;
 }
 
 /* Conversation Content Styles */
@@ -337,13 +337,28 @@ input[type="search"].search-input:focus {
   font-family: Open Sans;
 }
 
+/*CONVERSATION HEADER STYLE*/
+
 .convo-content > .header {
-  height: 100px;
-  /*background: #34495e;*/
+    padding: 1em;
+    margin-bottom: 1em;
+    color: white;
+    font-family: Open Sans;
+    background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.4));
+}
 
-  margin-bottom: 2em;
+.header .title {
+  display: block;
+  margin: 0;
+  text-shadow: 0 1px 2px #333;
+}
 
-  color: white;
+.meta-info {
+  font-size: 14px;
+}
+
+.meta-info .time {
+  color: #22A7F0;
 }
 
 .convo-content > .list {
@@ -353,18 +368,8 @@ input[type="search"].search-input:focus {
 
 /* message Content Styles */
 
-.message-content-header, .message-content-body, .message-content-footer {
+.message-content-header, .message-content-footer {
     padding: 1em 2em;
-}
-.message-content-header, .message-content-body {
-    border-bottom: 1px solid #ddd;
-}
-.message-content-body {
-	/*width: 100%;*/
-	font-size: 0.9em;
-	overflow: hidden;
-	white-space: pre-wrap;
-	text-overflow: clip;
 }
 .message-content-title {
     margin: 0.5em 0 0;
