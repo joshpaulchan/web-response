@@ -181,6 +181,7 @@
 			</div>
 		</div>
 		<div class='list'>
+<<<<<<< HEAD
 			<convo-card>
 				<card-header>
 					from <span class="title">{{curMessage.email}}</span>
@@ -235,8 +236,51 @@
 					<button class="card-button">Send</button>
 				</div>
 				<script>document.querySelector("#message-forward-modal").show();</script>
+=======
+			<div ng-repeat-start="resp in curMessage.thread" ng-if="!$last">
+				<convo-card>
+					<card-header>
+						from <span class="title">{{resp.email}}</span>
+						<span class="note">{{resp.createdAt}}</span>
+					</card-header>
+					<card-body>{{resp.content}}</card-body>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="forward()">Forward</button>
+						</div>
+					</card-footer>
+				</convo-card>
 			</div>
-
+			<div ng-repeat-end ng-if="$last">
+				<convo-card>
+					<card-header>
+						from <span class="title">{{resp.email}}</span>
+						<span class="note">{{resp.createdAt}}</span>
+					</card-header>
+					<card-body>{{resp.content}}</card-body>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="forward()">Forward</button>
+						</div>
+					</card-footer>
+				</convo-card>
+				<convo-card>
+					<card-header>
+						from <span class="title">user.email</span>
+						<span class="note">{{resp.createdAt}}</span>
+					</card-header>
+					<card-header>
+						to <span class="title">them. them, them</span>
+					</card-header>
+					<card-body-input></card-body-input>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="reply()">Send</button>
+						</div>
+					</card-footer>
+				</convo-card>
+>>>>>>> d8c28f3125dd17ee0bbb4d6a57277c08f090ae87
+			</div>
 		</div>
 	</div>
 </div>
