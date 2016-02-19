@@ -232,9 +232,40 @@
 				</div>
 				<div class="card-footer">
 					<button class="card-button">Send</button>
->>>>>>> refs/remotes/origin/convo-feature
 				</div>
 			</div>
+
+			<div class='card convo-card card-shadow'>
+				<div class='card-header'>
+					<div class='card-forms'>
+						<div class="reply-header-box">
+							<form class="reply-header-container">
+								<input class="reply-header-input" placeholder="FROM email here (autofill)"></input>
+							</form>
+						</div>
+						<div class="reply-header-box">
+							<form class="reply-header-container">
+								<input class="reply-header-input" placeholder="TO email here (autofill)"></input>
+							</form>
+						</div>
+					</div>
+					<div class="header-time-date">
+						<div class="note">
+							Current Date and Time Here
+						</div>
+					</div>
+				</div>
+				<div class="card-reply-body">
+					<div class='reply-body-box'>
+						<form class="reply-body-container">
+							<textarea ng-model="textarea" placeholder="Reply..." class="reply-body-input"></textarea>
+						</form>
+					</div>
+					<div class='card-footer'>
+						<button class="card-button" ng-click="reply">Send</button>
+						<button class='card-button'>Draft</button>
+					</div>
+				</div>
 
 		</div>
 	</div>
