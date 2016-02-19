@@ -25,7 +25,7 @@ webresponseDirectives.directive('cardBody', function() {
     return {
         restrict: 'E',
         transclude: true,
-        template: "<div class='card-body card-body-input' ng-transclude></div>",
+        template: "<div class='card-body' ng-transclude></div>",
         link: function($scope, elem, attrs) {}
     };
 });
