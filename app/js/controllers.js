@@ -122,7 +122,7 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 
 	$scope.viewMessage = function(message) {
 		// 1. set is as new message
-1		if (messages.getCurMessage() !== message) {
+		if (messages.getCurMessage() !== message) {
 			messages.setCurMessage(message);
 		} else {
 			messages.setCurMessage(null);
