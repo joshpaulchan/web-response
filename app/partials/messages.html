@@ -211,7 +211,8 @@
 				<card-body-input></card-body-input>
 				<card-footer>
 					<div class="button-group float-right">
-						<button class="card-button" ng-click="reply()">Send</button>
+						<button class="card-button" ng-click="reply()" ng-model="replyBodyContents">Send</button>
+						<span>Hello {{replyBodyContents}}</span>
 					</div>
 				</card-footer>
 			</convo-card>
@@ -220,7 +221,7 @@
 			Whenever the forward button is pressed, the value of a boolean "forwardPressed"
 			changes in the controller. Then, this
 			-->
-			<div class="card convo-card card-shadow" id="message-forward-modal" ng-show="forwardPressed">
+			<div class="card convo-card card-shadow" id="message-forward-modal" ng-if="forwardPressed">
 				<div class="card-body card-message-form">
 					<form class="pure-form pure-form-stacked pure-u-1-1">
 						<fieldset class="pure-group">
@@ -233,6 +234,7 @@
 				<div class="card-footer">
 					<button class="card-button">Send</button>
 				</div>
+				<script>document.querySelector("#message-forward-modal").show();</script>
 			</div>
 
 		</div>
