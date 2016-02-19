@@ -181,13 +181,6 @@
 			</div>
 		</div>
 		<div class='list'>
-			<convo-card>
-				<card-header>
-					from <span class="title">{{curMessage.email}}</span>
-					<span class="note">{{curMessage.createdAt}}</span>
-				</card-header>
-				<card-body>{{curMessage.content}}</card-body>
-			</convo-card>
 			<convo-card ng-repeat="resp in curMessage.thread">
 				<card-header>
 					from <span class="title">{{resp.email}}</span>
@@ -216,11 +209,14 @@
 				</card-footer>
 			</convo-card>
 
+			<convo-card>
+				<card-body>{{replyFormContent}}</card-body>
+			</convo-card>
 			<!--Forwarding modal. Incomplete, no guaranteed behavior.
 			Whenever the forward button is pressed, the value of a boolean "forwardPressed"
 			changes in the controller. Then, this
 			-->
-			<div class="card convo-card card-shadow" id="message-forward-modal" ng-show="forwardPressed">
+			<div class="card convo-card card-shadow" id="message-forward-modal" ng-if="forwardPressed">
 				<div class="card-body card-message-form">
 					<form class="pure-form pure-form-stacked pure-u-1-1">
 						<fieldset class="pure-group">
@@ -233,6 +229,7 @@
 				<div class="card-footer">
 					<button class="card-button">Send</button>
 				</div>
+				<script>document.querySelector("#message-forward-modal").show();</script>
 			</div>
 		</div>
 	</div>
