@@ -104,6 +104,15 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 		});
 	};
 
+	$scope.curMessage = messages.curMessage;
+	$scope.forwardPressed = false;
+
+	$scope.$watch(function() {
+		return ($scope.curMessage !== messages.curMessage);
+	}, function(newMessage, oldMessage, scope) {
+		$scope.curMessage = messages.curMessage;
+		$scope.forwardPressed = false;
+	});
 	$scope.clearSelected = function() {
 		$scope.messages = $scope.messages.map(function(message, i) {
 			message.status.selected = false;
@@ -144,19 +153,18 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 	$scope.reply = function() {
 		var msgCard = createNewMessage('me', new Date().toString(), 'hello, it\'s me');
 		var msgList = document.querySelector('#main').querySelector('.list');
-
-		// Insert into DOM
-		angular.element(msgList).append(msgCard);
 	};
 
 	$scope.forward = function() {
-		var msgCard = createNewMessage();
-		var msgList = document.querySelector('#main').querySelector('.list');
+		//Not Sure if this is the best implementation... -Daniel
+		$scope.forwardPressed = !$scope.forwardPressed;
+
+		// var msgCard = createNewMessage();
+		// var msgList = document.querySelector('#main').querySelector('.list');
 
 		// Insert into DOM
-		msgList.append(msgCard.html());
+		// msgList.append(msgCard.html());
 	};
-
 });
 
 webresponseControllers.controller('LoginCtrl', function($scope, $location, auth) {
