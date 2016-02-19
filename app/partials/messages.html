@@ -10,7 +10,7 @@
 	</div>
 
 	<!-- NAVIGATION -->
-	<div id='nav' class='pure-u-1-1'>
+	<div id='nav' class='pure-u-1-1' ng-controller="MessageNavBarCtrl">
 		<div class='pure-g'>
 			<div class='pure-u-1-1'>
 				<div class='nav-inner-top'>
@@ -103,10 +103,10 @@
 							Action
 						</div>
 						<ul class="pure-menu-children">
-							<li class="pure-menu-item" ng-click="#">
+							<li class="pure-menu-item">
 								<div class="pure-menu-link">Reply</div>
 							</li>
-							<li class="pure-menu-item" ng-click="#" >
+							<li class="pure-menu-item">
 								<div href="#" class="pure-menu-link">Forward</div>
 							</li>
 						</ul>
@@ -143,18 +143,21 @@
 
 		<div class='message-list'>
 
-			<div ng-repeat="message in messages | filter:statusFilter" class='message-item pure-g' ng-class="{'message-item-unread': message.status.unread, 'message-item-selected': message.status.selected, 'message-item-open': message.status.open}" ng-click="setCurMessage(message)">
+			<div class='message-item pure-g'
+				ng-repeat="msg in messages | filter:statusFilter"
+				ng-class="{'message-item-unread': msg.status.unread, 'message-item-selected': msg.status.selected, 'message-item-open': msg.status.open}"
+				ng-click="viewMessage(msg)">
 				<div class='pure-u-1-24'>
-					<input type='checkbox' class='select' ng-model="message.status.selected" />
+					<input type='checkbox' class='select' ng-model="msg.status.selected" />
 				</div>
 				<div class='pure-u-9-24'>
-					<h5 class='message-email'>{{message.email}}</h5>
+					<h5 class='message-email'>{{msg.email}}</h5>
 				</div>
 				<div class='pure-u-10-24'>
-					<h5 class='message-subject'>{{message.subject}}</h5>
+					<h5 class='message-subject'>{{msg.subject}}</h5>
 				</div>
 				<div class='pure-u-4-24'>
-					<h5 class='message-date'>{{message.date}}</h5>
+					<h5 class='message-date'>{{msg.createdAt}}</h5>
 				</div>
 			</div>
 
@@ -164,72 +167,75 @@
 
 	<!-- MESSAGE CONTENT -->
 	<div id='main' ng-controller="MessageViewCtrl" class='pure-u-12-24'>
-		<div ng-show="(curMessage != null)" class='convo-content'>
-			<div class='header'>
-				<span class="title">{{curMessage.subject}}</span>
-				<span class="meta-info">Who, when</span>
-				<div class="technical-info">
-					<ul>
-						<li>Browser:</li>
-						<li>something:</li>
-					</ul>
+	<div ng-show="(curMessage != null)" class='convo-content'>
+		<div class='header'>
+			<h1 class="title">{{curMessage.subject}}</h1>
+			<span class="meta-info">
+				created on <span class="time">{{curMessage.createdAt}}</span>
+			</span>
+			<div class="technical-info">
+				<ul>
+					<li>Browser:</li>
+					<li>something:</li>
+				</ul>
+			</div>
+		</div>
+		<div class='list'>
+			<convo-card>
+				<card-header>
+					from <span class="title">{{curMessage.email}}</span>
+					<span class="note">{{curMessage.createdAt}}</span>
+				</card-header>
+				<card-body>{{curMessage.content}}</card-body>
+			</convo-card>
+			<convo-card ng-repeat="resp in curMessage.thread">
+				<card-header>
+					from <span class="title">{{resp.email}}</span>
+					<span class="note">{{resp.createdAt}}</span>
+				</card-header>
+				<card-body>{{resp.content}}</card-body>
+				<card-footer>
+					<div class="button-group float-right">
+						<button class="card-button" ng-click="forward()">Forward</button>
+					</div>
+				</card-footer>
+			</convo-card>
+			<convo-card>
+				<card-header>
+					from <span class="title">user.email</span>
+					<span class="note">{{resp.createdAt}}</span>
+				</card-header>
+				<card-header>
+					to <span class="title">them. them, them</span>
+				</card-header>
+				<card-body-input></card-body-input>
+				<card-footer>
+					<div class="button-group float-right">
+						<button class="card-button" ng-click="reply()">Send</button>
+					</div>
+				</card-footer>
+			</convo-card>
+
+			<!--Forwarding modal. Incomplete, no guaranteed behavior.
+			Whenever the forward button is pressed, the value of a boolean "forwardPressed"
+			changes in the controller. Then, this
+			-->
+			<div class="card convo-card card-shadow" id="message-forward-modal" ng-show="forwardPressed">
+				<div class="card-body card-message-form">
+					<form class="pure-form pure-form-stacked pure-u-1-1">
+						<fieldset class="pure-group">
+							<input class="message-forward-text-field pure-input-1" id="message-forward-recipients" type="email" placeholder="Recipients" autofocus="autofocus" />
+							<input class="message-forward-text-field pure-input-1" id="message-forward-subject" type="text" placeholder="Subject" value="FWD: {{curMessage.subject}}" /> <!--The user can change the subject if they want-->
+							<textarea class="message-forward-text-field pure-input-1" id="message-forward-body" placeholder="Additional message" rows="8"></textarea>
+						</fieldset>
+					</form>
+				</div>
+				<div class="card-footer">
+					<button class="card-button">Send</button>
+>>>>>>> refs/remotes/origin/convo-feature
 				</div>
 			</div>
-			<div class='list'>
-				<div class='card convo-card card-shadow'>
-					<div class='card-header'>
-						<span class='title'>{{curMessage.email}}</span>
-						<span class='note'>Feb 10 2016 3:43 PM</span>
-					</div>
-					<div class='card-body message-content-body'>{{curMessage.content}}</div>
-				</div>
-				<div class='card card-shadow'>
-					<div class='card-header'>
-						<span class='title'>jpc256@rutgers.edu</span>
-						<span class='note'>Feb 10 2016 3:43 PM</span>
-					</div>
-					<div class='card-body'>
-						<p>Ah</p
-						<p>Yes</p>
-					</div>
-					<div class='card-footer'>
-						<button class="card-button" ng-click="reply">Reply</button>
-						<button class='card-button'>Forward</button>
-					</div>
-				</div>
-				<div class='card convo-card card-shadow'>
-					<div class='card-header'>
-						<div class='card-forms'>
-							<div class="reply-header-box">
-								<form class="reply-header-container">
-									<input class="reply-header-input" placeholder="FROM email here (autofill)"></input>
-								</form>
-							</div>
-							<div class="reply-header-box">
-								<form class="reply-header-container">
-									<input class="reply-header-input" placeholder="TO email here (autofill)"></input>
-								</form>
-							</div>
-						</div>
-						<div class="header-time-date">
-							<div class="note">
-								Current Date and Time Here
-							</div>
-						</div>
-					</div>
-					<div class="card-reply-body">
-						<div class='reply-body-box'>
-							<form class="reply-body-container">
-								<textarea ng-model="textarea" placeholder="Reply..." class="reply-body-input"></textarea>
-							</form>
-						</div>
-						<div class='card-footer'>
-							<button class="card-button" ng-click="reply">Send</button>
-							<button class='card-button'>Draft</button>
-						</div>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
 </div>

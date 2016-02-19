@@ -1,8 +1,4 @@
-var webresponseApp = angular.module('webresponseApp', [
-'ngRoute',
-'webresponseControllers',
-'webresponseServices'
-]);
+var webresponseApp = angular.module('webresponseApp', [ 'ngRoute', 'webresponseControllers', 'webresponseServices', 'webresponseDirectives']);
 
 webresponseApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
@@ -14,10 +10,6 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/messages.html',
 			controller: 'MessageCtrl'
 		}).
-		when('/forward/:messageId', {
-			templateUrl: 'partials/forwarding.html',
-			controller: 'MessageForwardingCtrl'
-		}).
 		when('/login', {
 			templateUrl: 'partials/login.html',
 			controller: 'LoginCtrl'
@@ -28,11 +20,8 @@ webresponseApp.config(['$routeProvider', function($routeProvider) {
 }]).run(['$route', '$rootScope', '$location', 'auth', function ($route, $rootScope, $location, auth) {
 	$rootScope.$on('$routeChangeStart', function (event) {
         if (!auth.isLoggedIn()) {
-            console.log('DENY');
+            // console.log('DENY');
             $location.path('/login', true);
-        }
-        else {
-            console.log('ALLOW');
         }
     });
 
