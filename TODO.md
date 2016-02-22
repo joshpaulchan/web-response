@@ -1,37 +1,49 @@
 # TODO
 
-+ Fix route handling -> specific message
-+ Fix tabbing
 + Implement a modal directive
-+ Build 'choice' (select) button
-	- using JS & input, so you can input a name
-+ Registration service
-+ Figure out how to git push to production/staging server
-	- what url?
-	- permissions?
 
-### 3rd Release
++ Conversations
+	+ Rename messages to this in css, JS
+	+ make send button do stuff & remove itself
+	+ Implement a suggestion drop down
+	+ Stop persistency across messages
 
-### 2nd Release
++ Rename message-relevant things to a conversation
++ Plan registration
++ Style technical info
+
+
 + Searching & queries
-+ Implement threading of messages
-
-### 1st Release
-
 + Hook up to backend + APIs
 + Make an 'empty state' feature for no message selected
 
-+ Daniel - Forwarding
-	- A form should appear in the details view when you press the button (with controls)
-	- The form should auto-fill with the requisite information
-	- It should also display a list of suggestions as to who to forward to (select, option, etc. - look on pttrns.com for conventions)
-
-+ Jonnelin - Options
-	- Figure out how to open/close a modal (will be written for you - or you can write it) (see https://github.com/btford/angular-modal)
-	- Figure out what kinds of things should be in the settings (user info, whatever)
-	- Sketch a mockup
-
 # CHANGED
+
+**2.28.2016**
+__JC__
++ Fix tabbing
++ show footer on support messages if it's the only thing
++ change showfooter on directive to show controls
++ Use the new contenteditable cards
++ Separate the directives and fix the look of a few cards
+
+**2.17.2016**
++ Implement the convo-card directive
+	+ Implement loading and dynamic generation
+	+ Replace it in messages.html
+
+
+**2.16.2016**
+__JC__
++ Style the conversation headers
++ Re-style cards
+
+**2.15*2016**
+__JC__
++ Fix route handling -> specific message
++ Huge overhaul of controllers.js & services.js
+	- Add navbar controller
+	- rewrite setCurMessage to viewMessage
 
 **2.11.2016**
 __JC__

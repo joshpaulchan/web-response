@@ -1,399 +1,192 @@
 [
     {
         "id": 0,
-		"email": "khushbudarji@rocketmail.com",
 		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
+		"createdAt": "Jan 5, 2016",
+        "createdBy": "khushbudarji@rocketmail.com",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : false,
 			"repliedTo": true
 		},
-		"content": "Hello ,\r\nI want to get some information about course at your university .\r\n\r\nI'm from India and studying last semester of master degree in communication and system.\r\nSo , can I apply there for aerospace engineering course\r\nAnd can you please guide me some about it .\r\nI hope you will reply positively\r\n\r\nThank you\r\nGave a nice day\r\n\r\n",
         "thread": [
             {
+                "email": "khushbudarji@rocketmail.com",
+                "createdAt": "Jan 5, 2016",
+                "content": "Hello ,\r\nI want to get some information about course at your university .\r\n\r\nI'm from India and studying last semester of master degree in communication and system.\r\nSo , can I apply there for aerospace engineering course\r\nAnd can you please guide me some about it .\r\nI hope you will reply positively\r\n\r\nThank you\r\nGave a nice day\r\n\r\n"
+            },
+            {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
     },
     {
         "id": 1,
-		"email": "shirleydale658@yahoo.com",
 		"subject": "tax document for 2015",
-		"date": "Jan 2, 2016",
+		"createdAt": "Jan 2, 2016",
+        "createdBy": "shirleydale658@yahoo.com",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : false,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
         "thread": [
             {
+        		"email": "shirleydale658@yahoo.com",
+                "createdAt": "Jan 2, 2016",
+        		"content": "Hello, World!"
+            },
+            {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah"
             },
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "yes."
             }
         ]
     },
     {
         "id": 2,
-		"email": "ken.nielson@gmail.com",
 		"subject": "E-mail fraud and spam",
-		"date": "Dec 30, 2015",
+		"createdAt": "Dec 30, 2015",
+        "createdBy": "ken.nielson@gmail.com",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : true,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
-        "thread": []
+        "thread": [
+            {
+        		"email": "ken.nielson@gmail.com",
+                "createdAt": "Dec 30, 2015",
+        		"content": "Hello, World!"
+            }
+        ]
     },
     {
         "id": 3,
-		"email": "ZhouJy_seu0622@163.com",
 		"subject": "Technical Issue",
-		"date": "Dec 25, 2015",
+		"createdAt": "Dec 25, 2015",
+        "createdBy": "ZhouJy_seu0622@163.com",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : true,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
         "thread": [
             {
+        		"email": "ZhouJy_seu0622@163.com",
+                "createdAt": "Dec 25, 2015",
+        		"content": "Hello, World!"
+            },
+            {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
     },
     {
         "id": 4,
-		"email": "szatrows@rci.rutgers.edu",
 		"subject": "Link that seems to be to the wrong place",
-		"date": "Dec 17, 2015",
+		"createdAt": "Dec 17, 2015",
+        "createdBy": "szatrows@rci.rutgers.edu",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : false,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
         "thread": [
             {
+        		"email": "szatrows@rci.rutgers.edu",
+                "createdAt": "Dec 17, 2015",
+        		"content": "Hello, World!"
+            },
+            {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
     },
     {
         "id": 5,
-		"email": "bbuckley@eohsi.rutgers.edu",
 		"subject": "outdated contact information",
-		"date": "Dec 16, 2015",
+		"createdAt": "Dec 16, 2015",
+        "createdBy": "bbuckley@eohsi.rutgers.edu",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : false,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
         "thread": [
             {
+        		"email": "bbuckley@eohsi.rutgers.edu",
+                "createdAt": "Dec 16, 2015",
+        		"content": "Hello, World!"
+            },
+            {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
     },
     {
         "id": 6,
-		"email": "anna.witek@rutgers.edu",
 		"subject": "Small issue with Rutgers site in IE",
-		"date": "Dec 11, 2015",
+		"createdAt": "Dec 11, 2015",
+        "createdBy": "anna.witek@rutgers.edu",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : false,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
         "thread": [
             {
+                "email": "anna.witek@rutgers.edu",
+                "createdAt": "Dec 11, 2015",
+        		"content": "Hello, World!"
+            },
+            {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
     },
     {
         "id": 7,
-		"email": "anna.sandberg@rutgers.edu",
 		"subject": "New Online Travel Order Form Issues",
-		"date": "Dec 10, 2015",
+		"createdAt": "Dec 10, 2015",
+        "createdBy": "anna.sandberg@rutgers.edu",
 		"folder": "inbox",
 		"status": {
 			"selected": false,
 			"unread" : false,
 			"repliedTo": true
 		},
-		"content": "Hello, World!",
         "thread": [
             {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 8,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
+        		"email": "anna.sandberg@rutgers.edu",
+        		"createdAt": "Dec 10, 2015",
+        		"content": "Hello, World!"
+            },
             {
                 "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 9,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 10,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 11,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 12,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 13,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 14,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 15,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 16,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 17,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 18,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
-                "content": "Ah,\r\nyes."
-            }
-        ]
-    },
-    {
-        "id": 19,
-		"email": "khushbudarji@rocketmail.com",
-		"subject": "Aerospace Engineering",
-		"date": "Jan 5, 2016",
-		"folder": "inbox",
-		"status": {
-			"selected": false,
-			"unread" : false,
-			"repliedTo": true
-		},
-		"content": "Hello, World!",
-        "thread": [
-            {
-                "email": "person@example.com",
-                "date": "later on 13 AM",
+                "createdAt": "later on 13 AM",
                 "content": "Ah,\r\nyes."
             }
         ]
