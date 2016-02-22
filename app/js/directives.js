@@ -24,11 +24,10 @@ webresponseDirectives.directive('cardHeader', function() {
 webresponseDirectives.directive('cardHeaderInput', function() {
     return {
         restrict: 'E',
-        transclude: true,
         scope: {
             'label': '@'
         },
-        template: "<div class='card-header' ng-transclude><label>{{label}}</label></div>",
+        template: "<div class='card-header card-header-input'><label>{{label}}</label><div contenteditable='true'></div></div>",
         link: function($scope, elem, attrs) {}
     };
 });
