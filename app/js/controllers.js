@@ -153,7 +153,8 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 	$scope.reply = function() {
 		var msgCard = createNewMessage('me', new Date().toString(), 'hello, it\'s me');
 		var msgList = document.querySelector('#main').querySelector('.list');
-		$scope.replyFormContent = document.querySelector(".card-body-input").innerHTML;
+		$scope.replyFormContent = msgList.querySelector(".card-body-input").innerHTML;
+		msgList.querySelector(".card-body-input").innerHTML = "";
 	};
 
 	$scope.forward = function() {
