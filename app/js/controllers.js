@@ -154,6 +154,7 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		var msgCard = createNewMessage('me', new Date().toString(), 'hello, it\'s me');
 		var msgList = document.querySelector('#main').querySelector('.list');
 		$scope.replyFormContent = msgList.querySelector(".card-body-input").innerHTML;
+		$scope.replyFormContent = $scope.replyFormContent.replace(/<br>/g,"\r\n").replace(/<([^>]*)>/g, "");
 		msgList.querySelector(".card-body-input").innerHTML = "";
 	};
 
