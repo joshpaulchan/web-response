@@ -21,6 +21,17 @@ webresponseDirectives.directive('cardHeader', function() {
     };
 });
 
+webresponseDirectives.directive('cardHeaderInput', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            'label': '@'
+        },
+        template: "<div class='card-header card-header-input'><label>{{label}}</label><div contenteditable='true'></div></div>",
+        link: function($scope, elem, attrs) {}
+    };
+});
+
 webresponseDirectives.directive('cardBody', function() {
     return {
         restrict: 'E',

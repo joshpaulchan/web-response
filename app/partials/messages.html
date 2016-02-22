@@ -151,7 +151,7 @@
 					<input type='checkbox' class='select' ng-model="msg.status.selected" />
 				</div>
 				<div class='pure-u-9-24'>
-					<h5 class='message-email'>{{msg.email}}</h5>
+					<h5 class='message-email'>{{msg.createdBy}}</h5>
 				</div>
 				<div class='pure-u-10-24'>
 					<h5 class='message-subject'>{{msg.subject}}</h5>
@@ -181,57 +181,58 @@
 			</div>
 		</div>
 		<div class='list'>
-			<convo-card ng-repeat="resp in curMessage.thread">
-				<card-header>
-					from <span class="title">{{resp.email}}</span>
-					<span class="note">{{resp.createdAt}}</span>
-				</card-header>
-				<card-body>{{resp.content}}</card-body>
-				<card-footer>
-					<div class="button-group float-right">
-						<button class="card-button" ng-click="forward()">Forward</button>
-					</div>
-				</card-footer>
-			</convo-card>
-			<convo-card>
-				<card-header>
-					from <span class="title">user.email</span>
-					<span class="note">{{resp.createdAt}}</span>
-				</card-header>
-				<card-header>
-					to <span class="title">them. them, them</span>
-				</card-header>
-				<card-body-input></card-body-input>
-				<card-footer>
-					<div class="button-group float-right">
-						<button class="card-button" ng-click="reply()">Send</button>
-					</div>
-				</card-footer>
-			</convo-card>
-
-			<convo-card>
-				<card-body>{{replyFormContent}}</card-body>
-			</convo-card>
-			<!--Forwarding modal. Incomplete, no guaranteed behavior.
-			Whenever the forward button is pressed, the value of a boolean "forwardPressed"
-			changes in the controller. Then, this
-			-->
-			<div class="card convo-card card-shadow" id="message-forward-modal" ng-if="forwardPressed">
-				<div class="card-body card-message-form">
-					<form class="pure-form pure-form-stacked pure-u-1-1">
-						<fieldset class="pure-group">
-							<input class="message-forward-text-field pure-input-1" id="message-forward-recipients" type="email" placeholder="Recipients" autofocus="autofocus" />
-							<input class="message-forward-text-field pure-input-1" id="message-forward-subject" type="text" placeholder="Subject" value="FWD: {{curMessage.subject}}" /> <!--The user can change the subject if they want-->
-							<textarea class="message-forward-text-field pure-input-1" id="message-forward-body" placeholder="Additional message" rows="8"></textarea>
-						</fieldset>
-					</form>
-				</div>
-				<div class="card-footer">
-					<button class="card-button">Send</button>
-				</div>
-				<script>document.querySelector("#message-forward-modal").show();</script>
+			<div ng-repeat-start="resp in curMessage.thread" ng-if="!$last">
+				<convo-card>
+					<card-header>
+						from <span class="title">{{resp.email}}</span>
+						<span class="note">{{resp.createdAt}}</span>
+					</card-header>
+					<card-body>{{resp.content}}</card-body>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="forward()">Forward</button>
+						</div>
+					</card-footer>
+				</convo-card>
 			</div>
-
+			<div ng-repeat-end ng-if="$last">
+				<convo-card>
+					<card-header>
+						from <span class="title">{{resp.email}}</span>
+						<span class="note">{{resp.createdAt}}</span>
+					</card-header>
+					<card-body>{{resp.content}}</card-body>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="forward()">Forward</button>
+						</div>
+					</card-footer>
+				</convo-card>
+				<convo-card ng-show="(!!replyFormContent)">
+					<card-header>
+						from <span class="title">user.email</span>
+						<span class="note">{{resp.createdAt}}</span>
+					</card-header>
+					<card-body>{{replyFormContent}}</card-body>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="forward()">Forward</button>
+						</div>
+					</card-footer>
+				</convo-card>
+				<convo-card>
+					<card-header>
+						from <span class="title">user.email</span>
+					</card-header>
+					<card-header-input label="to"></card-header-input>
+					<card-body-input></card-body-input>
+					<card-footer>
+						<div class="button-group float-right">
+							<button class="card-button" ng-click="reply()">Send</button>
+						</div>
+					</card-footer>
+				</convo-card>
+			</div>
 		</div>
 	</div>
 </div>
