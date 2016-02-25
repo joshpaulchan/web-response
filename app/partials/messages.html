@@ -195,11 +195,10 @@
 					</card-footer>
 				</convo-card>
 				<convo-card ng-if="$last">
-					<card-header>
-						from <span class="title">user.email</span>
-					</card-header>
-					<card-header-input label="to"></card-header-input>
-					<card-body-input></card-body-input>
+					<div>
+						<card-header-input label="to" ng-model="replyForm.targetStr"></card-header-input>
+					</div>
+					<card-body-input ng-model="replyForm.content"></card-body-input>
 					<card-footer>
 						<div class="button-group float-right">
 							<button class="card-button" ng-click="reply()">Send</button>
