@@ -137,6 +137,13 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 
 
 webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, messages) {
+	$scope.replyForm = {
+		"content" : "We have lift-off.",
+		"targetStr" : "",
+		"targets" : [],
+		"targetSuggestions" : [],
+		"templates" : []
+	};
 
 	$scope.$watch(function() {
 		return ($scope.curMessage !== messages.getCurMessage());
@@ -151,14 +158,16 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 	};
 
 	$scope.reply = function() {
-		var replyContent = document.querySelector('#main').querySelector(".card-body-input").innerHTML;
-		replyContent = replyContent.replace(/<br>/g,"\r\n").replace(/<([^>]*)>/g, "");
+		var replyContent = $scope.replyForm.content
+									.replace(/<br>/g,"\r\n")
+									.replace(/<([^>]*)>/g, "");
 
 		sendMsg({
 			"email": "you",
 			"content": replyContent,
 			"createdAt": new Date().toString()
 		});
+		$scope.replyForm.content = "";
 	};
 
 	$scope.forward = function(msgData) {
@@ -166,14 +175,13 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		var content = msgData.content;
 
 		// Format forwarded content
-		content = "\n\n" + content;
 		content = content.split('\n').map(function(line, i) {
-			return String.prototype.concat(">>> ", line);
+			return "".concat(">>> ", line);
 		}).join('\n');
+		content = "\n\n" + content;
 
 		// Insert into DOM
-		var msgList = document.querySelector('#main').querySelector('.list');
-		msgList.querySelector(".card-body-input").innerHTML = content;
+		$scope.replyForm.content = content;
 	};
 });
 
