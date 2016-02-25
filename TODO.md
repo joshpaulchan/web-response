@@ -16,6 +16,10 @@
 + Make an 'empty state' feature for no message selected
 
 # CHANGED
+**2.25.2016**
+__JC__
++ Implement a contenteditable directive to use ng-model with the contenteditable divs
+	+ Now grabbing and parsin the fields for the card is gonna be a lot easier and more angular
 
 **2.23.2016**
 __JC__

@@ -77,6 +77,31 @@
     overflow: hidden;
     white-space: pre-wrap;
 }
+
+.search-results {
+  position: absolute;
+  margin: 0 1em;
+  padding: 0;
+  background: #eee;
+  list-style: none;
+  width: 100%;
+}
+
+.search-results li {
+  display: block;
+  padding: 0 1em;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.search-results li:nth-child(even) {
+}
+
+.search-results li:hover, .search-results li:active {
+  background: #6BB9F0;
+  color: white;
+}
+
 .card-body {
     display: block;
     padding: 1em 2em;
