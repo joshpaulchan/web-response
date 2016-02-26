@@ -94,6 +94,16 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 		return flag;
 	};
 
+	$scope.disableDropdown = function() {
+		var selectedMessages = $scope.getSelected();
+		var curMessage = messages.getCurMessage();
+		if (selectedMessages == 0 && curMessage == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	////////////////////////////////
 	// MESSAGE LIST-ITEM CONTROLS //
 	////////////////////////////////

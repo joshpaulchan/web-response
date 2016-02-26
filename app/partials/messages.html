@@ -98,7 +98,10 @@
 							</li>
 						</ul>
 					</li>
-					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+					<li class="pure-menu-item pure-menu-disabled" ng-show="disableDropdown()">Action &nbsp▾</li>
+					<li class="pure-menu-item pure-menu-disabled" ng-show="disableDropdown()">Mark &nbsp▾</li>
+					<li class="pure-menu-item pure-menu-disabled" ng-show="disableDropdown()">Move To &nbsp▾</li>
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" ng-show="!disableDropdown()">
 						<div class="pure-menu-link">
 							Action
 						</div>
@@ -111,7 +114,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" ng-show="!disableDropdown()">
 						<div class="pure-menu-link">
 							Mark
 						</div>
@@ -124,7 +127,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" ng-show="!disableDropdown()">
 						<div class="pure-menu-link">
 							Move To
 						</div>

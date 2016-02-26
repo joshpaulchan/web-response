@@ -13,9 +13,15 @@
 
 + Searching & queries
 + Hook up to backend + APIs
-+ Make an 'empty state' feature for no message selected
 
 # CHANGED
+**2.26.2016**
+__JL__
++ Style the main view nicer
+	- Move the message list controls to the right
+	- Add states (do should only become active when things are selected) (check out purecss.io)
+	- rename text to be more descriptive but short (use pttrns.com for conventions)
+
 **2.25.2016**
 __JC__
 + Implement a contenteditable directive to use ng-model with the contenteditable divs
@@ -74,12 +80,6 @@ __JC__
 __JC__
 + Replace banner with official Rutgers stuff
 + Change favicon
-
-__JL__
-+ Style the main view nicer
-	- Move the message list controls to the right
-	- Add states (do should only become active when things are selected) (check out purecss.io)
-	- rename text to be more descriptive but short (use pttrns.com for conventions)
 
 **2.4.2016**
 __JC__
