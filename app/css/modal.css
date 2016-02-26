@@ -16,7 +16,6 @@
 .modal {
     display: inline-block;
     position: relative;
-    background: white;
     top: 50vh;
     transform: translateY(-50%);
     text-align: initial;
@@ -24,4 +23,11 @@
 
 .modal-active {
     opacity: 1;
+}
+
+.modal-card {
+    padding: 0;
+    width: 50%;
+    background: white;
+    color: black;
 }
