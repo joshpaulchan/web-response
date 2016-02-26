@@ -4,9 +4,7 @@
 
 + Conversations
 	+ Rename messages to this in css, JS
-	+ make send button do stuff & remove itself
 	+ Implement a suggestion drop down
-	+ Stop persistency across messages
 
 + Rename message-relevant things to a conversation
 + Plan registration
@@ -18,8 +16,20 @@
 + Make an 'empty state' feature for no message selected
 
 # CHANGED
+**2.25.2016**
+__JC__
++ Implement a contenteditable directive to use ng-model with the contenteditable divs
+	+ Now grabbing and parsin the fields for the card is gonna be a lot easier and more angular
 
-**2.28.2016**
+**2.23.2016**
+__JC__
++ Refactor forwarding and responding
+	- I was doing some pretty dumb things by not making use of angular's scope and trying to grab the message data externally
+	- Also, I realized i can "send" a message just by appending to the data thread.
++ Remove message persistency
+
+
+**2.18.2016**
 __JC__
 + Fix tabbing
 + show footer on support messages if it's the only thing

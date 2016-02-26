@@ -137,6 +137,13 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 
 
 webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, messages) {
+	$scope.replyForm = {
+		"content" : "We have lift-off.",
+		"targetStr" : "",
+		"targets" : [],
+		"targetSuggestions" : [],
+		"templates" : []
+	};
 
 	$scope.$watch(function() {
 		return ($scope.curMessage !== messages.getCurMessage());
@@ -144,28 +151,37 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		$scope.curMessage = messages.getCurMessage();
 	});
 
-	var createNewMessage = function(name, date, body) {
-		var msgCard = $compile('<convo-card><card-body-input></card-body-input></convo-card>')($scope);
-		console.log(msgCard);
-		return msgCard;
+	var sendMsg = function(msg) {
+		// 1. send to server
+		$scope.curMessage.thread.push(msg);
+		return msg;
 	};
 
 	$scope.reply = function() {
-		var msgCard = createNewMessage('me', new Date().toString(), 'hello, it\'s me');
-		var msgList = document.querySelector('#main').querySelector('.list');
-		$scope.replyFormContent = document.querySelector(".card-body-input").innerHTML;
-		$scope.replyFormContent = $scope.replyFormContent.replace(/<br>/g,"\r\n").replace(/<([^>]*)>/g, "");
+		var replyContent = $scope.replyForm.content
+									.replace(/<br>/g,"\r\n")
+									.replace(/<([^>]*)>/g, "");
+
+		sendMsg({
+			"email": "you",
+			"content": replyContent,
+			"createdAt": new Date().toString()
+		});
+		$scope.replyForm.content = "";
 	};
 
-	$scope.forward = function() {
-		//Not Sure if this is the best implementation... -Daniel
-		$scope.forwardPressed = !$scope.forwardPressed;
+	$scope.forward = function(msgData) {
+		var sendTo = msgData.email;
+		var content = msgData.content;
 
-		// var msgCard = createNewMessage();
-		// var msgList = document.querySelector('#main').querySelector('.list');
+		// Format forwarded content
+		content = content.split('\n').map(function(line, i) {
+			return "".concat(">>> ", line);
+		}).join('\n');
+		content = "\n\n" + content;
 
 		// Insert into DOM
-		// msgList.append(msgCard.html());
+		$scope.replyForm.content = content;
 	};
 });
 

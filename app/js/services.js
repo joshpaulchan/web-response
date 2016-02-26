@@ -134,3 +134,24 @@ webresponseServices.factory('auth', ['$http', function($http) {
 
 	return auth;
 }]);
+
+webresponseServices.factory('UserService', ['$http', function($http) {
+	var apiUrl = 'data';
+	var users = {};
+
+	users.list = [];
+
+	users.findByUsername = function(username) {
+		var user = users.list.filter(function(user) {
+			return (user.username === username);
+		});
+
+		if (user.length > 0) {
+			return user[0];
+		} else {
+			return null;
+		}
+	};
+
+	return users;
+}]);
