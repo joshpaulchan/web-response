@@ -29,11 +29,12 @@ webresponseDirectives.directive('modal', function() {
     return {
         restrict: "E",
         scope: {
-            "templateUrl": "=",
-            "show": "="
+            "templateUrl": "@",
+            "show": "=",
+            "toHide": "="
         },
-        template: "<div class='modal-backdrop' ng-class=\"{'modal-active': show}\">\
-                        <div class='modal' ng-show='show' ng-include='templateUrl'></div>\
+        template: "<div class='modal-backdrop' ng-show='show' ng-class=\"{'modal-active': show}\" ng-click='toHide()'>\
+                        <div class='modal' ng-include='templateUrl'></div>\
                     </div>",
         link: function($scope, elem, attrs) {}
     };
