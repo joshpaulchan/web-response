@@ -32,12 +32,12 @@
 						<div class='pure-u-1-2'>
 							<ul class='pure-menu pure-menu-horizontal admin-controls'>
 								<li class='pure-menu-item'>
-									<a href='#' class='pure-menu-link'>
+									<a class='pure-menu-link' ng-click="showOptionsModal()">
 										Options
 									</a>
 								</li>
 								<li class='pure-menu-item'>
-									<a href='#' class='pure-menu-link' ng-click="logOut()">
+									<a class='pure-menu-link' ng-click="logOut()">
 										Logout
 									</a>
 								</li>
@@ -211,4 +211,5 @@
 			</div>
 		</div>
 	</div>
+	<modal show="showOptions" template-url="partials/options.html" to-hide="hideOptionsModal"></modal>
 </div>

@@ -16,6 +16,16 @@ webresponseControllers.controller('MessageCtrl', function($scope, $routeParams, 
 			});
 		}
 	});
+
+	$scope.showOptionsModal = function() {
+		// Show the options modal;
+		$scope.showOptions = true;
+	};
+
+	$scope.hideOptionsModal = function() {
+		// Hide the options modal;
+		$scope.showOptions = false;
+	};
 });
 
 webresponseControllers.controller('MessageNavBarCtrl', function($scope, $location, auth) {
