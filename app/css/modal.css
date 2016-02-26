@@ -4,7 +4,8 @@
 
 .modal-backdrop {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.3);
@@ -14,20 +15,58 @@
 }
 
 .modal {
-    display: inline-block;
+    display: -webkit-inline-box;
     position: relative;
     top: 50vh;
     transform: translateY(-50%);
     text-align: initial;
+    width: 80%;
+    height: 80%;
 }
 
 .modal-active {
     opacity: 1;
 }
 
-.modal-card {
+.modal-card, .card-shadow {
     padding: 0;
-    width: 50%;
+    width: 100%;
     background: white;
     color: black;
+}
+
+#modal .card-body {
+  padding: 0;
+  margin: 0;
+  height: calc(100vh - 16em);
+  white-space: normal;
+}
+
+#modal .card-body a {
+  color: white;
+}
+
+#modal .menu-list {
+  padding: 0;
+  padding-right: 1em;
+  margin: 0;
+  float: left;
+  height: 100%;
+  top: 90%;
+  white-space: pre-line;
+  line-height: 1.7em;
+  text-indent: 1em;
+  background-color: #DC4747;
+}
+#modal .modal-menu-item {
+  display: block;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+#modal .card-footer {
+  position: fixed;
+  top: 92%;
 }

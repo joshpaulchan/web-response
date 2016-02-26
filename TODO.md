@@ -14,6 +14,12 @@
 + Searching & queries
 + Hook up to backend + APIs
 
++ Options
+	+ Design options modal
+	+ Implement functionality into options modal
+
++ Add a responsive horizontal scroll for message list controls
+
 # CHANGED
 **2.26.2016**
 __JL__
