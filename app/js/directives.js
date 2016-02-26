@@ -25,6 +25,20 @@ webresponseDirectives.directive('contenteditable', function() {
     };
 });
 
+webresponseDirectives.directive('modal', function() {
+    return {
+        restrict: "E",
+        scope: {
+            "templateUrl": "=",
+            "show": "="
+        },
+        template: "<div class='modal-backdrop' ng-class=\"{'modal-active': show}\">\
+                        <div class='modal' ng-show='show' ng-include='templateUrl'></div>\
+                    </div>",
+        link: function($scope, elem, attrs) {}
+    };
+});
+
 webresponseDirectives.directive('convoCard', function() {
     return {
         restrict: 'E',
