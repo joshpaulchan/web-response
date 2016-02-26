@@ -34,7 +34,7 @@ webresponseDirectives.directive('modal', function() {
             "toHide": "="
         },
         template: "<div class='modal-backdrop' ng-show='show' ng-class=\"{'modal-active': show}\" ng-click='toHide()'>\
-                        <div class='modal' ng-include='templateUrl'></div>\
+                        <div class='modal' ng-include='templateUrl' ng-click='$event.stopPropagation();' ></div>\
                     </div>",
         link: function($scope, elem, attrs) {}
     };
