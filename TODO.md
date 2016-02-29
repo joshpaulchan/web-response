@@ -1,6 +1,7 @@
 # TODO
 
-+ Implement a modal directive
++ Clear address bar on send
++ implement click-replace in auto-complete
 
 + Conversations
 	+ Rename messages to this in css, JS
@@ -16,6 +17,15 @@
 + Make an 'empty state' feature for no message selected
 
 # CHANGED
+**2.29.2016**
+__JC__
++ Add notes for php query in messages service
++ Add levenshtein algorithm, styling for autocomplete
+
+**2.26.2016**
+__JC__
++ Implemented a modal directive
+
 **2.25.2016**
 __JC__
 + Implement a contenteditable directive to use ng-model with the contenteditable divs
