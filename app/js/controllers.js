@@ -136,7 +136,7 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 });
 
 
-webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, messages) {
+webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, messages, UserService) {
 	$scope.replyForm = {
 		"content" : "We have lift-off.",
 		"targetStr" : "",
@@ -155,6 +155,19 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		// 1. send to server
 		$scope.curMessage.thread.push(msg);
 		return msg;
+	};
+
+	$scope.suggestTargets = function() {
+		$scope.replyForm.targets = $scope.replyForm.targetStr.split(" ");
+		var target = $scope.replyForm.targets[$scope.replyForm.targets.length - 1];
+		UserService.fuzzyFindByUsername(target).then(function(data) {
+			$scope.replyForm.targetSuggestions = data.sort(function(a, b) {
+				return (a.score >= b.score);
+			});
+			console.log(data);
+		}, function(error) {
+			console.log(Error(error));
+		});
 	};
 
 	$scope.reply = function() {

@@ -196,7 +196,7 @@
 				</convo-card>
 				<convo-card ng-if="$last">
 					<div>
-						<card-header-input label="to" ng-model="replyForm.targetStr"></card-header-input>
+						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="suggestTargets()"></card-header-input>
 					</div>
 					<card-body-input ng-model="replyForm.content"></card-body-input>
 					<card-footer>
