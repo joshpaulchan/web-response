@@ -12,7 +12,20 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	// TODO: replace with php query
 	$http.get(apiUrl + '/messages.json').success(function(data) {
 		// console.log(data);
-		messages.list = data;
+
+        // TODO: Check that query was inserted properly
+		var request = $http({
+			method: "post",
+			//TODO figure out proper path to GetAll.php
+			url: window.location.href + "GetAll.php",
+			data: {
+				query: 'message'
+			},
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		});
+
+		// TODO: Check that query returned is listed on page properly
+		messages.list = request;
 		messages.ready = true;
 	}).error(function(error) {
 		// console.log(error);
