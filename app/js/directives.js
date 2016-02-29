@@ -8,9 +8,9 @@ webresponseDirectives.directive('contenteditable', function() {
         restrict: "A",
         require: "?ngModel",
         link: function(scope, elem, attrs, ngModel) {
-            if (!ngModel) {return;}
+            if (!ngModel) return;
 
-            var read = function() {
+            var updateView = function() {
                 ngModel.$setViewValue(elem.html());
             };
 
@@ -18,8 +18,12 @@ webresponseDirectives.directive('contenteditable', function() {
                 elem.html(ngModel.$viewValue || "");
             };
 
-            elem.bind("blur keyup change", function() {
-                scope.$apply(read);
+            elem.on("blur keyup change", function() {
+                scope.$apply(updateView);
+            });
+
+            scope.$on('destroy', function() {
+                elem.off('blur keyup change', updateView);
             });
         }
     };
@@ -48,9 +52,10 @@ webresponseDirectives.directive('cardHeaderInput', function() {
         restrict: 'E',
         scope: {
             'label': '@',
-            'ngModel': '='
+            'ngModel': '=',
+            'ngChange': '='
         },
-        template: "<div class='card-header card-header-input'><label>{{label}}</label><div contenteditable ng-model='ngModel'></div></div>",
+        template: "<div class='card-header card-header-input'><label>{{label}}</label><div contenteditable ng-model='ngModel' ng-change='ngChange'></div></div>",
         link: function($scope, elem, attrs) {}
     };
 });
@@ -68,9 +73,10 @@ webresponseDirectives.directive('cardBodyInput', function() {
     return {
         restrict: 'E',
         scope: {
-            'ngModel': '='
+            'ngModel': '=',
+            'ngChange': '='
         },
-        template: "<div class='card-body card-body-input' contenteditable ng-model='ngModel'></div>",
+        template: "<div class='card-body card-body-input' contenteditable ng-model='ngModel' ngChange='ngChange'></div>",
         link: function($scope, elem, attrs) {}
     };
 });
