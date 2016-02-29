@@ -9,6 +9,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.curMessage = null;
 
+	// TODO: replace with php query
 	$http.get(apiUrl + '/messages.json').success(function(data) {
 		// console.log(data);
 		messages.list = data;
@@ -17,6 +18,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		// console.log(error);
 	});
 
+	// TODO: replace with call
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
 			resolve(messages.list);
@@ -24,6 +26,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return p;
 	};
 
+	// TODO: Replace with call
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
 			// console.log(id);
