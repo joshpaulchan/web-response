@@ -199,7 +199,10 @@
 				</convo-card>
 				<convo-card ng-if="$last">
 					<div>
-						<card-header-input label="to" ng-model="replyForm.targetStr"></card-header-input>
+						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="suggestTargets()"></card-header-input>
+						<ol class="search-results">
+							<li ng-repeat="result in replyForm.targetSuggestions">{{result.text}}</li>
+						</ol>
 					</div>
 					<card-body-input ng-model="replyForm.content"></card-body-input>
 					<card-footer>

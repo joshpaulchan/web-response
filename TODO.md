@@ -1,6 +1,7 @@
 # TODO
 
-+ Implement a modal directive
++ Clear address bar on send
++ implement click-replace in auto-complete
 
 + Conversations
 	+ Rename messages to this in css, JS
@@ -15,12 +16,21 @@
 + Hook up to backend + APIs
 
 # CHANGED
+**2.29.2016**
+__JC__
++ Add notes for php query in messages service
++ Add levenshtein algorithm, styling for autocomplete
+
+
 **2.26.2016**
 __JL__
 + Style the main view nicer
 	- Move the message list controls to the right
 	- Add states (do should only become active when things are selected) (check out purecss.io)
 	- rename text to be more descriptive but short (use pttrns.com for conventions)
+
+__JC__
++ Implemented a modal directive
 
 **2.25.2016**
 __JC__

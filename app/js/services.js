@@ -9,6 +9,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.curMessage = null;
 
+	// TODO: replace with php query
 	$http.get(apiUrl + '/messages.json').success(function(data) {
 		// console.log(data);
 		messages.list = data;
@@ -17,6 +18,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		// console.log(error);
 	});
 
+	// TODO: replace with call
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
 			resolve(messages.list);
@@ -24,6 +26,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return p;
 	};
 
+	// TODO: Replace with call
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
 			// console.log(id);
@@ -141,16 +144,51 @@ webresponseServices.factory('UserService', ['$http', function($http) {
 
 	users.list = [];
 
-	users.findByUsername = function(username) {
-		var user = users.list.filter(function(user) {
-			return (user.username === username);
-		});
+	$http.get(apiUrl + '/users.json').success(function(data) {
+		// console.log(data);
+		users.list = data;
+		users.ready = true;
+	}).error(function(error) {
+		console.log(error);
+	});
 
-		if (user.length > 0) {
-			return user[0];
-		} else {
-			return null;
+	var editDistance = function(s, t) {
+		if (s.length === 0) {
+			return t.length;
 		}
+		if (t.length === 0) {
+			return s.length;
+		}
+
+		var cost = 0;
+		if (s[s.length - 1].toLowerCase() !== s[s.length - 1].toLowerCase()) {
+			cost = 1;
+		}
+
+		return Math.min(
+			editDistance(s.slice(0, -1), t) + 1,
+			editDistance(s, t.slice(0, -1)) + 1,
+			editDistance(s.slice(0, -1), t.slice(0, -1)) + cost);
+	};
+
+	users.fuzzyFindByUsername = function(cand) {
+		var p = new Promise(function(resolve, reject) {
+			var suggestions = [];
+			var ed = 0;
+			var eps = 3;
+			users.list.map(function(user) {
+				ed = editDistance(user.username, cand);
+				if (ed <= eps) {
+					suggestions.push({
+						'score': ed,
+						'text': user.username
+					});
+				}
+			});
+
+			resolve(suggestions);
+		});
+		return p;
 	};
 
 	return users;
