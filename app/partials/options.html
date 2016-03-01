@@ -1,16 +1,33 @@
-<div id="modal" class="card modal-card card-shadow">
+<div id="modal" class="card modal-card card-shadow" ng-controller="OptionsCtrl">
   <card-header>
       <div class='title'>Options</div>
   </card-header>
   <card-body>
-    <!-- <div class="menu-bar"> -->
+    <div class="menu-bar">
       <ul class="menu-list">
-        <li class="modal-menu-item"><a href="#" class="modal-menu-link">Account Information</a></li>
-        <li class="modal-menu-item"><a href="#" class="modal-menu-link">General Settings</a></li>
-        <li class="modal-menu-item"><a href="#" class="modal-menu-link">Administrative Controls</a></li>
-        <li class="modal-menu-item"><a href="#" class="modal-menu-link">Help</a></li>
+        <li class="modal-menu-item" ng-class="{active: isSelected(1)}" ng-click="selectPanel(1)">Account Information</li>
+        <li class="modal-menu-item" ng-class="{active: isSelected(2)}" ng-click="selectPanel(2)">General Settings</li>
+        <li class="modal-menu-item" ng-class="{active: isSelected(3)}" ng-click="selectPanel(3)">Administrative Controls</li>
+        <li class="modal-menu-item" ng-class="{active: isSelected(4)}" ng-click="selectPanel(4)">Help</li>
       </ul>
-    <!-- </div> -->
+    </div>
+    <div class="menu-options">
+      <div class="menu-options-item" ng-show="isSelected(1)">
+        <img src="http://www.animalfactguide.com/wp-content/uploads/2013/01/koala3.jpg" style="width:100%"/>
+      </div>
+      <div class="menu-options-item" ng-show="isSelected(2)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg" style="width:100%"/>
+      </div>
+      <div class="menu-options-item" ng-show="isSelected(3)">
+        <img src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/koala_ecalypt.jpg" style="width:100%"/>
+      </div>
+      <div class="menu-options-item" ng-show="isSelected(4)">
+        <img src="https://c2.staticflickr.com/6/5514/11051555136_7c0e9560f5_b.jpg" style="width:100%"/>
+      </div>
+      <!-- <div class="menu-options-item">
+        <img src="optionItems[{{getPanel()}}].imgSrc" style="width:100%"/>
+      </div> -->
+    </div>
   </card-body>
   <card-footer>
       <div class="button-group float-right">

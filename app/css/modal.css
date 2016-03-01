@@ -20,7 +20,7 @@
     top: 50vh;
     transform: translateY(-50%);
     text-align: initial;
-    width: 80%;
+    width: 55%;
     height: 80%;
 }
 
@@ -38,35 +38,103 @@
 #modal .card-body {
   padding: 0;
   margin: 0;
-  height: calc(100vh - 16em);
+  height: 67.2vh;
   white-space: normal;
-}
-
-#modal .card-body a {
-  color: white;
+  background-color: whitesmoke;
 }
 
 #modal .menu-list {
   padding: 0;
-  padding-right: 1em;
   margin: 0;
+  margin-bottom: 50px;
   float: left;
-  height: 100%;
+  height: 68vh;
+  width: 27%;
   top: 90%;
   white-space: pre-line;
-  line-height: 1.7em;
-  text-indent: 1em;
-  background-color: #DC4747;
+  line-height: 1.3em;
+  text-indent: 0;
+  background-color: #CC0033;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
 #modal .modal-menu-item {
-  display: block;
-  height: 5px;
-  padding: 0;
+  display: inline-block;
+  position: relative;
+  height: 40px;
+  width: 100%;
+  padding: 1.5em .7em 0;
   margin: 0;
   color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal .modal-menu-item:hover {
+  background-color: #B8002E;
+  transition: .1s;
+}
+
+#modal .modal-menu-item.active {
+  background-color: #AF002C;
 }
 
 #modal .card-footer {
   position: fixed;
   top: 92%;
+  background-color: white;
+  height: 45px;
+  clear: both;
+}
+
+#modal .menu-options {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  padding-left: 7px;
+  margin: 0;
+  overflow-y: auto;
+  /*height: 62vh;
+  width: 79%;*/
+}
+
+@media (max-width: 1170px) {
+  #modal .menu-list {
+    width: .3%;
+    transition: .3s;
+  }
+
+  #modal .menu-options {
+    width: 97%;
+  }
+}
+
+@media (min-width: 1170px) {
+  #modal .menu-list {
+    width: 27%;
+    transition: .3s;
+  }
+
+  #modal .menu-options {
+    width: 71%;
+    transition: .3s;
+  }
+}
+
+@media (max-height: 375px) {
+  #modal .menu-options {
+    height: 54vh;
+    transition: .3s;
+  }
+}
+
+@media (min-height: 375px) {
+  #modal .menu-options {
+    height: 65vh;
+    transition: .3s;
+  }
 }

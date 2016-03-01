@@ -15,8 +15,9 @@
 + Hook up to backend + APIs
 
 + Options
-	+ Design options modal
-	+ Implement functionality into options modal
+	+ Complete design of options modal
+	+ Complete responsive functionality to modal
+	+ Implement settings into options modal
 
 + Add a responsive horizontal scroll for message list controls
 

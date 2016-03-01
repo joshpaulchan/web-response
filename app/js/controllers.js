@@ -223,3 +223,39 @@ webresponseControllers.controller('LoginCtrl', function($scope, $location, auth)
 		});
 	};
 });
+
+webresponseControllers.controller('OptionsCtrl', function($scope) {
+	$scope.panel = 1;
+
+	$scope.selectPanel = function(setPanel) {
+		$scope.panel = setPanel;
+	};
+
+	$scope.isSelected = function(checkPanel) {
+		return $scope.panel === checkPanel;
+	};
+
+	$scope.getPanel = function() {
+		return $scope.panel;
+	};
+
+	// Figuring out if possible to use ngRepeat for options
+	// $scope.optionItems = [
+	// 	{
+	// 		imgSrc: 'http://www.animalfactguide.com/wp-content/uploads/2013/01/koala3.jpg',
+	// 		panelNum: 1
+	// 	},
+	// 	{
+	// 		imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg',
+	// 		panelNum: 2
+	// 	},
+	// 	{
+	// 		imgSrc: 'http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/koala_ecalypt.jpg',
+	// 		panelNum: 3
+	// 	},
+	// 	{
+	// 		imgSrc: 'https://c2.staticflickr.com/6/5514/11051555136_7c0e9560f5_b.jpg',
+	// 		panelNum: 4
+	// 	}
+	// ];
+});
