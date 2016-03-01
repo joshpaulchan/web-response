@@ -5,31 +5,31 @@ var webresponseServices = angular.module('webresponseServices', []);
 
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
+	var phpUrl = 'php';
+	var callUrl = 'calls';
+	var queryUrl = 'queries';
 	var messages = {};
 
 	messages.curMessage = null;
 
-	// TODO: replace with php query
-	$http.get(apiUrl + '/messages.json').success(function(data) {
+	//$http.get(apiUrl + '/messages.json').success(function(data) {
 		// console.log(data);
 
-        // TODO: Check that query was inserted properly
-		var request = $http({
-			method: "post",
-			//TODO figure out proper path to GetAll.php
-			url: window.location.href + "GetAll.php",
-			data: {
-				query: 'message'
-			},
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-		});
-
-		// TODO: Check that query returned is listed on page properly
-		messages.list = request;
-		messages.ready = true;
-	}).error(function(error) {
+		//messages.list = data;
+		//messages.ready = true;
+	//}).error(function(error) {
 		// console.log(error);
-	});
+	//});
+
+    // TODO: Check that messages returned are listed on page properly
+	$http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
+	    .then(function(data){
+	        messages.list = data;
+	        messages.ready = true;
+    	}, function(error){
+    	    console.log(error);
+    	}
+    );
 
 	// TODO: replace with call
 	messages.loadMessages = function(pg) {
