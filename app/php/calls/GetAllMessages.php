@@ -6,8 +6,8 @@
  * Time: 9:48 AM
  */
 
-require_once 'queries/SelectQueries.php';
 require_once 'dbconnect.php';
+require_once 'queries/SelectQueries.php';
 
 /*
    * Collect all Details from Angular HTTP Request.
