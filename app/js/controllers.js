@@ -169,8 +169,8 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		console.log(targets);
 		var tgts = [];
 		targets.forEach(function(tgt) {
-			tgts.push(fmtEmail(tgt))
-		})
+			tgts.push(fmtEmail(tgt));
+		});
 		$scope.replyForm.targetStr = ' ' + tgts.join(' ') + ' ';
 		$scope.replyForm.targetSuggestions = [];
 	};
