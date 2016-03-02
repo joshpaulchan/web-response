@@ -158,9 +158,9 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 	};
 
 	$scope.reply = function() {
-		var replyContent = $scope.replyForm.content
-									.replace(/<br>/g,"\r\n")
-									.replace(/<([^>]*)>/g, "");
+		var replyContent = $scope.replyForm.content //.replace() list for parsing html:
+									.replace(/<br>/g,"\r\n") //Replace html <br> with \r\n
+									.replace(/<([^>]*)>/g, ""); //Remove all remaining html tags (i.e. anything between < and >)
 
 		sendMsg({
 			"email": "you",
@@ -169,6 +169,12 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		});
 		$scope.replyForm.content = "";
 	};
+
+	$scope.$watch(function() {
+		return ($scope.replyForm.targetStr);
+	}, function(newTarget, oldTarget) {
+		$scope.replyForm.targetStr = $scope.replyForm.targetStr.replace(/<([^>]*)>/g, "");
+	});
 
 	$scope.forward = function(msgData) {
 		var sendTo = msgData.email;
