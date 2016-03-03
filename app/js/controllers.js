@@ -170,10 +170,11 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		$scope.replyForm.content = "";
 	};
 
+	 $scope.emailRegEx = /(([-\w!#$%&'*+\/=?^_`{|}~]|\"([^\"\n\r\\]|\\[^-\w!#$%&'*+\/=?^_`{|}~])*\"|\\[^-\w!#$%&'*+\/=?^_`{|}~])(\.)?)+\@[-_\w]+(\.[-_\w]+)+/g;
 	$scope.$watch(function() {
 		return ($scope.replyForm.targetStr);
 	}, function(newTarget, oldTarget) {
-		$scope.replyForm.targetStr = $scope.replyForm.targetStr.replace(/<([^>]*)>/g, "");
+		$scope.replyForm.targetStr = $scope.replyForm.targetStr.replace(/<[^>]*>/g, "");
 	});
 
 	$scope.forward = function(msgData) {
