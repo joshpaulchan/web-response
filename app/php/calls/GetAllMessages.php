@@ -18,6 +18,7 @@ if(!$result = $db_server->query($allMessages)){
     die('There was an error running the query [ ' . $db_server->error . ' ].');
 }
 
-echo $result; //this will go back under "data" of angular call.
+//returning the results of the query in json format
+echo json_encode($result); //this will go back under "data" of angular call.
 $result->free();
 ?>
