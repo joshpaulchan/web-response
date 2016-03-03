@@ -31,7 +31,6 @@ $messageByBrowser = "select * from message where browserinfo like ";
 $messageByDate = "select * from message where date like ";
 
 //for user
-$userByUsername = "select * from user where username = ";
 $userPassAdminwordByUsername = "select password, admin from user where username = ";
 $userEmailSignatureByUsername = "select email,signature from user where username = ";
 
@@ -40,4 +39,8 @@ $templateByReceiver = "select * from template where reciever = ";
 
 //for employee
 
+
+//logging in
+$login = 'select * from user where username = ';
+$loginp2 = ' and password = '
 ?>
