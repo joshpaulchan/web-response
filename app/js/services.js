@@ -6,7 +6,8 @@ var webresponseServices = angular.module('webresponseServices', []);
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var phpUrl = 'php';
-	var callUrl = 'calls';
+	var phpCallsDir = 'calls';
+    var phpgetAllDir = 'getall';
 	var queryUrl = 'queries';
 	var messages = {};
 
@@ -22,7 +23,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	//});
 
     // TODO: Check that messages returned are listed on page properly
-	$http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
+	$http.get(phpUrl + '/' + phpCallsDir + '/' + phpgetAllDir + '/GetAllMessages.php')
 	    .then(function(data){
 	        messages.list = data;
 	        messages.ready = true;
