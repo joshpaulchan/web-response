@@ -52,6 +52,7 @@ function getall($query){
     $result->free();
 }
 
+// TODO CAS authentication should probably done in this method
 function login($username, $password){
     require_once 'queries/SelectQueries.php';
     require_once 'db/dbconnect.php';
@@ -93,5 +94,42 @@ function login($username, $password){
     //not sure if this is unreachable code
     //leaving this here for now
     $result->free();
+}
+
+// TODO finish general search method for messages
+// Need to figure out string concatenation logic
+// Currently this method does not work properly
+function searchMessages($name, $email, $subject, $comment, $redirect, $browserinfo, $topic, $date){
+    require_once 'queries/SelectQueries.php';
+    require_once 'db/dbconnect.php';
+
+    $query = $generalMessageSearchP1;
+    $prefix = False;
+
+    if(!empty($name)){
+        $query = $query . $generalMessageSearchP2 . $name . $generalMessageSearchP0;
+        $prefix = True;
+    }
+    if(!empty($email)){
+        $query = $query . $generalMessageSearchP3;
+    }
+    if(!empty($subject)){
+        $query = $query . $generalMessageSearchP4;
+    }
+    if(!empty($comment)){
+        $query = $query . $generalMessageSearchP5;
+    }
+    if(!empty($redirect)){
+        $query = $query . $generalMessageSearchP6;
+    }
+    if(!empty($browserinfo)){
+        $query = $query . $generalMessageSearchP7;
+    }
+    if(!empty($topic)){
+        $query = $query . $generalMessageSearchP8;
+    }
+    if(!empty($date)){
+        $query = $query . $generalMessageSearchP9;
+    }
 }
 ?>
