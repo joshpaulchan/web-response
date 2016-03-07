@@ -5,18 +5,31 @@ var webresponseServices = angular.module('webresponseServices', []);
 
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
+	var phpUrl = 'php';
+	var callUrl = 'calls';
+	var queryUrl = 'queries';
 	var messages = {};
 
 	messages.curMessage = null;
 
-	// TODO: replace with php query
-	$http.get(apiUrl + '/messages.json').success(function(data) {
+	//$http.get(apiUrl + '/messages.json').success(function(data) {
 		// console.log(data);
-		messages.list = data;
-		messages.ready = true;
-	}).error(function(error) {
+
+		//messages.list = data;
+		//messages.ready = true;
+	//}).error(function(error) {
 		// console.log(error);
-	});
+	//});
+
+    // TODO: Check that messages returned are listed on page properly
+	$http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
+	    .then(function(data){
+	        messages.list = data;
+	        messages.ready = true;
+    	}, function(error){
+    	    console.log(error);
+    	}
+    );
 
 	// TODO: replace with call
 	messages.loadMessages = function(pg) {

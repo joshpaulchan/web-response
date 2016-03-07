@@ -32,3 +32,10 @@ Zimbra
 Office 365
     https://msdn.microsoft.com/en-us/office/office365/api/mail-rest-operations
 
+http://www.w3schools.com/php/php_functions.asp
+http://www.w3schools.com/angular/angular_sql.asp
+https://codeforgeek.com/2014/07/angular-post-request-php/
+http://stackoverflow.com/questions/28074025/angularjs-pass-url-param-to-php
+
+https://docs.angularjs.org/api/ng/service/$http
+http://www.w3schools.com/angular/angular_http.asp
