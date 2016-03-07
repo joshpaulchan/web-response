@@ -1,7 +1,14 @@
 # TODO
 
-+ Clear address bar on send
-+ implement click-replace in auto-complete
++ Server integrations & work
+	+ Searching & queries
+	+ Hook up to backend + APIs
+
++ UI
+	+ Reduce header (put into sidebar?)
+	+ Make things resizeable
+
++ Template management in Options
 
 + Conversations
 	+ Rename messages to this in css, JS
@@ -11,11 +18,11 @@
 + Plan registration
 + Style technical info
 
-
-+ Searching & queries
-+ Hook up to backend + APIs
-
 # CHANGED
+**3.2.2016**
++ Clear address bar on send
++ implement click-replace in auto-complete
+
 **2.29.2016**
 __JC__
 + Add notes for php query in messages service

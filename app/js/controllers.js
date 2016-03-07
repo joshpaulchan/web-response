@@ -157,10 +157,12 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 
 
 webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, messages, UserService) {
+	var emailRX = /(([-\w!#$%&'*+\/=?^_`{|}~]|\"([^\"\n\r\\]|\\[^-\w!#$%&'*+\/=?^_`{|}~])*\"|\\[^-\w!#$%&'*+\/=?^_`{|}~])(\.)?)+\@[-_\w]+(\.[-_\w]+)+/;
+
 	$scope.replyForm = {
-		"content" : "We have lift-off.",
+		"content" : "",
 		"targetStr" : "",
-		"targets" : [],
+		"targets" : new Set(),
 		"targetSuggestions" : [],
 		"templates" : []
 	};
@@ -177,29 +179,59 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		return msg;
 	};
 
-	$scope.suggestTargets = function() {
-		$scope.replyForm.targets = $scope.replyForm.targetStr.split(" ");
-		var target = $scope.replyForm.targets[$scope.replyForm.targets.length - 1];
-		UserService.fuzzyFindByUsername(target).then(function(data) {
-			$scope.replyForm.targetSuggestions = data.sort(function(a, b) {
-				return (a.score >= b.score);
-			});
-			console.log(data);
-		}, function(error) {
-			console.log(Error(error));
+	var fmtEmail = function(tgt) {
+		return "<span class='email-label' unselectable='on' autocorrect='off' autocapitalize='off'>" + tgt.username + "</span>";
+	};
+
+	$scope.chooseSuggestion = function(tgt) {
+		var targets = $scope.replyForm.targets;
+		targets.add(tgt);
+		console.log(targets);
+		var tgts = [];
+		targets.forEach(function(tgt) {
+			tgts.push(fmtEmail(tgt));
 		});
+		$scope.replyForm.targetStr = ' ' + tgts.join(' ') + ' ';
+		$scope.replyForm.targetSuggestions = [];
+	};
+
+	$scope.parseTargetInputs = function() {
+		var targets = $scope.replyForm.targetStr.split(" ");
+		if (typeof targets === 'undefined' || typeof targets === null) return;
+
+		var cand = targets[targets.length - 1];
+
+		// List suggestions
+		if (cand.length >= 3) {
+			UserService.queryByUsername(cand).then(function(data) {
+				$scope.replyForm.targetSuggestions = data;
+				console.log(data);
+			}, function(error) {
+				console.log(Error(error));
+			});
+		}
+		// Else, completed email?
+		if (emailRX.test(cand)) {
+			UserService.findByEmail(cand).then(function(data) {
+				$scope.chooseSuggestion(data);
+			}, function(error) {
+				console.log(Error(error));
+			});
+		}
 	};
 
 	$scope.reply = function() {
 		var replyContent = $scope.replyForm.content
-									.replace(/<br>/g,"\r\n")
+									.replace(/<\S+br\S+>/g,"\r\n")
 									.replace(/<([^>]*)>/g, "");
 
 		sendMsg({
-			"email": "you",
+			"email": $scope.replyForm.targetStr,
 			"content": replyContent,
 			"createdAt": new Date().toString()
 		});
+		$scope.replyForm.targetStr = "";
+		$scope.replyForm.targets.clear();
 		$scope.replyForm.content = "";
 	};
 
@@ -214,6 +246,7 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		content = "\n\n" + content;
 
 		// Insert into DOM
+		$scope.replyForm.targetStr = sendTo;
 		$scope.replyForm.content = content;
 	};
 });
