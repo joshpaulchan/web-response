@@ -187,21 +187,79 @@ webresponseServices.factory('UserService', ['$http', function($http) {
 
 	users.fuzzyFindByUsername = function(cand) {
 		var p = new Promise(function(resolve, reject) {
-			var suggestions = [];
 			var ed = 0;
 			var eps = 3;
+			var suggestions = [];
 			users.list.map(function(user) {
 				ed = editDistance(user.username, cand);
 				if (ed <= eps) {
 					suggestions.push({
 						'score': ed,
-						'text': user.username
+						'username': user.username,
+						'id': user.id
 					});
 				}
 			});
 
 			resolve(suggestions);
 		});
+		return p;
+	};
+
+	users.findByUsername = function(username) {
+		var p = new Promise(function(resolve, reject) {
+			var suggestions = users.list.filter(function(user) {
+				return (user.username === username);
+			});
+			if (suggestions.length > 0) {
+				resolve({
+					'score': 0,
+					'username': suggestions[0].username,
+					'id': suggestions[0].id
+				});
+			} else {
+				reject("User with username: '" + username + "' could not be found.");
+			}
+		});
+
+		return p;
+	};
+
+	users.findByEmail = function(email) {
+		var p = new Promise(function(resolve, reject) {
+			var suggestions = users.list.filter(function(user) {
+				return (user.email === email);
+			});
+			if (suggestions.length > 0) {
+				resolve({
+					'score': 0,
+					'username': suggestions[0].username,
+					'id': suggestions[0].id
+				});
+			} else {
+				reject("User with email: '" + email + "' could not be found.");
+			}
+		});
+
+		return p;
+	};
+
+	users.queryByUsername = function(username) {
+		var p = new Promise(function(resolve, reject) {
+			var suggestions = [];
+			users.list.map(function(user) {
+				if (user.username.startsWith(username)) {
+					suggestions.push({
+						'score': 0,
+						'username': user.username,
+						'user': user
+					});
+				}
+			});
+
+			resolve(suggestions);
+		});
+
 		return p;
 	};
 

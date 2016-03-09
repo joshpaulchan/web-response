@@ -2,36 +2,43 @@
     {
         "id": 0,
         "username": "admin",
+        "email": "admin@rutgers.edu",
         "password": "admin"
     },
     {
         "id": 1,
         "username": "EBurris",
+        "email": "eburris@rutgers.edu",
         "password": "eburris"
     },
     {
         "id": 2,
         "username": "JWalker",
+        "email": "jcrotty@rutgers.edu",
         "password": "jcrotty"
     },
     {
         "id": 3,
         "username": "JChan",
+        "email": "jpc256@rutgers.edu",
         "password": "jpc256"
     },
     {
         "id": 4,
         "username": "JKasa",
+        "email": "jkasa@rutgers.edu",
         "password": "jkasa"
     },
     {
         "id": 5,
         "username": "DShepsis",
+        "email": "dfshepsis@gmail.edu",
         "password": "dfshepsis"
     },
     {
         "id": 6,
         "username": "JLeonardo",
+        "email": "jnl64@rutgers.edu",
         "password": "jnl64"
     }
 ]

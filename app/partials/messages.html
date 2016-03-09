@@ -199,9 +199,9 @@
 				</convo-card>
 				<convo-card ng-if="$last">
 					<div>
-						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="suggestTargets()"></card-header-input>
+						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
 						<ol class="search-results">
-							<li ng-repeat="result in replyForm.targetSuggestions">{{result.text}}</li>
+							<li ng-repeat="s in replyForm.targetSuggestions" ng-click="chooseSuggestion(s)">{{s.username}}</li>
 						</ol>
 					</div>
 					<card-body-input ng-model="replyForm.content"></card-body-input>
