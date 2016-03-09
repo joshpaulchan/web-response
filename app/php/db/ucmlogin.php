@@ -5,7 +5,7 @@
  * Date: 3/9/2016
  * Time: 2:04 PM
  */
-//TODO use this for when we have to use the actual DB on urwebsrv
+//TODO copy and update from old system
 $db_hostname = "localhost";
 $db_database = "rutgerswebresponse";
 $db_username = "uradmin";

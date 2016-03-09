@@ -97,8 +97,7 @@ function login($username, $password){
 }
 
 // TODO finish general search method for messages
-// Need to figure out string concatenation logic
-// Currently this method does not work properly
+// Use the old DB setup
 function searchMessages($name, $email, $subject, $comment, $redirect, $browserinfo, $topic, $date){
     require_once 'queries/SelectQueries.php';
     require_once 'db/dbconnect.php';
@@ -130,6 +129,21 @@ function searchMessages($name, $email, $subject, $comment, $redirect, $browserin
     }
     if(!empty($date)){
         $query = $query . $generalMessageSearchP9;
+    }
+}
+
+function deleteMessages($message_id){
+    require_once "db/dbconnectOld.php";
+    require_once "queries/DeleteQueries.php";
+
+    $query = $deleteMessageByID . '\'' . $message_id . '\'';
+
+    if($db_server->query($query) === TRUE) {
+        //the query failed
+        return "Message Deleted";
+    }
+    else{
+        die('There was an error running the query [ ' . $db_server->error . ' ].');
     }
 }
 ?>
