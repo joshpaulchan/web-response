@@ -35,5 +35,4 @@ $result = array(
 
 //returning the results of the query in json format
 echo json_encode($result); //this will go back under "data" of angular call.
-$result->free();
 ?>
