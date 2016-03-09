@@ -6,20 +6,24 @@ var webresponseServices = angular.module('webresponseServices', []);
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var phpUrl = 'php';
-	var callUrl = 'calls';
+	var callUrl = 'Calls';
 	var queryUrl = 'queries';
 	var messages = {};
 
 	messages.curMessage = null;
 
-	$http.get(apiUrl + '/messages.json').success(function(data) {
-		console.log(data);
+	(function loadInitial() {
+		console.log("Load Initial...");
+		$http.get(apiUrl + '/messages.json').success(function(data) {
+			console.log(data);
 
-		messages.list = data;
-		messages.ready = true;
-	}).error(function(error) {
-		console.log(error);
-	});
+			messages.list = data;
+			messages.ready = true;
+		}).error(function(error) {
+			console.log(error);
+		});
+	})();
+
 
     // TODO: Check that messages returned are listed on page properly
 	// $http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
@@ -40,36 +44,36 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return p;
 	};
 
-	// FIXME: Remove
-	// messages.getMessage = function(id) {
-	// 	var p = new Promise(function(resolve, reject) {
-	// 		// console.log(id);
-	//
-	// 		var message = messages.list.filter(function(message, i) {
-	// 			return (message.id == id);
-	// 		});
-	//
-	// 		if (message.length > 0) {
-	// 			resolve(message[0]);
-	// 		} else {
-	// 			reject(Error("Message with id:" + id + " does not exist."));
-	// 		}
-	// 	});
-	// 	return p;
-	// };
-
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
 			// console.log(id);
 
-			$http.get(phpUrl + '/' + callUrl + '/GetMessage.php')
-			    .then(function(data){
+			$http.get(phpUrl + '/' + callUrl + '/GetMessage.php', {
+				'messageId': id
+			}).then(function(data){
 					console.log(data);
-			        resolve(data);
+			        resolve(data.data);
 		    	}, function(error){
 		    	    reject(error);
 		    	}
 		    );
+		});
+		return p;
+	};
+
+	messages.sendMessage = function(email_to, email_from, email_cc, email_body) {
+		var p = new Promise(function(resolve, reject) {
+			$http.post(phpUrl + '/' + callUrl + '/sendMessage.php', {
+				'email_to': email_to,
+				'email_from': email_from,
+				'email_cc': email_cc,
+				'email_body': email_body
+			}).then(function(data) {
+				console.log(data);
+				resolve(data);
+			}, function(error) {
+				console.log(error);
+			});
 		});
 		return p;
 	};
