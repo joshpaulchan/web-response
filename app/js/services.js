@@ -6,7 +6,8 @@ var webresponseServices = angular.module('webresponseServices', []);
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var phpUrl = 'php';
-	var callUrl = 'Calls';
+	var phpCallsDir = 'Calls';
+    var phpgetAllDir = 'getall';
 	var queryUrl = 'queries';
 	var messages = {};
 
@@ -35,6 +36,14 @@ webresponseServices.factory('messages', ['$http', function($http) {
     // 	    console.log(error);
     // 	}
     // );
+	$http.get(phpUrl + '/' + phpCallsDir + '/' + phpgetAllDir + '/GetAllMessages.php')
+	    .then(function(data){
+	        messages.list = data;
+	        messages.ready = true;
+    	}, function(error){
+    	    console.log(error);
+    	}
+    );
 
 	// TODO: replace with call
 	messages.loadMessages = function(pg) {
@@ -48,7 +57,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		var p = new Promise(function(resolve, reject) {
 			// console.log(id);
 
-			$http.get(phpUrl + '/' + callUrl + '/GetMessage.php', {
+			$http.get(phpUrl + '/' + phpCallsDir + '/GetMessage.php', {
 				'messageId': id
 			}).then(function(data){
 					console.log(data);
