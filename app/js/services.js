@@ -12,24 +12,25 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.curMessage = null;
 
-	//$http.get(apiUrl + '/messages.json').success(function(data) {
-		// console.log(data);
+	$http.get(apiUrl + '/messages.json').success(function(data) {
+		console.log(data);
 
-		//messages.list = data;
-		//messages.ready = true;
-	//}).error(function(error) {
-		// console.log(error);
-	//});
+		messages.list = data;
+		messages.ready = true;
+	}).error(function(error) {
+		console.log(error);
+	});
 
     // TODO: Check that messages returned are listed on page properly
-	$http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
-	    .then(function(data){
-	        messages.list = data;
-	        messages.ready = true;
-    	}, function(error){
-    	    console.log(error);
-    	}
-    );
+	// $http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
+	//     .then(function(data){
+	// 		console.log(data);
+	//         messages.list = data;
+	//         messages.ready = true;
+    // 	}, function(error){
+    // 	    console.log(error);
+    // 	}
+    // );
 
 	// TODO: replace with call
 	messages.loadMessages = function(pg) {
@@ -39,20 +40,36 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return p;
 	};
 
-	// TODO: Replace with call
+	// FIXME: Remove
+	// messages.getMessage = function(id) {
+	// 	var p = new Promise(function(resolve, reject) {
+	// 		// console.log(id);
+	//
+	// 		var message = messages.list.filter(function(message, i) {
+	// 			return (message.id == id);
+	// 		});
+	//
+	// 		if (message.length > 0) {
+	// 			resolve(message[0]);
+	// 		} else {
+	// 			reject(Error("Message with id:" + id + " does not exist."));
+	// 		}
+	// 	});
+	// 	return p;
+	// };
+
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
 			// console.log(id);
 
-			var message = messages.list.filter(function(message, i) {
-				return (message.id == id);
-			});
-
-			if (message.length > 0) {
-				resolve(message[0]);
-			} else {
-				reject(Error("Message with id:" + id + " does not exist."));
-			}
+			$http.get(phpUrl + '/' + callUrl + '/GetMessage.php')
+			    .then(function(data){
+					console.log(data);
+			        resolve(data);
+		    	}, function(error){
+		    	    reject(error);
+		    	}
+		    );
 		});
 		return p;
 	};
