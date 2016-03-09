@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by IntelliJ IDEA.
- * User: kasa2
+ * User: Jaya Kasa
  * Date: 3/3/2016
  * Time: 1:35 PM
  */
@@ -13,7 +13,7 @@
  * @param $db_server
  * @return string
  */
-function getall($query){
+function getAll($query){
     //scope issue if I place this line outside the function
     require_once 'db/dbconnect.php';
 
@@ -23,9 +23,9 @@ function getall($query){
     }
 
     $json_result = array();
-//$return_arr = array();
+    //$return_arr = array();
 
-//using assoc here because it would be easier for future modifications
+    //using assoc here because it would be easier for future modifications
     while($row = $result->fetch_assoc()){
         /*
         $row_array['entry#'] = $row['entry#'];
@@ -52,7 +52,60 @@ function getall($query){
     $result->free();
 }
 
+/**
+ * Method connects to old DB and returns all messages
+ *
+ * @param $query
+ * @return string
+ */
+function getAllMessages($query){
+
+    require_once "db/dbconnectOld.php";
+
+    if(!$result = $db_server->query($query)){
+        //the query failed
+        die('There was an error running the query [ ' . $db_server->error . ' ].');
+    }
+
+    $json_result = array();
+    //$return_arr = array();
+
+    //using assoc here because it would be easier for future modifications
+    while($row = $result->fetch_assoc()){
+        /*
+        $row_array['entry#'] = $row['entry#'];
+        $row_array['name'] = $row['name'];
+        $row_array['email'] = $row['email'];
+        $row_array['subject'] = $row['subject'];
+        $row_array['comment'] = $row['comment'];
+        $row_array['redirect'] = $row['redirect'];
+        $row_array['browserinfo'] = $row['browserinfo'];
+        $row_array['topic'] = $row['topic'];
+        $row_array['date'] = $row['date'];
+
+        array_push($return_arr,$row_array);
+         */
+
+        $json_result[] = $row;
+    }
+
+    //returning the results of the query in json format
+    return json_encode($json_result); //this will go back under "data" of angular call.
+
+    //not sure if this is unreachable code
+    //leaving this here for now
+    $result->free();
+
+}
+
 // TODO CAS authentication should probably done in this method
+/**
+ * Method for logging into new webresponse system
+ *
+ * @param $username
+ * @param $password
+ * @return string
+ */
 function login($username, $password){
     require_once 'queries/SelectQueries.php';
     require_once 'db/dbconnect.php';
@@ -98,6 +151,18 @@ function login($username, $password){
 
 // TODO finish general search method for messages
 // Use the old DB setup
+/**
+ * Method for searching for messages on old DB
+ *
+ * @param $name
+ * @param $email
+ * @param $subject
+ * @param $comment
+ * @param $redirect
+ * @param $browserinfo
+ * @param $topic
+ * @param $date
+ */
 function searchMessages($name, $email, $subject, $comment, $redirect, $browserinfo, $topic, $date){
     require_once 'queries/SelectQueries.php';
     require_once 'db/dbconnect.php';
@@ -132,6 +197,12 @@ function searchMessages($name, $email, $subject, $comment, $redirect, $browserin
     }
 }
 
+/**
+ * Method for deleting messages on old DB
+ *
+ * @param $message_id
+ * @return string
+ */
 function deleteMessages($message_id){
     require_once "db/dbconnectOld.php";
     require_once "queries/DeleteQueries.php";
