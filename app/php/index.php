@@ -15,7 +15,7 @@ echo 'INDEX PAGE' . '<br/>';
 //require_once 'email.php';
 //require_once 'dbconnect.php';
 //require_once 'SelectQueries.php';
-require_once 'browserinfo.php';
+//require_once 'browserinfo.php';
 
 //echo $platform . '<br/>';
 //echo $browserInfo . '<br/>';
@@ -57,5 +57,4 @@ echo 'Result is freed and the connection is closed' . "<br/>";
 
 //echo 'total number of messages: ' . $total . '<br/>';
 //echo 'total number of recent messages: ' . $recent . '<br/>';
-
 ?>

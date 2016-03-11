@@ -10,5 +10,5 @@ require_once '../../queries/SelectQueries.php';
 require_once '../../Caller.php';
 
 //returning the results of the query in json format
-echo getAll($allMessages); //this will go back under "data" of angular call.
+echo getAllMessages($allMessages); //this will go back under "data" of angular call.
 ?>
