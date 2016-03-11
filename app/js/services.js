@@ -15,74 +15,39 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	(function loadInitial() {
 		console.log("Load Initial...");
-		$http.get(apiUrl + '/messages.json').success(function(data) {
-			console.log(data);
-
-			messages.list = data;
-			messages.ready = true;
-		}).error(function(error) {
+		messages.loadMessages().then(function(data){
+			if (data == 200) { messages.ready = true; }
+		}, function(error) {
 			console.log(error);
 		});
 	})();
 
-
-    // TODO: Check that messages returned are listed on page properly
-	// $http.get(phpUrl + '/' + callUrl + '/GetAllMessages.php')
-	//     .then(function(data){
-	// 		console.log(data);
-	//         messages.list = data;
-	//         messages.ready = true;
-    // 	}, function(error){
-    // 	    console.log(error);
-    // 	}
-    // );
-	$http.get(phpUrl + '/' + phpCallsDir + '/' + phpgetAllDir + '/GetAllMessages.php')
-	    .then(function(data){
-	        messages.list = data;
-	        messages.ready = true;
-    	}, function(error){
-    	    console.log(error);
-    	}
-    );
-
-	// TODO: replace with call
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			resolve(messages.list);
+			$http.get(phpUrl + '/' + phpCallsDir + '/GetAllMessages.php', {
+				'page': pg
+			}).then(resolve, reject);
 		});
 		return p;
 	};
 
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
-			// console.log(id);
-
 			$http.get(phpUrl + '/' + phpCallsDir + '/GetMessage.php', {
 				'messageId': id
-			}).then(function(data){
-					console.log(data);
-			        resolve(data.data);
-		    	}, function(error){
-		    	    reject(error);
-		    	}
-		    );
+			}).then(resolve, reject);
 		});
 		return p;
 	};
 
 	messages.sendMessage = function(email_to, email_from, email_cc, email_body) {
 		var p = new Promise(function(resolve, reject) {
-			$http.post(phpUrl + '/' + callUrl + '/sendMessage.php', {
+			$http.post(phpUrl + '/' + phpCallsDir + '/sendMessage.php', {
 				'email_to': email_to,
 				'email_from': email_from,
 				'email_cc': email_cc,
 				'email_body': email_body
-			}).then(function(data) {
-				console.log(data);
-				resolve(data);
-			}, function(error) {
-				console.log(error);
-			});
+			}).then(resolve, reject);
 		});
 		return p;
 	};
