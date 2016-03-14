@@ -15,7 +15,6 @@
  * $db_password
  */
 
-//TODO reuse the old systems login credentials
 require_once 'ucmlogin.php';
 
 /**
@@ -33,7 +32,7 @@ require_once 'ucmlogin.php';
  * mysqli(String hostname, String username, String password, String DBName, int port(optional), String socket(optional))
  *
  */
-$db_server = new mysqli($db_hostname, $db_username, $db_password, "webresponse");
+$db_server = new mysqli($db_hostname, $db_username, $db_password, $db_database);
 
 // Check connection
 if ($db_server->connect_error) {
