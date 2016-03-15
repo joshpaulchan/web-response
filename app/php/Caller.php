@@ -134,7 +134,6 @@ function login($username, $password){
         $row_array['browserinfo'] = $row['browserinfo'];
         $row_array['topic'] = $row['topic'];
         $row_array['date'] = $row['date'];
-
         array_push($return_arr,$row_array);
          */
 
