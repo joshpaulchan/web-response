@@ -34,7 +34,7 @@ $result = array(
         )
     ),
     array(
-        "id" => 0,
+        "id" => 1,
         "subject" => "Aerospace Engineering",
         "createdAt" => "Jan 5, 2016",
         "createdBy" => "khushbudarji@rocketmail.com",
@@ -49,11 +49,6 @@ $result = array(
                 "email" => "khushbudarji@rocketmail.com",
                 "createdAt" => "Jan 5, 2016",
                 "content" => "Hello ,\r\nI want to get some information about course at your university .\r\n\r\nI'm from India and studying last semester of master degree in communication and system.\r\nSo , can I apply there for aerospace engineering course\r\nAnd can you please guide me some about it .\r\nI hope you will reply positively\r\n\r\nThank you\r\nGave a nice day\r\n\r\n"
-            ),
-            array(
-                "email" => "person@example.com",
-                "createdAt" => "later on 13 AM",
-                "content" => "Ah,\r\nyes."
             )
         )
     )
