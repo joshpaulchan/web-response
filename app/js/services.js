@@ -12,21 +12,20 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	var messages = {};
 
 	messages.curMessage = null;
+	messages.ready = true;
 
-	(function loadInitial() {
-		console.log("Load Initial...");
-		messages.loadMessages().then(function(data){
-			if (data == 200) { messages.ready = true; }
-		}, function(error) {
-			console.log(error);
-		});
-	})();
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
 			$http.get(phpUrl + '/' + phpCallsDir + '/GetAllMessages.php', {
-				'page': pg
-			}).then(resolve, reject);
+				"params": {
+					'page': pg
+				}
+			}).then(function(req) {
+				resolve(req.data);
+			}, function(error) {
+				reject(error);
+			});
 		});
 		return p;
 	};
@@ -34,8 +33,14 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
 			$http.get(phpUrl + '/' + phpCallsDir + '/GetMessage.php', {
-				'messageId': id
-			}).then(resolve, reject);
+				"params": {
+					'messageId': id
+				}
+			}).then(function(req) {
+				resolve(req.data);
+			}, function(error) {
+				reject(error);
+			});
 		});
 		return p;
 	};

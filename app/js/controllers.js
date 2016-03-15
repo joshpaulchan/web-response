@@ -6,12 +6,11 @@
 var webresponseControllers = angular.module('webresponseControllers', []);
 
 webresponseControllers.controller('MessageCtrl', function($scope, $routeParams, messages) {
-	$scope.messageId = $routeParams.messageId;
-	$scope.messagesPage = 0;
+	var messageId = $routeParams.messageId;
 
 	$scope.$watch(messages.isReady, function() {
-		if (messages.isReady()) {
-			messages.getMessage($scope.messageId).then(messages.setCurMessage, function(error) {
+		if (messages.isReady() && typeof messageId !== 'undefined') {
+			messages.getMessage(messageId).then(messages.setCurMessage, function(error) {
 				console.log(error);
 			});
 		}
