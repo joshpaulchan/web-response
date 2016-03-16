@@ -10,6 +10,9 @@
 
 + Template management in Options
 
+__JL__
++ optimize disableDropdown function
+
 + Conversations
 	+ Rename messages to this in css, JS
 	+ Implement a suggestion drop down

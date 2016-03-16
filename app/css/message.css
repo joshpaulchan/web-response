@@ -215,6 +215,7 @@
 #nav .pure-menu-link {
     color: #fff;
     margin-left: 0.5em;
+    cursor: pointer;
 }
 #nav .pure-menu-selected:after {
 	content: "";
@@ -252,6 +253,10 @@
 #list .pure-menu-link, .pure-menu-children, .pure-menu-disabled {
   width: 60px;
   text-align: center;
+}
+
+#list .pure-menu-link {
+  cursor: pointer;
 }
 
 #list .pure-menu-disabled {
