@@ -224,7 +224,7 @@ webresponseControllers.controller('LoginCtrl', function($scope, $location, auth)
 	};
 });
 
-webresponseControllers.controller('OptionsCtrl', function($scope) {
+webresponseControllers.controller('OptionsCtrl', ['$scope', function($scope) {
 	$scope.panel = 1;
 
 	$scope.selectPanel = function(setPanel) {
@@ -239,23 +239,94 @@ webresponseControllers.controller('OptionsCtrl', function($scope) {
 		return $scope.panel;
 	};
 
-	// Figuring out if possible to use ngRepeat for options
-	// $scope.optionItems = [
-	// 	{
-	// 		imgSrc: 'http://www.animalfactguide.com/wp-content/uploads/2013/01/koala3.jpg',
-	// 		panelNum: 1
-	// 	},
-	// 	{
-	// 		imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg',
-	// 		panelNum: 2
-	// 	},
-	// 	{
-	// 		imgSrc: 'http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/koala_ecalypt.jpg',
-	// 		panelNum: 3
-	// 	},
-	// 	{
-	// 		imgSrc: 'https://c2.staticflickr.com/6/5514/11051555136_7c0e9560f5_b.jpg',
-	// 		panelNum: 4
-	// 	}
-	// ];
-});
+	$scope.optionItems = [
+	  {
+	    "header": "Account Information",
+			"icon": "img/acc-icon.png",
+	    "panelNum": 1,
+	    "config": [
+				{
+					"title": "Name",
+					"data": "PETER PARKER",
+					"setting": "Change Name",
+					"isActive": false
+				},
+				{
+					"title": "Email",
+					"data": "PETER.PARKER@EMPIRESTATE.EDU",
+					"setting": "Change Email",
+					"isActive": false
+				},
+				{
+					"title": "Username",
+					"data": "SPIDEYKID101",
+					"setting": "Change Username",
+					"isActive": false
+				},
+				{
+					"title": "Password",
+					"data": "●●●●●●●●●",
+					"setting": "Change Password",
+					"isActive": false
+				}
+			]
+	  },
+	  {
+	    "header": "General Settings",
+			"icon": "img/gen-set-icon.png",
+	    "panelNum": 2,
+	    "config": [
+				{
+					"title": "Signature",
+					"data": "SIGNATURE HERE",
+					"setting": "Change Signature",
+					"isActive": false
+				},
+				{
+					"title": "Blocked Email Addresses",
+					"data": "BLOCKED EMAILS HERE",
+					"setting": "Change Blocked Emails",
+					"isActive": false
+				}
+	    ]
+	  },
+	  {
+	    "header": "Administrative Controls",
+			"icon": "img/adm-icon.png",
+	    "panelNum": 3,
+	    "config": [
+				{
+					"title": "Accounts with Access",
+					"data": "ACCOUNTS WITH ACCESS HERE",
+					"setting": "Change Accounts with Access",
+					"isActive": false
+				},
+				{
+					"title": "Accounts without Access",
+					"data": "ACCOUNTS WITHOUT ACCESS HERE",
+					"setting": "Change Accounts without Access",
+					"isActive": false
+				}
+	    ]
+	  },
+	  {
+	    "header": "Help",
+			"icon": "img/help-icon.png",
+	    "panelNum": 4,
+	    "config": [
+				{
+					"title": "Tutorial Here",
+				}
+	    ]
+	  }
+	];
+
+	$scope.setChildActive = function(config) {
+		if(config.isActive == false && config.setting != null) {
+			config.isActive = true;
+		} else {
+			config.isActive = false;
+		}
+	};
+
+}]);

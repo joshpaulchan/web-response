@@ -15,13 +15,17 @@
 + Hook up to backend + APIs
 
 + Options
-	+ Complete design of options modal
-	+ Complete responsive functionality to modal
 	+ Implement settings into options modal
+	+ Add a 'reset' function to options pane when closed
 
 + Add a responsive horizontal scroll for message list controls
 
 # CHANGED
+**3.16.2016**
+__JL__
++ Complete GUI design of options modal
++ Complete responsive functionality to modal
+
 **2.26.2016**
 __JL__
 + Style the main view nicer
