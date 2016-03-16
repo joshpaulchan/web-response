@@ -190,6 +190,9 @@
 						from <span class="title">{{resp.email}}</span>
 						<span class="note">{{resp.createdAt}}</span>
 					</card-header>
+					<card-header>
+						to <span class="title">{{resp.email}}</span>
+					</card-header>
 					<card-body>{{resp.content}}</card-body>
 					<card-footer>
 						<div class="button-group float-right">
@@ -199,10 +202,14 @@
 				</convo-card>
 				<convo-card ng-if="$last">
 					<div>
+						<card-header>
+							from <span class="title">{{user.email}}</span>
+						</card-header>
 						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
 						<ol class="search-results">
 							<li ng-repeat="s in replyForm.targetSuggestions" ng-click="chooseSuggestion(s)">{{s.username}}</li>
 						</ol>
+						<card-header-input label="CC" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
 					</div>
 					<card-body-input ng-model="replyForm.content"></card-body-input>
 					<card-footer>
