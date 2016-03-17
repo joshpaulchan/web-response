@@ -7,7 +7,7 @@
  */
 
 $db_hostname = "localhost";
-$db_username = "webresponse";
+$db_username = "ucmwebresponse";
 $db_password = "ur4321";
 $db_database = "webresponse";
 

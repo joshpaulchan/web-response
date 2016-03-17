@@ -7,6 +7,7 @@
 + UI
 	+ Reduce header (put into sidebar?)
 	+ Make things resizeable
+	+ Make response box resize-able
 
 + Template management in Options
 
@@ -22,6 +23,11 @@ __JL__
 + Style technical info
 
 # CHANGED
+**3.16.2016**
+__JC__
++ optimize disableDropdown function
++ clean CSS for options modal and merge with dev
+
 **3.2.2016**
 + Clear address bar on send
 + implement click-replace in auto-complete

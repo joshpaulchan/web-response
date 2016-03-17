@@ -6,23 +6,36 @@ var webresponseServices = angular.module('webresponseServices', []);
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var phpUrl = 'php';
-	var phpCallsDir = 'Calls';
-    var phpgetAllDir = 'getall';
+	var phpCallsDir = '/Calls';
+    var phpGetAllDir = '/GetAll';
 	var queryUrl = 'queries';
 	var messages = {};
 
 	messages.curMessage = null;
 	messages.ready = true;
 
+	var reformatMessage = function(msg) {
+		var newMsg = {};
+		msg.status = {
+			"selected": false,
+			"unread" : (msg.status_ind == "V" || msg.status_ind == "R") ? false: true,
+			"repliedTo": (msg.status_ind == "R") ? true : false
+		};
+		msg.createdBy = msg.email;
+		msg.id = msg.message_id;
+		msg.createdAt = new Date(msg.created);
+		return msg;
+	};
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + '/' + phpCallsDir + '/GetAllMessages.php', {
+			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
 				"params": {
 					'page': pg
 				}
 			}).then(function(req) {
-				resolve(req.data);
+				console.log(req);
+				resolve(req.data.map(reformatMessage));
 			}, function(error) {
 				reject(error);
 			});
@@ -37,7 +50,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 					'messageId': id
 				}
 			}).then(function(req) {
-				resolve(req.data);
+				resolve(reformatMessage(req.data));
 			}, function(error) {
 				reject(error);
 			});
