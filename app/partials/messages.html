@@ -160,7 +160,7 @@
 					<h5 class='message-subject'>{{msg.subject}}</h5>
 				</div>
 				<div class='pure-u-4-24'>
-					<h5 class='message-date'>{{msg.createdAt}}</h5>
+					<h5 class='message-date'>{{msg.createdAt | date:'mediumDate'}}</h5>
 				</div>
 			</div>
 
@@ -174,7 +174,7 @@
 		<div class='header'>
 			<h1 class="title">{{curMessage.subject}}</h1>
 			<span class="meta-info">
-				created on <span class="time">{{curMessage.createdAt}}</span>
+				created on <span class="time">{{curMessage.createdAt | date:'medium'}}</span>
 			</span>
 			<div class="technical-info">
 				<ul>
