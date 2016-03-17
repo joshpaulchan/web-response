@@ -14,6 +14,18 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	messages.curMessage = null;
 	messages.ready = true;
 
+	var reformatMessage = function(msg) {
+		var newMsg = {};
+		msg.status = {
+			"selected": false,
+			"unread" : (msg.status_ind == "V" || msg.status_ind == "R") ? false: true,
+			"repliedTo": (msg.status_ind == "R") ? true : false
+		};
+		msg.createdBy = msg.email;
+		msg.id = msg.message_id;
+		msg.createdAt = new Date(msg.created);
+		return msg;
+	};
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
@@ -23,7 +35,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 				}
 			}).then(function(req) {
 				console.log(req);
-				resolve(req.data);
+				resolve(req.data.map(reformatMessage));
 			}, function(error) {
 				reject(error);
 			});
@@ -38,7 +50,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 					'messageId': id
 				}
 			}).then(function(req) {
-				resolve(req.data);
+				resolve(reformatMessage(req.data));
 			}, function(error) {
 				reject(error);
 			});
