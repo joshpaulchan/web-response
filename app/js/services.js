@@ -6,8 +6,8 @@ var webresponseServices = angular.module('webresponseServices', []);
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var phpUrl = 'php';
-	var phpCallsDir = 'Calls';
-    var phpgetAllDir = 'getall';
+	var phpCallsDir = '/Calls';
+    var phpGetAllDir = '/GetAll';
 	var queryUrl = 'queries';
 	var messages = {};
 
@@ -17,11 +17,12 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + '/' + phpCallsDir + '/GetAllMessages.php', {
+			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
 				"params": {
 					'page': pg
 				}
 			}).then(function(req) {
+				console.log(req);
 				resolve(req.data);
 			}, function(error) {
 				reject(error);
