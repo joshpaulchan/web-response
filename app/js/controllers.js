@@ -225,7 +225,8 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 									.replace(/<([^>]*)>/g, "");
 
 		sendMsg({
-			"email": $scope.replyForm.targetStr,
+			"sentBy": "us",
+			"sentTo": $scope.replyForm.targetStr,
 			"content": replyContent,
 			"createdAt": new Date()
 		});

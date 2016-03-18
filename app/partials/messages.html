@@ -187,11 +187,11 @@
 			<div ng-repeat="resp in curMessage.thread">
 				<convo-card>
 					<card-header>
-						from <span class="title">{{resp.email}}</span>
+						from <span class="title">{{resp.sentBy}}</span>
 						<span class="note">{{resp.createdAt | date:"mediumDate"}}</span>
 					</card-header>
 					<card-header>
-						to <span class="title">{{resp.email}}</span>
+						to <span class="title">{{resp.sentTo}}</span>
 					</card-header>
 					<card-body>{{resp.content}}</card-body>
 					<card-footer>
@@ -202,9 +202,6 @@
 				</convo-card>
 				<convo-card ng-if="$last">
 					<div>
-						<card-header>
-							from <span class="title">{{user.email}}</span>
-						</card-header>
 						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
 						<ol class="search-results">
 							<li ng-repeat="s in replyForm.targetSuggestions" ng-click="chooseSuggestion(s)">{{s.username}}</li>

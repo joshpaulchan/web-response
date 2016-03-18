@@ -31,7 +31,8 @@ webresponseServices.factory('messages', ['$http', function($http) {
 			msg.thread = [];
 		}
 		msg.thread.splice(0, 0, {
-			"email": msg.createdBy,
+			"sentBy": msg.createdBy,
+			"sentTo": "us",
 			"createdAt": msg.createdAt,
 			"content": msg.descr
 		});
