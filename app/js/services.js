@@ -14,6 +14,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	messages.curMessage = null;
 	messages.ready = true;
 
+	// function to format some of the fields of the responses from the DB so it plays nice with our exepected structure
 	var reformatMessage = function(msg) {
 		var newMsg = {};
 		msg.status = {
@@ -24,6 +25,16 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		msg.createdBy = msg.email;
 		msg.id = msg.message_id;
 		msg.createdAt = new Date(msg.created);
+
+		// Create thread if it doesn't exist
+		if (typeof msg.thread == "undefined") {
+			msg.thread = [];
+		}
+		msg.thread.splice(0, 0, {
+			"email": msg.createdBy,
+			"createdAt": msg.createdAt,
+			"content": msg.descr
+		});
 		return msg;
 	};
 
