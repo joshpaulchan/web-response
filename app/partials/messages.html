@@ -208,7 +208,7 @@
 						</ol>
 						<card-header-input label="CC" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
 					</div>
-					<card-body-input ng-model="replyForm.content"></card-body-input>
+					<card-body-input v-resizeable="true" ng-model="replyForm.content"></card-body-input>
 					<card-footer>
 						<div class="button-group float-right">
 							<button class="card-button" ng-click="reply()">Send</button>

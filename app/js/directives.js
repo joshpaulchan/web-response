@@ -88,10 +88,11 @@ webresponseDirectives.directive('cardBodyInput', function() {
     return {
         restrict: 'E',
         scope: {
+            'vResizeable': '=',
             'ngModel': '=',
             'ngChange': '='
         },
-        template: "<div class='card-body card-body-input' contenteditable ng-model='ngModel' ngChange='ngChange'></div>",
+        template: "<div class='card-body card-body-input' ng-class=\"{'vertical-resizeable' : vResizeable}\" contenteditable ng-model='ngModel' ngChange='ngChange'></div>",
         link: function($scope, elem, attrs) {}
     };
 });
