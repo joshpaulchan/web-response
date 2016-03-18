@@ -8,6 +8,7 @@
 	+ Reduce header (put into sidebar?)
 	+ Make things resizeable
 	+ Make response box resize-able
+	+ relative dating (if it's same day, list hour, if not, list day)
 
 + Template management in Options
 
