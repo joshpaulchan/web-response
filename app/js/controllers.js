@@ -227,7 +227,7 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		sendMsg({
 			"email": $scope.replyForm.targetStr,
 			"content": replyContent,
-			"createdAt": new Date().toString()
+			"createdAt": new Date()
 		});
 		$scope.replyForm.targetStr = "";
 		$scope.replyForm.targets.clear();
