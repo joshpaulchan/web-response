@@ -7,13 +7,9 @@
 + UI
 	+ Reduce header (put into sidebar?)
 	+ Make things resizeable
-	+ Make response box resize-able
 	+ relative dating (if it's same day, list hour, if not, list day)
 
 + Template management in Options
-
-__JL__
-+ optimize disableDropdown function
 
 + Conversations
 	+ Rename messages to this in css, JS
@@ -24,6 +20,20 @@ __JL__
 + Style technical info
 
 # CHANGED
+**3.18.2016**
+__JC__
++ Make response box resize-able
++ Server & DB integrations
+	+ Modify reformatMessage to work with changing fields
+	+ get thread display working
+
+**3.17.2016**
+__JC__
++ Server & DB integrations
+	+ Add test data from original DB
+	+ Add reformatMessage function to reconcile fields
+	+ get list loading working
+
 **3.16.2016**
 __JC__
 + optimize disableDropdown function
