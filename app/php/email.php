@@ -15,18 +15,18 @@ $hostname = '';
 $username = '';
 $password = '';
 
-echo $username . '<br/>';
+//echo $username . '<br/>';
 
 // connect to email or die
 //imap_last_error() returns the last error that occurred
-$inbox = imap_open($hostname, $username, $password) or die('Cannot connect to Gmail: ' . imap_last_error());
+//$inbox = imap_open($hostname, $username, $password) or die('Cannot connect to Gmail: ' . imap_last_error());
 
 //grab total number of messages in the mailbox
-$total = imap_num_msg($inbox);
+//$total = imap_num_msg($inbox);
 //echo 'total number of messages: ' . $total . '<br/>';
 
 //grab total number of recent messages in the mailbox
-$recent = imap_num_recent($inbox);
+//$recent = imap_num_recent($inbox);
 //echo 'total number of recent messages: ' . $recent . '<br/>';
 
 
@@ -38,6 +38,15 @@ $recent = imap_num_recent($inbox);
 
 
 //closing the connection
-imap_close($inbox);
+//imap_close($inbox);
 
+
+
+
+
+$to = "kasa288@gmail.com";
+$subject = "My subject";
+$txt = "Hello world!";
+$headers = "From: kasa288@gmail.com" . "\r\n" . "CC: kasa288@gmail.com";
+mail($to,$subject,$txt,$headers);
 ?>

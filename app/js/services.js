@@ -6,27 +6,51 @@ var webresponseServices = angular.module('webresponseServices', []);
 webresponseServices.factory('messages', ['$http', function($http) {
 	var apiUrl = 'data';
 	var phpUrl = 'php';
-	var phpCallsDir = 'Calls';
-    var phpgetAllDir = 'getall';
+	var phpCallsDir = '/Calls';
+    var phpGetAllDir = '/GetAll';
 	var queryUrl = 'queries';
 	var messages = {};
 
 	messages.curMessage = null;
+	messages.ready = true;
 
-	(function loadInitial() {
-		console.log("Load Initial...");
-		messages.loadMessages().then(function(data){
-			if (data == 200) { messages.ready = true; }
-		}, function(error) {
-			console.log(error);
+	// function to format some of the fields of the responses from the DB so it plays nice with our exepected structure
+	var reformatMessage = function(msg) {
+		var newMsg = {};
+		msg.status = {
+			"selected": false,
+			"unread" : (msg.status_ind == "V" || msg.status_ind == "R") ? false: true,
+			"repliedTo": (msg.status_ind == "R") ? true : false
+		};
+		msg.createdBy = msg.email;
+		msg.id = msg.message_id;
+		msg.createdAt = new Date(msg.created);
+
+		// Create thread if it doesn't exist
+		if (typeof msg.thread == "undefined") {
+			msg.thread = [];
+		}
+		msg.thread.splice(0, 0, {
+			"sentBy": msg.createdBy,
+			"sentTo": "us",
+			"createdAt": msg.createdAt,
+			"content": msg.descr
 		});
-	})();
+		return msg;
+	};
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + '/' + phpCallsDir + '/GetAllMessages.php', {
-				'page': pg
-			}).then(resolve, reject);
+			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
+				"params": {
+					'page': pg
+				}
+			}).then(function(req) {
+				console.log(req);
+				resolve(req.data.map(reformatMessage));
+			}, function(error) {
+				reject(error);
+			});
 		});
 		return p;
 	};
@@ -34,8 +58,14 @@ webresponseServices.factory('messages', ['$http', function($http) {
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
 			$http.get(phpUrl + '/' + phpCallsDir + '/GetMessage.php', {
-				'messageId': id
-			}).then(resolve, reject);
+				"params": {
+					'messageId': id
+				}
+			}).then(function(req) {
+				resolve(reformatMessage(req.data));
+			}, function(error) {
+				reject(error);
+			});
 		});
 		return p;
 	};

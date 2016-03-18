@@ -33,6 +33,11 @@ $result = array(
     )
 );
 
-//returning the results of the query in json format
-echo json_encode($result); //this will go back under "data" of angular call.
+if ($result["id"] != $_GET["messageId"]) {
+    http_response_code(404);
+    die("Message Id not found");
+} else {
+    //returning the results of the query in json format
+    echo json_encode($result); //this will go back under "data" of angular call.
+}
 ?>

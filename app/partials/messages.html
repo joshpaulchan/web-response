@@ -160,7 +160,7 @@
 					<h5 class='message-subject'>{{msg.subject}}</h5>
 				</div>
 				<div class='pure-u-4-24'>
-					<h5 class='message-date'>{{msg.createdAt}}</h5>
+					<h5 class='message-date'>{{msg.createdAt | date:'mediumDate'}}</h5>
 				</div>
 			</div>
 
@@ -174,7 +174,7 @@
 		<div class='header'>
 			<h1 class="title">{{curMessage.subject}}</h1>
 			<span class="meta-info">
-				created on <span class="time">{{curMessage.createdAt}}</span>
+				created on <span class="time">{{curMessage.createdAt | date:'medium'}}</span>
 			</span>
 			<div class="technical-info">
 				<ul>
@@ -187,8 +187,11 @@
 			<div ng-repeat="resp in curMessage.thread">
 				<convo-card>
 					<card-header>
-						from <span class="title">{{resp.email}}</span>
-						<span class="note">{{resp.createdAt}}</span>
+						from <span class="title">{{resp.sentBy}}</span>
+						<span class="note">{{resp.createdAt | date:"mediumDate"}}</span>
+					</card-header>
+					<card-header>
+						to <span class="title">{{resp.sentTo}}</span>
 					</card-header>
 					<card-body>{{resp.content}}</card-body>
 					<card-footer>
@@ -203,6 +206,7 @@
 						<ol class="search-results">
 							<li ng-repeat="s in replyForm.targetSuggestions" ng-click="chooseSuggestion(s)">{{s.username}}</li>
 						</ol>
+						<card-header-input label="CC" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
 					</div>
 					<card-body-input ng-model="replyForm.content"></card-body-input>
 					<card-footer>

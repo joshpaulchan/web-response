@@ -6,26 +6,25 @@
 var webresponseControllers = angular.module('webresponseControllers', []);
 
 webresponseControllers.controller('MessageCtrl', function($scope, $routeParams, messages) {
-    $scope.messageId = $routeParams.messageId;
-    $scope.messagesPage = 0;
+	var messageId = $routeParams.messageId;
 
-    $scope.$watch(messages.isReady, function() {
-        if (messages.isReady()) {
-            messages.getMessage($scope.messageId).then(messages.setCurMessage, function(error) {
-                console.log(error);
-            });
-        }
-    });
+	$scope.$watch(messages.isReady, function() {
+		if (messages.isReady() && typeof messageId !== 'undefined') {
+			messages.getMessage(messageId).then(messages.setCurMessage, function(error) {
+				console.log(error);
+			});
+		}
+	});
 
-    $scope.showOptionsModal = function() {
-        // Show the options modal;
-        $scope.showOptions = true;
-    };
+	$scope.showOptionsModal = function() {
+		// Show the options modal;
+		$scope.showOptions = true;
+	};
 
-    $scope.hideOptionsModal = function() {
-        // Hide the options modal;
-        $scope.showOptions = false;
-    };
+	$scope.hideOptionsModal = function() {
+		// Hide the options modal;
+		$scope.showOptions = false;
+	};
 });
 
 webresponseControllers.controller('MessageNavBarCtrl', function($scope, $location, auth) {
@@ -222,9 +221,10 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 									.replace(/<([^>]*)>/g, "");
 
 		sendMsg({
-			"email": $scope.replyForm.targetStr,
+			"sentBy": "us",
+			"sentTo": $scope.replyForm.targetStr,
 			"content": replyContent,
-			"createdAt": new Date().toString()
+			"createdAt": new Date()
 		});
 		$scope.replyForm.targetStr = "";
 		$scope.replyForm.targets.clear();

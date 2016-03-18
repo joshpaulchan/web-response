@@ -5,14 +5,12 @@
  * Date: 3/9/2016
  * Time: 2:04 PM
  */
-//TODO copy and update from old system
+
 $db_hostname = "localhost";
-$db_database = "rutgerswebresponse";
-$db_username = "uradmin";
-$db_password = "ur3710adm";
+$db_username = "ucmwebresponse";
+$db_password = "ur4321";
+$db_database = "webresponse";
 
-$db_database = "ucmwebresponse";
-
-// file is being closed to ensure that it can never be displayed as tezt
+// file is being closed to ensure that it can never be displayed as text
 // if anyone tries to access the file from a web browser
 ?>

@@ -10,13 +10,10 @@
  *
  */
 
-// TODO use this file for testing
-// The DB has been setup on AWS
-//$db_hostname = "localhost";
-$db_hostname = "ucmwebresponse.cmqkcdoxbspu.us-west-2.rds.amazonaws.com";
+$db_hostname = "localhost";
+$db_username = "ucmwebresponse";
+$db_password = "ur4321";
 $db_database = "ucmwebresponse";
-$db_username = "admin";
-$db_password = "ucmadmin";
 
 // file is being closed to ensure that it can never be displayed as tezt
 // if anyone tries to access the file from a web browser
