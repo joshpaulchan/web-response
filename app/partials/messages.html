@@ -188,7 +188,7 @@
 				<convo-card>
 					<card-header>
 						from <span class="title">{{resp.email}}</span>
-						<span class="note">{{resp.createdAt}}</span>
+						<span class="note">{{resp.createdAt | date:"mediumDate"}}</span>
 					</card-header>
 					<card-header>
 						to <span class="title">{{resp.email}}</span>
