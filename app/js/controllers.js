@@ -180,8 +180,8 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 
 	$scope.chooseSuggestion = function(tgt) {
 		var targets = $scope.replyForm.targets;
-		targets.add(tgt);
-		console.log(targets);
+		// targets.add(tgt);
+		// console.log(targets);
 		var tgts = [];
 		targets.forEach(function(tgt) {
 			tgts.push(fmtEmail(tgt));
@@ -200,7 +200,7 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		if (cand.length >= 3) {
 			UserService.queryByUsername(cand).then(function(data) {
 				$scope.replyForm.targetSuggestions = data;
-				console.log(data);
+				// console.log(data);
 			}, function(error) {
 				console.log(Error(error));
 			});
