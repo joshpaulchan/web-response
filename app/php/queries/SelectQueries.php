@@ -11,7 +11,7 @@ $allDepartments = "select * from department limit 10";
 
 $allUsers = "select * from user limit 10";
 
-$allMessages = "select * from message limit 10";
+$allMessages = "select * from message ORDER BY `created` DESC LIMIT 10";
 
 $allCategories = "select * from category limit 10";
 
