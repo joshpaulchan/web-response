@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+	<div ng-app="test" ng-controller="messages">
+		<p>Today's welcome message is:</p>
+        <script src="app.js"></script>
+		<h1>{{myWelcome}}</h1>
+        <table>
+        	<thead>
+            	<tr>
+                	<th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="user in users">
+                	<td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+
+	<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+</body>
+</html>

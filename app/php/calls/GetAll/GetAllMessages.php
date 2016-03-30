@@ -7,8 +7,8 @@
  */
 
 require_once '../../queries/SelectQueries.php';
-require_once '../../Caller.php';
+require_once 'GetAllCallOldDB.php';
 
 //returning the results of the query in json format
-echo getAllMessages($allMessages); //this will go back under "data" of angular call.
+echo getAll($allMessages); //this will go back under "data" of angular call.
 ?>
