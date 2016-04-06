@@ -18,24 +18,41 @@ class Paginator{
      * Paginator constructor.
      *
      * @param $conn
-     * @param $query
-     * @param int $limit
+     * @param $countQuery
+     * @param $limit
      */
-    public function __construct($conn, $query, $limit = 10){
-        //setting the db connection and query
+    public function __construct($conn, $countQuery, $limit){
+        //setting the db connection
         $this->_conn = $conn;
-        $this->_query = $query;
+
+        //setting the limit and page number
+        $this->_limit = $limit;
 
         //calculate the total number of rows
-        if(!$result = $this->_conn->query($query)){
+        if(!$result = $this->_conn->query($countQuery)){
             //the query failed
             die('There was an error running the query [ ' . $this->_conn->error . ' ].');
         }
-        $this->_total = $result->num_rows();
+        $row = $result->fetch_array();
         $result->free();
+        $this->_total = $row[0];
+
 
         $this->_limit = $limit;
+        
         $this->_groups = ceil($this->_total / $limit);
+    }
+
+    /**
+     * Method to setup the current pagination instance
+     *
+     * @param $query
+     * @param $limit
+     */
+    public function setup($query){
+
+        //setting the query
+        $this->_query = $query;
     }
 
     /**
@@ -45,11 +62,7 @@ class Paginator{
      * @param int $limit default 10
      * @param int $page default 1
      */
-    public function loadData($limit = 10, $page = 1, $group_num = 1){
-        //setting the limit and page number
-        $this->_limit = $limit;
-        $this->_page = $page;
-
+    public function loadData($group_num = 1){
         //throw HTTP error if group number is not valid
         if(!is_numeric($group_num)){
             header('HTTP/1.1 500 Invalid number!');
@@ -141,6 +154,16 @@ class Paginator{
         $html       .= '</ul>';
 
         return $html;
+    }
+
+    /**
+     * Method to get the total number of groups.
+     * For usage in Javascript
+     *
+     * @return float
+     */
+    public function getGroups(){
+        return $this->_groups;
     }
 }
 ?>
