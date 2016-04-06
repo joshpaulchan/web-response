@@ -75,7 +75,7 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 		// console.log(pLeft);
 
 		if (pLeft < 0.10) { // if at bottom 10%;
-			groupNum = $scope.messages.length / perPage;
+			groupNum = Math.ceil($scope.messages.length / perPage);
 			console.log(groupNum);
 			$scope.loadMessages(groupNum);
 		}
