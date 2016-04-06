@@ -15,6 +15,7 @@
  */
 function getAll($query){
 
+    //require_once  "../../db/dbconnect.php";
     require_once "../../db/dbtestlocal.php";
 
     if(!$result = $db_server->query($query)){
