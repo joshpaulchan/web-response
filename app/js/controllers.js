@@ -40,6 +40,10 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
     $scope.show = 'All';
     $scope.folder = 'inbox';
 
+	/////////////////////
+    // MESSAGE LOADING //
+    /////////////////////
+
     $scope.$watch(messages.isReady, function(n, o) {
         if (messages.isReady()) {
             $scope.loadMessages($scope.messagesPage);
@@ -49,12 +53,35 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
     $scope.loadMessages = function(pg) {
         messages.loadMessages(pg).then(function(data) {
             $scope.$apply(function() {
-                $scope.messages = data;
+                $scope.messages = $scope.messages.concat(data);
+				console.log($scope.messages);
             });
         }, function(error) {
             console.log(error);
         });
     };
+
+	var groupNum;
+	var perPage = 25;
+
+	var scrollLoad = function(evt) {
+		// console.log(evt);
+		var yp = evt.target.scrollTop;
+		var ht = evt.target.clientHeight;
+		var ctht = evt.target.scrollHeight;
+		var scrolled = yp + ht;
+		var pLeft = (ctht - scrolled)/ctht;
+		// console.log(scrolled);
+		// console.log(pLeft);
+
+		if (pLeft < 0.10) { // if at bottom 10%;
+			groupNum = $scope.messages.length / perPage;
+			console.log(groupNum);
+			$scope.loadMessages(groupNum);
+		}
+	};
+
+	document.querySelector('.message-list').addEventListener('scroll', scrollLoad);
 
     ///////////////////////////
     // MESSAGE LIST CONTROLS //
