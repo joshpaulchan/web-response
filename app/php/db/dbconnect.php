@@ -17,7 +17,7 @@
  * $db_password
  */
 
-require_once 'login.php';
+require_once 'ucmlogin.php';
 
 /**
  * Create connection to database
