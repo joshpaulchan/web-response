@@ -46,7 +46,7 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
 
     $scope.$watch(messages.isReady, function(n, o) {
         if (messages.isReady()) {
-            $scope.loadMessages($scope.messagesPage);
+            $scope.loadMessages(0);
         }
     });
 
