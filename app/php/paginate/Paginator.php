@@ -70,7 +70,7 @@ class Paginator{
             $position = ($group_num * $this->_limit);
 
             //Limit our results within a specified range.
-            $query = $query . " limit " . $this->_limit . " offset " . $position;
+            $query = $query . " LIMIT " . $this->_limit . " OFFSET " . $position;
         }
 
         //getting the results
@@ -89,7 +89,7 @@ class Paginator{
         }
         $result->free();
 
-        return json_encode($json_result); //this will go back under "data" of angular call.
+        return $json_result; //this will go back under "data" of angular call.
 
         /**
          * echo '<ul class="page_result">';
@@ -160,5 +160,3 @@ class Paginator{
     }
 }
 ?>
-
-
