@@ -11,7 +11,7 @@ $allDepartments = "select * from department";
 
 $allUsers = "select * from user";
 
-$allMessages = "select * from message ORDER BY `created` DESC";
+$allMessages = "SELECT * FROM message ORDER BY created DESC";
 
 $allCategories = "select * from category";
 
