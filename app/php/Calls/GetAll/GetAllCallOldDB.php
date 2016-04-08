@@ -14,9 +14,21 @@
  * @param $group_num
  * @return mixed
  */
+
+ function utf8ize($d) {
+     if (is_array($d)) {
+         foreach ($d as $k => $v) {
+             $d[$k] = utf8ize($v);
+         }
+     } else if (is_string ($d)) {
+         return utf8_encode($d);
+     }
+     return $d;
+ }
+
 function getAll($paginate, $group_num){
 
-    return $paginate->loadData($group_num);
+    return json_encode(utf8ize($paginate->loadData($group_num)));
 
 }
 ?>
