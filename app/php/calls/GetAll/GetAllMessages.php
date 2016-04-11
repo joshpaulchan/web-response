@@ -22,9 +22,9 @@ static $paginate = null;
 $query = "select count(*) from message";
 
 if($paginate == null){
-    $paginate = new Paginator($db_server, $query, 25, $allUsers);
+    $paginate = new Paginator($db_server, $query, 25, $allMessages);
 }
 
 //returning the results of the query in json format
-echo getAll($paginate, $allMessages); //this will go back under "data" of angular call.
+echo getAll($paginate, $group_num); //this will go back under "data" of angular call.
 ?>
