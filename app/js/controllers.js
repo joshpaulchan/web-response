@@ -40,48 +40,21 @@ webresponseControllers.controller('MessageListCtrl', function($scope, $location,
     $scope.show = 'All';
     $scope.folder = 'inbox';
 
-	/////////////////////
-    // MESSAGE LOADING //
-    /////////////////////
-
     $scope.$watch(messages.isReady, function(n, o) {
         if (messages.isReady()) {
-            $scope.loadMessages(0);
+            $scope.loadMessages($scope.messagesPage);
         }
     });
 
     $scope.loadMessages = function(pg) {
         messages.loadMessages(pg).then(function(data) {
             $scope.$apply(function() {
-                $scope.messages = $scope.messages.concat(data);
-				console.log($scope.messages);
+                $scope.messages = data;
             });
         }, function(error) {
             console.log(error);
         });
     };
-
-	var groupNum;
-	var perPage = 25;
-
-	var scrollLoad = function(evt) {
-		// console.log(evt);
-		var yp = evt.target.scrollTop;
-		var ht = evt.target.clientHeight;
-		var ctht = evt.target.scrollHeight;
-		var scrolled = yp + ht;
-		var pLeft = (ctht - scrolled)/ctht;
-		// console.log(scrolled);
-		// console.log(pLeft);
-
-		if (pLeft < 0.10) { // if at bottom 10%;
-			groupNum = Math.ceil($scope.messages.length / perPage);
-			console.log(groupNum);
-			$scope.loadMessages(groupNum);
-		}
-	};
-
-	document.querySelector('.message-list').addEventListener('scroll', scrollLoad);
 
     ///////////////////////////
     // MESSAGE LIST CONTROLS //
@@ -195,14 +168,20 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		$scope.curMessage = messages.getCurMessage();
 	});
 
+	var sendMsg = function(msg) {
+		// 1. send to server
+		$scope.curMessage.thread.push(msg);
+		return msg;
+	};
+
 	var fmtEmail = function(tgt) {
 		return "<span class='email-label' unselectable='on' autocorrect='off' autocapitalize='off'>" + tgt.username + "</span>";
 	};
 
 	$scope.chooseSuggestion = function(tgt) {
 		var targets = $scope.replyForm.targets;
-		// targets.add(tgt);
-		// console.log(targets);
+		targets.add(tgt);
+		console.log(targets);
 		var tgts = [];
 		targets.forEach(function(tgt) {
 			tgts.push(fmtEmail(tgt));
@@ -221,7 +200,7 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		if (cand.length >= 3) {
 			UserService.queryByUsername(cand).then(function(data) {
 				$scope.replyForm.targetSuggestions = data;
-				// console.log(data);
+				console.log(data);
 			}, function(error) {
 				console.log(Error(error));
 			});
@@ -241,13 +220,11 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 									.replace(/<\S+br\S+>/g,"\r\n")
 									.replace(/<([^>]*)>/g, "");
 
-		var msg = $scope.curMessage;
-		messages.sendMessage($scope.replyForm.targetStr, "webresponse@ucm.rutgers.edu", [], msg.subject, replyContent)
-		.then(function(data) {
-			console.log(data);
-			$scope.curMessage.thread.push();
-		}, function(error) {
-			console.log(error);
+		sendMsg({
+			"sentBy": "us",
+			"sentTo": $scope.replyForm.targetStr,
+			"content": replyContent,
+			"createdAt": new Date()
 		});
 		$scope.replyForm.targetStr = "";
 		$scope.replyForm.targets.clear();

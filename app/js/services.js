@@ -41,8 +41,10 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.post(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
-		        'group_num' : pg
+			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
+				"params": {
+					'page': pg
+				}
 			}).then(function(req) {
 				console.log(req);
 				resolve(req.data.map(reformatMessage));
@@ -68,13 +70,13 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return p;
 	};
 
-	messages.sendMessage = function(email_to, email_from, cc, subject, body) {
+	messages.sendMessage = function(email_to, email_from, email_cc, email_body) {
 		var p = new Promise(function(resolve, reject) {
-			$http.post(phpUrl + '/email/sendEmail.php', {
-				'to': email_to,
-				'subject': subject,
-				'text': body,
-				'headers': "From: " + email_from + "\r\n"
+			$http.post(phpUrl + '/' + phpCallsDir + '/sendMessage.php', {
+				'email_to': email_to,
+				'email_from': email_from,
+				'email_cc': email_cc,
+				'email_body': email_body
 			}).then(resolve, reject);
 		});
 		return p;

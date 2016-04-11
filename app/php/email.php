@@ -40,6 +40,10 @@ $password = '';
 //closing the connection
 //imap_close($inbox);
 
+
+
+
+
 $to = "kasa288@gmail.com";
 $subject = "My subject";
 $txt = "Hello world!";

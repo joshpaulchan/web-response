@@ -7,8 +7,7 @@
  */
 
 require_once '../../queries/SelectQueries.php';
-require_once 'GetAllCallNewDB.php';
-//require_once 'GetAllCallLocalDB.php';
+require_once '../../Caller.php';
 
 //returning the results of the query in json format
 echo getAll($allDepartments); //this will go back under "data" of angular call.

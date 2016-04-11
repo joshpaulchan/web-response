@@ -7,10 +7,9 @@
  *
  * This file details login details for the mysql server.
  * Any changes to host, database, username, or password should be done here.
- * Use this file to connect to new dev DB
  *
  */
-//TODO Use This DB to connect to the new DEV DB
+
 $db_hostname = "localhost";
 $db_username = "ucmwebresponse";
 $db_password = "ur4321";

@@ -7,7 +7,7 @@
  */
 
 //require_once 'queries/InsertQueries.php';
-require_once '../db/dbconnect.php';
+require_once 'dbconnect.php';
 
 function inserter($query){
     if ($db_server->query($query) === TRUE) {
