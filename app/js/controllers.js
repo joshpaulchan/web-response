@@ -195,12 +195,6 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 		$scope.curMessage = messages.getCurMessage();
 	});
 
-	var sendMsg = function(msg) {
-		// 1. send to server
-		$scope.curMessage.thread.push(msg);
-		return msg;
-	};
-
 	var fmtEmail = function(tgt) {
 		return "<span class='email-label' unselectable='on' autocorrect='off' autocapitalize='off'>" + tgt.username + "</span>";
 	};
@@ -247,11 +241,13 @@ webresponseControllers.controller('MessageViewCtrl', function($scope, $compile, 
 									.replace(/<\S+br\S+>/g,"\r\n")
 									.replace(/<([^>]*)>/g, "");
 
-		sendMsg({
-			"sentBy": "us",
-			"sentTo": $scope.replyForm.targetStr,
-			"content": replyContent,
-			"createdAt": new Date()
+		var msg = $scope.curMessage;
+		messages.sendMessage($scope.replyForm.targetStr, "webresponse@ucm.rutgers.edu", [], msg.subject, replyContent)
+		.then(function(data) {
+			console.log(data);
+			$scope.curMessage.thread.push();
+		}, function(error) {
+			console.log(error);
 		});
 		$scope.replyForm.targetStr = "";
 		$scope.replyForm.targets.clear();

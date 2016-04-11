@@ -68,13 +68,13 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		return p;
 	};
 
-	messages.sendMessage = function(email_to, email_from, email_cc, email_body) {
+	messages.sendMessage = function(email_to, email_from, cc, subject, body) {
 		var p = new Promise(function(resolve, reject) {
-			$http.post(phpUrl + '/' + phpCallsDir + '/sendMessage.php', {
-				'email_to': email_to,
-				'email_from': email_from,
-				'email_cc': email_cc,
-				'email_body': email_body
+			$http.post(phpUrl + '/email/sendEmail.php', {
+				'to': email_to,
+				'subject': subject,
+				'text': body,
+				'headers': "From: " + email_from + "\r\n"
 			}).then(resolve, reject);
 		});
 		return p;
