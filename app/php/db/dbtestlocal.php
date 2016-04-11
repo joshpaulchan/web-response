@@ -1,23 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * Author: Jaya Kasa
- * Date: 2/3/2016
- * Time: 3:47 PM
- *
- * This file should be used to connect to the database.
+ * Created by IntelliJ IDEA.
+ * User: kasa2
+ * Date: 3/30/2016
+ * Time: 5:34 PM
  */
 
-/**
- * get the variables from the login.php page
- *
- * $db_hostname
- * $db_database
- * $db_username
- * $db_password
- */
-
-require_once 'ucmlogin.php';
 
 /**
  * Create connection to database
@@ -33,8 +21,8 @@ require_once 'ucmlogin.php';
  *
  * mysqli(String hostname, String username, String password, String DBName, int port(optional), String socket(optional))
  *
-*/
-$db_server = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+ */
+$db_server = new mysqli("localhost", "jkasa", "jkasa", "rutgerswebresponse");
 
 // Check connection
 if ($db_server->connect_error) {
@@ -47,7 +35,7 @@ if ($db_server->connect_error) {
  * closing the connection
  * no resource leak
  * comment out if you want to keep the $db_server connection open for other classes to use.
-*/
+ */
 //$db_server->close();
 
 //echo "Connection Closed";

@@ -1,0 +1,8 @@
+// TODO finish reading about this technique for retrieving and sending emails to Zimbra
+https://wiki.zimbra.com/wiki/MTA --> Did not pan out
+
+//PHP IMAP
+https://github.com/barbushin/php-imap
+
+https://github.com/libersoft/zcs-php
+https://github.com/zimbra-api/zimbra-api

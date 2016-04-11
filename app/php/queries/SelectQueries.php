@@ -7,19 +7,19 @@
  */
 
 //select all queries
-$allDepartments = "select * from department limit 10";
+$allDepartments = "select * from department";
 
-$allUsers = "select * from user limit 10";
+$allUsers = "select * from user";
 
-$allMessages = "select * from message limit 10";
+$allMessages = "SELECT * FROM message ORDER BY created DESC";
 
-$allCategories = "select * from category limit 10";
+$allCategories = "select * from category";
 
-$allEmployees = "select * from employee limit 10";
+$allEmployees = "select * from employee";
 
-$allEmpByDept = "select * from employs limit 10";
+$allEmpByDept = "select * from employs";
 
-$allTemplates = "select * from template limit 10";
+$allTemplates = "select * from template";
 
 //select specific values or a range of values
 

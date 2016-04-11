@@ -174,12 +174,13 @@
 		<div class='header'>
 			<h1 class="title">{{curMessage.subject}}</h1>
 			<span class="meta-info">
-				created on <span class="time">{{curMessage.createdAt | date:'medium'}}</span>
+				created on <span class="time">{{curMessage.createdAt | date:'medium'}}</span> by {{curMessage.name}}
 			</span>
 			<div class="technical-info">
 				<ul>
-					<li>Browser:</li>
-					<li>something:</li>
+					<li>Browser: {{curMessage.browser}}</li>
+					<li>IP Address: {{curMessage.ip_address}}</li>
+					<li>Referrer: {{curMessage.referer}}</li>
 				</ul>
 			</div>
 		</div>
@@ -202,11 +203,11 @@
 				</convo-card>
 				<convo-card ng-if="$last">
 					<div>
-						<card-header-input label="to" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
+						<card-header-input label="to" ng-model="replyForm.targetStr"></card-header-input>
 						<ol class="search-results">
 							<li ng-repeat="s in replyForm.targetSuggestions" ng-click="chooseSuggestion(s)">{{s.username}}</li>
 						</ol>
-						<card-header-input label="CC" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
+						<card-header-input label="CC" ng-model="replyForm.targetStr"></card-header-input>
 					</div>
 					<card-body-input v-resizeable="true" ng-model="replyForm.content"></card-body-input>
 					<card-footer>
