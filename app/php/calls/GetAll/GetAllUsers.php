@@ -19,9 +19,9 @@ $request = json_decode($postdata);
 @$group_num = $request->group_num;
 
 static $paginate = null;
-$query = "select count(*) from user";
 
 if($paginate == null){
+    $query = "select count(*) from user";
     $paginate = new Paginator($db_server, $query, 5, $allUsers);
 }
 
