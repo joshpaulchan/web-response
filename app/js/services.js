@@ -30,12 +30,12 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		if (typeof msg.thread == "undefined") {
 			msg.thread = [];
 		}
-		msg.thread.splice(0, 0, {
-			"sentBy": msg.createdBy,
-			"sentTo": "us",
-			"createdAt": msg.createdAt,
-			"content": msg.descr
-		});
+		// msg.thread.splice(0, 0, {
+		// 	"sentBy": msg.createdBy,
+		// 	"sentTo": "us",
+		// 	"createdAt": msg.createdAt,
+		// 	"content": msg.descr
+		// });
 		return msg;
 	};
 
