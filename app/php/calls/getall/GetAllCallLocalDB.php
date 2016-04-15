@@ -15,8 +15,9 @@
  * @return mixed
  */
 function getAll($paginate, $group_num){
+    require_once "../../util/utf8ize.php";
 
-    return $paginate->loadData($group_num);
+    return json_encode(utf8ize($paginate->loadData($group_num)));
 
 }
 ?>

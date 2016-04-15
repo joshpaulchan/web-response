@@ -6,28 +6,15 @@
  * Time: 1:35 PM
  */
 
-
 /**
  * Method connects to old DB and returns all messages
  *
  * @param $paginate
  * @param $group_num
- * @return mixed
+ * @return data in utf8 format
  */
 
- // TODO: use server?
 require_once '../../db/dbconnect.php';
-
-function utf8ize($d) {
-    if (is_array($d)) {
-        foreach ($d as $k => $v) {
-            $d[$k] = utf8ize($v);
-        }
-    } else if (is_string ($d)) {
-        return utf8_encode($d);
-    }
-    return $d;
-}
 
 function getResponses($m) {
     global $db_server;
@@ -66,6 +53,8 @@ function insertResponses($msg) {
 };
 
 function getAll($paginate, $group_num){
+    require_once "../../util/utf8ize.php";
+    
     // get messages
     $messages = $paginate->loadData($group_num);
 
