@@ -16,6 +16,7 @@
  */
 
  // TODO: use server?
+require_once '../../db/dbconnect.php';
 
 function utf8ize($d) {
     if (is_array($d)) {
@@ -29,17 +30,22 @@ function utf8ize($d) {
 }
 
 function getResponses($m) {
-    // $result = $db_server->query("SELECT * FROM `response` WHERE `message_id` IN (" . $m["message_id"] . ") ORDER BY `created` DESC");
+    global $db_server;
+    $result = $db_server->query("SELECT * FROM `response` WHERE `message_id` IN (" . $m["message_id"] . ") ORDER BY `created` DESC");
     // SELECT * FROM `response` WHERE `message_id` IN (158) ORDER BY `created` DESC
     $resp = array();
 
-    //using assoc here because it would be easier for future modifications
-    // while($row = $result->fetch_assoc()){
-    //     // reformat row
-    //     $resp[] = $row;
-    // }
-    // $result->free();
-    return (array_map("reformatResponses", $resp));
+    // using assoc here because it would be easier for future modifications
+    while($row = $result->fetch_assoc()){
+        // reformat row
+        $row["sentBy"] = $row["user_id"];
+        $row["sentTo"] = $row["to"];
+        $row["createdAt"] = $row["created"];
+        $row["content"] = $row["descr"];
+        $resp[] = $row;
+    }
+    $result->free();
+    return ($resp);
 }
 
 function insertResponses($msg) {
