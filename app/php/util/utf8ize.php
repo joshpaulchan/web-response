@@ -15,7 +15,7 @@
 function utf8ize($data) {
     if (is_array($data)) {
         foreach ($data as $key => $value) {
-            $d[$key] = utf8ize($value);
+            $data[$key] = utf8ize($value);
         }
     } else if (is_string ($data)) {
         return utf8_encode($data);
