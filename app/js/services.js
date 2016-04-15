@@ -27,9 +27,9 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		msg.createdAt = new Date(msg.created);
 
 		// Create thread if it doesn't exist
-		if (typeof msg.thread == "undefined") {
-			msg.thread = [];
-		}
+		// if (typeof msg.thread == "undefined") {
+		// 	msg.thread = [];
+		// }
 		// msg.thread.splice(0, 0, {
 		// 	"sentBy": msg.createdBy,
 		// 	"sentTo": "us",
