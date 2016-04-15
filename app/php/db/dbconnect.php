@@ -48,7 +48,7 @@ if ($db_server->connect_error) {
  * no resource leak
  * comment out if you want to keep the $db_server connection open for other classes to use.
 */
-//$db_server->close();
+// $db_server->close();
 
 //echo "Connection Closed";
 ?>
