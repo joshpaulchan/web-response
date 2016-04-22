@@ -10,11 +10,11 @@
  * Use this file to connect to new dev DB
  *
  */
-//TODO Use This DB to connect to the new DEV DB
-$db_hostname = "localhost";
-$db_username = "ucmwebresponse";
-$db_password = "ur4321";
-$db_database = "ucmwebresponse";
+
+ $db_hostname = "localhost";
+ $db_username = "webresponse";
+ $db_password = "ur4321";
+ $db_database = "webresponse";
 
 // file is being closed to ensure that it can never be displayed as tezt
 // if anyone tries to access the file from a web browser
