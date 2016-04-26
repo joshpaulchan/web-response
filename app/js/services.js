@@ -4,11 +4,7 @@
 var webresponseServices = angular.module('webresponseServices', []);
 
 webresponseServices.factory('messages', ['$http', function($http) {
-	var apiUrl = 'data';
-	var phpUrl = 'php';
-	var phpCallsDir = '/Calls';
-    var phpGetAllDir = '/GetAll';
-	var queryUrl = 'queries';
+	var apiUrl = 'php/messages';
 	var messages = {};
 
 	messages.curMessage = null;
@@ -41,7 +37,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
+			$http.get(apiUrl + '/GetAllMessages.php', {
 		        "params" : {
 					"pageNum": pg
 				}
@@ -57,7 +53,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + '/' + phpCallsDir + '/GetMessage.php', {
+			$http.get(apiUrl + '/GetMessage.php', {
 				"params": {
 					'messageId': id
 				}
