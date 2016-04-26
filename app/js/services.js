@@ -4,11 +4,7 @@
 var webresponseServices = angular.module('webresponseServices', []);
 
 webresponseServices.factory('messages', ['$http', function($http) {
-	var apiUrl = 'data';
-	var phpUrl = 'php';
-	var phpCallsDir = '/Calls';
-    var phpGetAllDir = '/GetAll';
-	var queryUrl = 'queries';
+	var apiUrl = 'php/messages';
 	var messages = {};
 
 	messages.curMessage = null;
@@ -27,23 +23,23 @@ webresponseServices.factory('messages', ['$http', function($http) {
 		msg.createdAt = new Date(msg.created);
 
 		// Create thread if it doesn't exist
-		if (typeof msg.thread == "undefined") {
-			msg.thread = [];
-		}
-		msg.thread.splice(0, 0, {
-			"sentBy": msg.createdBy,
-			"sentTo": "us",
-			"createdAt": msg.createdAt,
-			"content": msg.descr
-		});
+		// if (typeof msg.thread == "undefined") {
+		// 	msg.thread = [];
+		// }
+		// msg.thread.splice(0, 0, {
+		// 	"sentBy": msg.createdBy,
+		// 	"sentTo": "us",
+		// 	"createdAt": msg.createdAt,
+		// 	"content": msg.descr
+		// });
 		return msg;
 	};
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
-				"params": {
-					'page': pg
+			$http.get(apiUrl + '/GetAllMessages.php', {
+		        "params": {
+					'pageId': pg
 				}
 			}).then(function(req) {
 				console.log(req);
@@ -57,7 +53,7 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.getMessage = function(id) {
 		var p = new Promise(function(resolve, reject) {
-			$http.get(phpUrl + '/' + phpCallsDir + '/GetMessage.php', {
+			$http.get(apiUrl + '/GetMessage.php', {
 				"params": {
 					'messageId': id
 				}

@@ -1,8 +1,10 @@
 # TODO
 
 + Server integrations & work
-	+ Searching & queries
-	+ Hook up to backend + APIs
+	+ Searching
+	+ Add a 'makr as read' functionality to the server for message
+	+ Add response retrieving to server fetching
+	+
 
 + UI
 	+ Reduce header (put into sidebar?)

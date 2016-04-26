@@ -206,7 +206,7 @@
 						<ol class="search-results">
 							<li ng-repeat="s in replyForm.targetSuggestions" ng-click="chooseSuggestion(s)">{{s.username}}</li>
 						</ol>
-						<card-header-input label="CC" ng-model="replyForm.targetStr" ng-change="parseTargetInputs()"></card-header-input>
+						<!-- <card-header-input label="CC" ng-model="replyForm.targetStr"></card-header-input> -->
 					</div>
 					<card-body-input v-resizeable="true" ng-model="replyForm.content"></card-body-input>
 					<card-footer>
