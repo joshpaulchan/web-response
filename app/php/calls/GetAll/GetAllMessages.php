@@ -8,13 +8,10 @@
 
 require_once '../../db/dbconnect.php';
 require_once '../../paginate/Paginator.php';
-require_once '../../queries/SelectQueries.php';
 
-$postdata = file_get_contents("php://input");
-$request = json_decode($postdata);
-@$page = $request->group_num;
+$page = $_GET["pageNum"];
 
-static $paginate = null;
+static $pager = null;
 
 function getResponses($m) {
     global $db_server;
@@ -51,11 +48,11 @@ function insertResponses($msg) {
     return ($msg);
 };
 
-function getAll($paginate, $page){
+function getAll($pager, $page){
     require_once "../../util/utf8ize.php";
 
     // get messages
-    $messages = $paginate->load($page);
+    $messages = $pager->load($page);
 
     // add responses
     $messages = array_map("insertResponses", $messages);
@@ -65,13 +62,13 @@ function getAll($paginate, $page){
 }
 
 
-if($paginate == null){
-    $paginate = new Paginator($db_server, "message", 25);
+if($pager == null){
+    $pager = new Paginator($db_server, "message", 25);
 }
 
 
 //returning the results of the query in json format
-echo getAll($paginate, $page); //this will go back under "data" of angular call.
+echo getAll($pager, $page); //this will go back under "data" of angular call.
 
 $db_server->close();
 ?>

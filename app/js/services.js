@@ -41,8 +41,10 @@ webresponseServices.factory('messages', ['$http', function($http) {
 
 	messages.loadMessages = function(pg) {
 		var p = new Promise(function(resolve, reject) {
-			$http.post(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
-		        'group_num' : pg
+			$http.get(phpUrl + phpCallsDir + phpGetAllDir + '/GetAllMessages.php', {
+		        "params" : {
+					"pageNum": pg
+				}
 			}).then(function(req) {
 				console.log(req);
 				resolve(req.data.map(reformatMessage));
