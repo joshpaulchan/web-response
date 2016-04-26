@@ -48,7 +48,7 @@ class Paginator {
         }
 
         //setting the query
-        $this->_query = "SELECT * FROM `" . $this->_table . "`";
+        $this->_query = "SELECT * FROM `" . $this->_table . "` ORDER BY `created` DESC";
     }
 
     /**
